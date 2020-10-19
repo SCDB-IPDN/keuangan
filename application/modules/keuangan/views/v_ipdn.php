@@ -25,7 +25,7 @@
                   Morris.Bar({
                     element: 'graph',
                     data: <?php echo $data;?>,
-                    xkey: 'No',
+                    xkey: 'Alias',
                     ykeys: ['Pagu', 'Realisasi'],
                     labels: ['Pagu', 'Realisasi']
                   });
