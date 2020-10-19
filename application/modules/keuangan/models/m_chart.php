@@ -1,5 +1,5 @@
 <?php
-class Chart_model extends CI_Model{
+class m_chart extends CI_Model{
  
   //get data from database
   function get_data(){

@@ -126,8 +126,8 @@
                         <a href="<?php echo base_url("about"); ?>"><i class="fa fa-info-circle"></i> <span>About Us</span></a>
                     </li>
 
-                    <li class="<?=($this->router->class==="Chart")?"active":"not-active"?>">
-                        <a href="<?php echo base_url("Chart"); ?>"><i class="fa fa-info-circle"></i> <span>keuangan</span></a>
+                    <li class="<?=($this->router->class==="keuangan")?"active":"not-active"?>">
+                        <a href="<?php echo base_url("keuangan"); ?>"><i class="fa fa-info-circle"></i> <span>Keuangan</span></a>
                     </li>
                     
 
