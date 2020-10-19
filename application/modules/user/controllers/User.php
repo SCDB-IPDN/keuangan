@@ -14,7 +14,7 @@ class User extends CI_Controller {
       */
     public function index() {
     	if(is_login()){
-    		redirect( base_url().'user/profile', 'refresh');
+    		redirect( base_url().'keuangan', 'refresh');
     	} 
     }
 
@@ -24,7 +24,7 @@ class User extends CI_Controller {
       */
     public function login(){
     	if(isset($_SESSION['user_details'])){
-    		redirect( base_url().'user/profile', 'refresh');
+    		redirect( base_url().'keuangan', 'refresh');
     	}   
     	$this->load->view('include/script');
         $this->load->view('login'); 
@@ -46,7 +46,7 @@ class User extends CI_Controller {
      */
     public function registration(){
     	if(isset($_SESSION['user_details'])){
-    		redirect( base_url().'user/profile', 'refresh');
+    		redirect( base_url().'keuangan', 'refresh');
     	}
         //Check if admin allow to registration for user
 		if(setting_all('register_allowed')==1){
@@ -80,7 +80,7 @@ class User extends CI_Controller {
 			} else {
 				$this->session->set_userdata('user_details',$return);
 			}
-            redirect( base_url().'user/profile', 'refresh');
+            redirect( base_url().'keuangan', 'refresh');
         }
     }
 
@@ -189,7 +189,7 @@ class User extends CI_Controller {
             $this->load->view('include/footer');            
         } else {
             $this->session->set_flashdata('messagePr', 'You don\'t have permission to access.');
-            redirect( base_url().'user/profile', 'refresh');
+            redirect( base_url().'keuangan', 'refresh');
         }
     }
 

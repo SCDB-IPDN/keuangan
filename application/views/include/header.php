@@ -97,8 +97,11 @@
               <ul class="sidebar-menu">
                 <li class="header"><!-- MAIN NAVIGATION --></li>
                 <?php //echo '<pre>';print_r($this->router); die; ?>
-                <li class="<?=($this->router->method==="profile")?"active":"not-active"?>"> 
+                <!-- <li class="<?=($this->router->method==="profile")?"active":"not-active"?>"> 
                 <a href="<?php echo base_url('user/profile');?>"> <i class="fa fa-user"></i> <span>Dashboard</span></a>
+                </li> -->
+                <li class="<?=($this->router->class==="keuangan")?"active":"not-active"?>">
+                  <a href="<?php echo base_url("keuangan"); ?>"><i class="fa fa-bar-chart"></i> <span>Dashboard</span></a>
                 </li>                
                 <?php $this->load->view("include/menu");?> 
                 
@@ -124,10 +127,6 @@
 
                   <li class="<?=($this->router->class==="about")?"active":"not-active"?>">
                         <a href="<?php echo base_url("about"); ?>"><i class="fa fa-info-circle"></i> <span>About Us</span></a>
-                    </li>
-
-                    <li class="<?=($this->router->class==="keuangan")?"active":"not-active"?>">
-                        <a href="<?php echo base_url("keuangan"); ?>"><i class="fa fa-info-circle"></i> <span>Keuangan</span></a>
                     </li>
                     
 
