@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
   <?php $setting = setting_all();?>
@@ -19,15 +19,14 @@
     <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url('assets/css/ionicons.min.css'); ?>">
   <!-- DataTables -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap.css');?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap.css');?>">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/AdminLTE.min.css');?>">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-    folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/skins/skin-black-light.min.css');?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/skins/skin-black-light.css');?>">
-    <!--  <link rel="stylesheet" href="<?php echo base_url('assets/css/blue.css');?>">-->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.css');?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/AdminLTE.min.css');?>">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/skins/skin-black-light.min.css');?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/skins/skin-black-light.css');?>">
+  <!--  <link rel="stylesheet" href="<?php echo base_url('assets/css/blue.css');?>">-->
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.css');?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/css/buttons.dataTables.min.css'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/daterangepicker.css'); ?>" />
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -35,17 +34,9 @@
 <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url('assets/js/jquery-ui.min.js'); ?>"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
   </head>
     <body class="hold-transition skin-black-light sidebar-mini" data-base-url="<?php echo base_url(); ?>">
         <div class="wrapper">
-
           <header class="main-header">
             <a href="<?php echo base_url(); ?>" class="logo">
              <?php $logo =  (setting_all('logo'))?setting_all('logo'):'logo.png'; ?>
@@ -61,18 +52,12 @@
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Control Sidebar Toggle Button -->
-                        <!-- <li>
-                          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li> -->
-                        <!-- User Account: style can be found in dropdown.less -->          
-
+                    <ul class="nav navbar-nav">         
                         <li class="dropdown user user-menu">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                               <?php 
-                 $profile_pic =  'user.png';
-                 if(isset($this->session->userdata('user_details')[0]->profile_pic) && file_exists('assets/images/'.$this->session->userdata('user_details')[0]->profile_pic))
+                              <?php 
+                              $profile_pic =  'user.png';
+                              if(isset($this->session->userdata('user_details')[0]->profile_pic) && file_exists('assets/images/'.$this->session->userdata('user_details')[0]->profile_pic))
                               {
                                  $profile_pic = $this->session->userdata('user_details')[0]->profile_pic;
                               }?>
@@ -80,7 +65,7 @@
                             <span class="hidden-xs"><?php echo isset($this->session->userdata('user_details')[0]->name)?$this->session->userdata('user_details')[0]->name:'';?></span>
                           </a>
                           <ul class="dropdown-menu" role="menu" style="width: 164px;">
-                              <li><a href="<?php echo base_url('user/profile');?>"><i class="fa fa-user mr10"></i>Dashboard</a></li>
+                              <li><a href="<?php echo base_url('keuangan');?>"><i class="fa fa-user mr10"></i>Dashboard</a></li>
                               <li class="divider"></li>
                               <li><a href="<?php echo base_url('user/logout');?>"><i class="fa fa-power-off mr10"></i> Sign Out</a></li>
                           </ul>

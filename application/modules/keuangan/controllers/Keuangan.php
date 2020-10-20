@@ -5,9 +5,18 @@ class Keuangan extends CI_Controller{
       //load chart_model from model
       $this->load->model('m_chart');
     }
+
+    // function detect_mobile()
+    // {
+    //   if(preg_match('/(alcatel|amoi|android|avantgo|blackberry|benq|cell|cricket|docomo|elaine|htc|iemobile|iphone|ipad|ipaq|ipod|j2me|java|midp|mini|mmp|mobi|motorola|nec-|nokia|palm|panasonic|philips|phone|playbook|sagem|sharp|sie-|silk|smartphone|sony|symbian|t-mobile|telus|up.browser|up.link|vodafone|wap|webos|wireless|xda|xoom|zte)/i', $_SERVER['HTTP_USER_AGENT']))
+    //         return true;
+    //     else
+    //         return false;
+    // }
  
     function index(){
       $data = $this->m_chart->get_data()->result();
+      // $x['mobile'] = detect_mobile();
       $x['data'] = json_encode($data);
 
       // var_dump($x);exit;
@@ -34,7 +43,9 @@ class Keuangan extends CI_Controller{
           foreach($keuangans->result() as $r) {
 			  	$no++;
                	$data[] = array(
-					$no,
+          $no,
+          
+                    "<a href='kuesioner/' class='btn btn-primary mr-1'>DETAIL</a>",
                     $r->Alias,
                     $r->Biro,
                     $r->Pagu,

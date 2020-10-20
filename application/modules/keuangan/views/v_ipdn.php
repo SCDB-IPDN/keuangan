@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"/>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  
 <!-- page content -->
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper settingPage">
@@ -15,38 +14,39 @@
       <!-- Default box -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk OPerasional Kegiatan (POK)</b></h3>
+          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
             <div class="col-lg-12">
-              <!-- <div class="col-md- col-md-offset-1 aboutshift"> -->
-              
-              <div id="graph"></div>
-              <p>* Pagu dan Realisasi dalam Milyar</p>
-
+              <div class="col-md-6 col-md-offset-1 aboutshift">
               <div class="table-responsive">
-                    <table id="example" class="display nowrap" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th class="v-center">No</th>
-                          <th class="v-center">Alias</th>
-                          <th class="v-center">Pagu</th>
-                          <th class="v-center">Realiasasi</th>
-                          <th class="v-center">Pengembalian</th>
-                          <th class="v-center">Sisa Pagu</th>
-                          <th class="v-center">Persentase</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
-                    <div class="modal-footer">
-                    </div>
-                </div>
+                <div id="graph"></div>
+              </div>
+              <p>* Pagu dan Realisasi dalam Milyar</p>
               </div>
             </div>
           </div>
+          <div class="table-responsive">
+                <table id="example" class="display nowrap" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th class="v-center">No</th>
+                      <th class="v-center">Detail</th>
+                      <th class="v-center">Alias</th>
+                      <th class="v-center">Biro</th>
+                      <th class="v-center">Pagu</th>
+                      <th class="v-center">Realiasasi</th>
+                      <th class="v-center">Pengembalian</th>
+                      <th class="v-center">Sisa Pagu</th>
+                      <th class="v-center">Persentase</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+                <div class="modal-footer"></div>
+              </div>
         </div>
       </div>
       <!-- /.box-body -->
@@ -62,15 +62,15 @@
     <script src="<?php echo base_url().'assets/js/raphael-min.js'?>"></script>
     <script src="<?php echo base_url().'assets/js/morris.min.js'?>"></script>
               
-              <script>
-                  Morris.Bar({
-                    element: 'graph',
-                    data: <?php echo $data;?>,
-                    xkey: 'Alias',
-                    ykeys: ['Pagu', 'Realisasi'],
-                    labels: ['Pagu', 'Realisasi', 'Persentase']
-                  });
-              </script>
+    <script>
+      Morris.Bar({
+        element: 'graph',
+        data: <?php echo $data;?>,
+        xkey: 'Alias',
+        ykeys: ['Pagu', 'Realisasi'],
+        labels: ['Pagu', 'Realisasi', 'Persentase']
+      });
+    </script>
 
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
@@ -89,12 +89,8 @@
        
       var table = $('#example').DataTable({
           dom: 'Bfrtip',
-          lengthMenu: [
-            [ 10, 25, 50, -1 ],
-            [ '10 rows', '25 rows', '50 rows', 'Show all' ]
-          ],
           buttons: [
-            'pageLength', 'copy', 'excel', 'pdf', 
+            'copy', 'excel', 'pdf', 
           ],
           responsive: true,
           "order": [],
