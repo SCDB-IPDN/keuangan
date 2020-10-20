@@ -1,40 +1,39 @@
 <?php
-class Keuangan extends CI_Controller{
+defined('BASEPATH') OR exit('No direct script access allowed');
+class Keprajaan extends CI_Controller{
     function __construct(){
       parent::__construct();
       //load chart_model from model
-      $this->load->model('m_chart');
+      $this->load->model('keprajaan_model');
     }
 
     function index(){
-      $data = $this->m_chart->get_data()->result();
+      $data = $this->keprajaan_model->get_data()->result();
       $x['data'] = json_encode($data);
     
       $this->load->view("include/header");
-      $this->load->view("v_ipdn",$x);
+      $this->load->view("view_k",$x);
       $this->load->view("include/footer");
     }
 
-    public function keuangan_page()
+    public function keprajaan_page()
      {
           // Datatables Variables
           $draw = intval($this->input->get("draw"));
           $start = intval($this->input->get("start"));
           $length = intval($this->input->get("length"));
 
-
-		$keuangans = $this->m_chart->get_all_keuangan();
+          $keprajaans = $this->keprajaan_model->get_all_keprajaan();
+          
+          // var_dump($keprajaans);exit;
 
 		$data = array();
 		$no = 0;
 
-          foreach($keuangans->result() as $r) {
+          foreach($keprajaans->result() as $r) {
 			$no++;
                $data[] = array(
                     $no,
-          
-                    "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>",
-                    $r->Alias,
                     $r->Biro,
                     $r->Pagu,
                     $r->Realisasi,
@@ -46,8 +45,8 @@ class Keuangan extends CI_Controller{
           
           $output = array(
                  "draw" => $draw,
-                 "recordsTotal" => $keuangans->num_rows(),
-                 "recordsFiltered" => $keuangans->num_rows(),
+                 "recordsTotal" => $keprajaans->num_rows(),
+                 "recordsFiltered" => $keprajaans->num_rows(),
                  "data" => $data
             );
           echo json_encode($output);
