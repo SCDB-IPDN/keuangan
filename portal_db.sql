@@ -213,8 +213,8 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`id`, `keys`, `value`) VALUES
 (1, 'website', 'Keuangan IPDN'),
-(2, 'logo', 'logo_1603163570.png'),
-(3, 'favicon', 'logo_1603163570.png'),
+(2, 'logo', 'app_keu_1603176220.png'),
+(3, 'favicon', 'app_keu_1603176220.png'),
 (4, 'SMTP_EMAIL', ''),
 (5, 'HOST', ''),
 (6, 'PORT', ''),
