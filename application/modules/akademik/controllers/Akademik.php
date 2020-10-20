@@ -27,20 +27,22 @@ class Akademik extends CI_Controller{
 
           $akademiks = $this->akademik_model->get_all_akademik();
           
-          // var_dump($akademiks);exit;
-
 		$data = array();
 		$no = 0;
 
           foreach($akademiks->result() as $r) {
+			$Pagu = number_format($r->Pagu);
+               $Realisasi = number_format($r->Realisasi);
+               $Pengembalian = number_format($r->Pengembalian);
+               $Sisa_Pagu = number_format($r->Sisa_Pagu);
 			$no++;
                $data[] = array(
                     $no,
                     $r->Biro,
-                    $r->Pagu,
-                    $r->Realisasi,
-                    $r->Pengemblian,
-                    $r->Sisa_Pagu,
+                    $Pagu,
+                    $Realisasi,
+                    $Pengembalian,
+                    $Sisa_Pagu,
                     $r->Persentase
                );
           }

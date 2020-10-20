@@ -10,7 +10,7 @@
     <!-- Profile Image -->
     <div class="box box-success pad-profile">
      	<div class="box-header with-border">
-        <h3 class="box-title">My Account <small></small></h3>
+        <h3 class="box-title">Profil Saya <small></small></h3>
       </div>
       <form method="post" enctype="multipart/form-data" action="<?php echo base_url().'user/add_edit' ?>" class="form-label-left">
         <div class="box-body box-profile">
@@ -31,23 +31,20 @@
             </div>
           </div>
           <div class="col-md-8">
-            <h3>Personal Information:</h3>
-            
+            <h3>Informasi:</h3>
 
 					<div class="form-group has-feedback">
 		              <label for="exampleInputstatus">Status:</label>
 		              <select name="status" id="status" class="form-control">
 		        			<option value="active" <?php echo (isset($user_data[0]->status) && $user_data[0]->status == 'active' ?'selected="selected"':'');?> >Active</option>
-		        			
-		        			<option value="deleted" <?php echo (isset($user_data[0]->status) && $user_data[0]->status == 'deleted' ?'selected="selected"':'');?> >Deleted</option>
-		        			
+		        			<!-- <option value="deleted" <?php echo (isset($user_data[0]->status) && $user_data[0]->status == 'deleted' ?'selected="selected"':'');?> >Deleted</option> -->
 		              </select>
 		            </div>
 
 					
 
 					<div class="form-group has-feedback clear-both">
-		              <label for="exampleInputname">Name:</label>
+		              <label for="exampleInputname">Nama:</label>
 		              <input type="text" id="name" name="name" value="<?php echo (isset($user_data[0]->name)?$user_data[0]->name:'');?>" required="required" class="form-control" placeholder="Name">
 		              <span class="glyphicon glyphicon-user form-control-feedback"></span>
 		            </div>
@@ -62,20 +59,20 @@
 
 					
               <br>
-            <h3>Change Password:</h3>
+            <h3>Ganti Password:</h3>
             <div class="form-group has-feedback">
-              <label for="exampleInputEmail1">Current Password:</label>
+              <label for="exampleInputEmail1">Password Lama:</label>
               <input id="pass11" class="form-control" pattern=".{6,}" type="password" placeholder="********" name="currentpassword" title="6-14 characters">
               <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>                       
             <div class="form-group has-feedback">
-              <label for="exampleInputEmail1">New Password:</label>
-              <input type="password" class="form-control" placeholder="New Password" name="password">
+              <label for="exampleInputEmail1">Password Baru:</label>
+              <input type="password" class="form-control" placeholder="Password Baru" name="password">
               <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
             </div>                       
             <div class="form-group has-feedback">
-              <label for="exampleInputEmail1">Confirm New Password:</label>
-              <input type="password" class="form-control" placeholder="Confirm New Password" name="confirmPassword">
+              <label for="exampleInputEmail1">Konfirmasi Password Baru:</label>
+              <input type="password" class="form-control" placeholder="Konfirmasi Password Baru" name="confirmPassword">
               <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
             </div>  
             <br>

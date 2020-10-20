@@ -29,17 +29,21 @@ class Keuangan extends CI_Controller{
 		$no = 0;
 
           foreach($keuangans->result() as $r) {
-			$no++;
+               $no++;
+               $Pagu = number_format($r->Pagu);
+               $Realisasi = number_format($r->Realisasi);
+               $Pengembalian = number_format($r->Pengembalian);
+               $Sisa_Pagu = number_format($r->Sisa_Pagu);
                $data[] = array(
                     $no,
           
                     "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>",
                     $r->Alias,
                     $r->Biro,
-                    $r->Pagu,
-                    $r->Realisasi,
-                    $r->Pengemblian,
-                    $r->Sisa_Pagu,
+                    $Pagu,
+                    $Realisasi,
+                    $Pengembalian,
+                    $Sisa_Pagu,
                     $r->Persentase
                );
           }

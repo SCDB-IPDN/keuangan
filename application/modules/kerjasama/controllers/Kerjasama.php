@@ -27,20 +27,22 @@ class Kerjasama extends CI_Controller{
 
           $kerjasamas = $this->kerjasama_model->get_all_kerjasama();
           
-          // var_dump($kerjasamas);exit;
-
 		$data = array();
 		$no = 0;
 
           foreach($kerjasamas->result() as $r) {
+			$Pagu = number_format($r->Pagu);
+               $Realisasi = number_format($r->Realisasi);
+               $Pengembalian = number_format($r->Pengembalian);
+               $Sisa_Pagu = number_format($r->Sisa_Pagu);
 			$no++;
                $data[] = array(
                     $no,
                     $r->Biro,
-                    $r->Pagu,
-                    $r->Realisasi,
-                    $r->Pengemblian,
-                    $r->Sisa_Pagu,
+                    $Pagu,
+                    $Realisasi,
+                    $Pengembalian,
+                    $Sisa_Pagu,
                     $r->Persentase
                );
           }

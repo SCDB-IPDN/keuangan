@@ -24,21 +24,23 @@ class Keprajaan extends CI_Controller{
           $length = intval($this->input->get("length"));
 
           $keprajaans = $this->keprajaan_model->get_all_keprajaan();
-          
-          // var_dump($keprajaans);exit;
 
 		$data = array();
 		$no = 0;
 
           foreach($keprajaans->result() as $r) {
+               $Pagu = number_format($r->Pagu);
+               $Realisasi = number_format($r->Realisasi);
+               $Pengembalian = number_format($r->Pengembalian);
+               $Sisa_Pagu = number_format($r->Sisa_Pagu);
 			$no++;
                $data[] = array(
                     $no,
                     $r->Biro,
-                    $r->Pagu,
-                    $r->Realisasi,
-                    $r->Pengemblian,
-                    $r->Sisa_Pagu,
+                    $Pagu,
+                    $Realisasi,
+                    $Pengembalian,
+                    $Sisa_Pagu,
                     $r->Persentase
                );
           }

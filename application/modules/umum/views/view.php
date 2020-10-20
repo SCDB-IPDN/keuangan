@@ -20,13 +20,13 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="col-md-12 col-md-offset-1 aboutshift">
-              <div class="table-responsive">
-                <div id="graph"></div>
-              </div>
-              <p>* Pagu dan Realisasi dalam Milyar</p>
+                <div class="table-responsive">
+                  <div id="graph"></div>
+                </div>
               </div>
             </div>
           </div>
+          <br>
           <div class="table-responsive">
                 <table id="example" class="display nowrap" style="width:100%">
                   <thead>
