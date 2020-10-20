@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 05:59 AM
+-- Generation Time: Oct 20, 2020 at 08:06 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `keuanganbiro1` (
   `No` int(11) NOT NULL,
   `Biro` varchar(51) NOT NULL,
-  `Pagu` varchar(13) NOT NULL,
-  `Realisasi` varchar(13) NOT NULL,
-  `Pengembalian` bit(1) NOT NULL,
-  `Sisa_Pagu` varchar(13) NOT NULL,
-  `Persentase` varchar(3) NOT NULL
+  `Pagu` int(11) NOT NULL,
+  `Realisasi` int(11) NOT NULL,
+  `Pengembalian` varchar(34) NOT NULL,
+  `Sisa_Pagu` int(11) NOT NULL,
+  `Persentase` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -42,22 +42,22 @@ CREATE TABLE `keuanganbiro1` (
 --
 
 INSERT INTO `keuanganbiro1` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-(1, 'TU BIRO I', '786.694.000', '642.697.921', b'0', '143.996.079', '82%'),
-(2, 'BAGIAN AKADEMIK', '3.072.071.000', '1.639.009.607', b'0', '1.433.061.393', '53%'),
-(3, 'BAGIAN PERENCANAAN', '1.979.416.000', '1.087.761.800', b'0', '891.654.200', '55%'),
-(4, 'FAKULTAS POLITIK PEMERINTAHAN', '3.430.663.000', '2.309.295.948', b'0', '1.121.367.052', '67%'),
-(5, 'FAKULTAS MANAJEMEN PEMERINTAHAN', '3.519.683.000', '1.684.035.563', b'0', '1.835.647.437', '48%'),
-(6, 'FAKULTAS HUKUM DAN PEMERINTAHAN', '1.394.136.000', '803.115.067', b'0', '591.020.933', '58%'),
-(7, 'SENAT INSTITUT', '564.254.000', '277.534.000', b'0', '286.720.000', '49%'),
-(8, 'LEMBAGA RISET DAN PENGKAJIAN STRATEGI PEMERINTAHAN', '1.281.999.000', '554.345.939', b'0', '727.653.061', '43%'),
-(9, 'LEMBAGA PENGABDIAN MASYARAKAT', '715.185.000', '379.592.709', b'0', '335.592.291', '53%'),
-(10, 'LEMBAGA PENGAWASAN DAN PENJAMINAN MUTU INTERNAL', '1.987.712.000', '1.426.375.790', b'0', '561.336.210', '72%'),
-(11, 'TEKNOLOGI PENDIDIKAN', '625.130.000', '253.937.900', b'0', '371.192.100', '41%'),
-(12, 'UNIT PERPUSTAKAAN', '689.411.000', '492.510.000', b'0', '196.901.000', '71%'),
-(13, 'LABORATORIUM BAHASA', '269.453.000', '216.646.850', b'0', '52.806.150', '80%'),
-(14, 'LABORATORIUM MUSEUM', '156.388.000', '93.740.217', b'0', '62.647.783', '60%'),
-(15, 'PROGRAM PASCASARJANA', '9.550.983.000', '4.507.319.043', b'0', '5.043.663.957', '47%'),
-(16, 'PROGRAM PROFESI KEPAMONGPRAJAAN', '1.136.075.000', '41.237.697', b'0', '1.094.837.303', '4%');
+(1, 'TU BIRO I', 786694000, 673415421, '-', 113278579, '85,60%'),
+(2, 'BAGIAN AKADEMIK', 2147483647, 1800089707, '-', 1271981293, '58,60%'),
+(3, 'BAGIAN PERENCANAAN', 1979416000, 1281185850, '-', 698230150, '64,73%'),
+(4, 'FAKULTAS POLITIK PEMERINTAHAN', 2147483647, 2147483647, '-', 887390302, '74,13%'),
+(5, 'FAKULTAS MANAJEMEN PEMERINTAHAN', 2147483647, 1837273792, '-', 1682409208, '52,20%'),
+(6, 'FAKULTAS HUKUM DAN PEMERINTAHAN', 1394136000, 860886967, '-', 533249033, '61,75%'),
+(7, 'SENAT INSTITUT', 564254000, 311603900, '-', 252650100, '55,22%'),
+(8, 'LEMBAGA RISET DAN PENGKAJIAN STRATEGI PEMERINTAHAN', 1987712000, 1472045790, '-', 515666210, '74,06%'),
+(9, 'LEMBAGA PENGABDIAN MASYARAKAT', 715185000, 395297209, '-', 319887791, '55,27%'),
+(10, 'LEMBAGA PENGAWASAN DAN PENJAMINAN MUTU INTERNAL', 1281999000, 583884569, '-', 698114431, '45,54%'),
+(11, 'TEKNOLOGI PENDIDIKAN', 625130000, 266987200, '-', 358142800, '42,71%'),
+(12, 'UNIT PERPUSTAKAAN', 689411000, 563890000, '-', 125521000, '81,79%'),
+(13, 'LABORATORIUM BAHASA', 269453000, 248705850, '-', 20747150, '92,30%'),
+(14, 'LABORATORIUM MUSEUM', 156388000, 106799217, '-', 49588783, '68,29%'),
+(15, 'PROGRAM PASCASARJANA', 2147483647, 2147483647, '-', 2147483647, '52,94%'),
+(16, 'PROGRAM PROFESI KEPAMONGPRAJAAN', 1136075000, 269225797, '-', 866849203, '23,70%');
 
 -- --------------------------------------------------------
 
@@ -67,12 +67,12 @@ INSERT INTO `keuanganbiro1` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 
 CREATE TABLE `keuanganbiro2` (
   `No` int(11) NOT NULL,
-  `Biro` varchar(39) NOT NULL,
-  `Pagu` varchar(15) NOT NULL,
-  `Realisasi` varchar(15) NOT NULL,
-  `Pengembalian` varchar(10) NOT NULL,
-  `Sisa_Pagu` varchar(14) NOT NULL,
-  `Persentase` varchar(3) NOT NULL
+  `Biro` varchar(39) DEFAULT NULL,
+  `Pagu` int(11) DEFAULT NULL,
+  `Realisasi` int(11) DEFAULT NULL,
+  `Pengembalian` varchar(39) DEFAULT NULL,
+  `Sisa_Pagu` int(11) DEFAULT NULL,
+  `Persentase` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -80,12 +80,12 @@ CREATE TABLE `keuanganbiro2` (
 --
 
 INSERT INTO `keuanganbiro2` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-(1, 'TU BIRO II', '375.000.000', '337.302.591', '0', '37.697.409', '90%'),
-(2, 'BAGIAN UMUM', '55.056.073.000', '25.060.473.642', '27.982.000', '30.023.581.358', '46%'),
-(3, 'BAGIAN KEUANGAN', '157.908.371.000', '106.976.275.523', '8.344.000', '50.940.439.477', '68%'),
-(4, 'BAGIAN PERLENGKAPAN DAN PENGELOLAAN BMN', '56.006.347.000', '26.637.117.749', '0', '29.369.229.251', '48%'),
-(5, 'BAGIAN ADM. PIMPINAN DAN PROTOKOL', '2.816.559.000', '2.289.116.933', '0', '527.442.067', '81%'),
-(6, 'UNIT POLIKLINIK', '2.092.365.000', '1.065.617.009', '0', '1.026.747.991', '51%');
+(1, 'TU BIRO II', 375000000, 365756908, '-', 9243092, '97,54%'),
+(2, 'BAGIAN UMUM', 2147483647, 2147483647, '27982000', 2147483647, '70,78%'),
+(3, 'BAGIAN KEUANGAN', 2147483647, 2147483647, '8344000', 2147483647, '73,38%'),
+(4, 'BAGIAN PERLENGKAPAN DAN PENGELOLAAN BMN', 2147483647, 2147483647, '-', 2147483647, '56,39%'),
+(5, 'BAGIAN ADM. PIMPINAN DAN PROTOKOL', 2147483647, 2147483647, '-', 281330458, '90,01%'),
+(6, 'UNIT POLIKLINIK', 2092365000, 1189326529, '-', 903038471, '56,84%');
 
 -- --------------------------------------------------------
 
@@ -95,12 +95,12 @@ INSERT INTO `keuanganbiro2` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 
 CREATE TABLE `keuanganbiro3` (
   `No` int(11) NOT NULL,
-  `Biro` varchar(34) NOT NULL,
-  `Pagu` varchar(14) NOT NULL,
-  `Realisasi` varchar(13) NOT NULL,
-  `Pengembalian` varchar(54) NOT NULL,
-  `Sisa_Pagu` varchar(13) NOT NULL,
-  `Persentase` varchar(6) NOT NULL
+  `Biro` varchar(39) DEFAULT NULL,
+  `Pagu` int(11) DEFAULT NULL,
+  `Realisasi` int(11) DEFAULT NULL,
+  `Pengembalian` varchar(39) DEFAULT NULL,
+  `Sisa_Pagu` int(11) DEFAULT NULL,
+  `Persentase` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -108,13 +108,13 @@ CREATE TABLE `keuanganbiro3` (
 --
 
 INSERT INTO `keuanganbiro3` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-(1, 'TU BIRO III', '425.000.000', '274.689.300', '-', '150.310.700', '64,63%'),
-(2, 'BAGIAN KEPRAJAAN', '13.741.219.000', '5.768.190.300', '-', '7.973.028.700', '41,98%'),
-(3, 'BAGIAN PENGASUHAN PRAJA', '857.809.000', '542.794.135', '-', '315.014.865', '63,28%'),
-(4, 'BAGIAN DISIPLIN PRAJA', '81.438.000', '22.475.000', '-', '58.963.000', '27,60%'),
-(5, 'BAGIAN EKSTRAKURIKULER PRAJA', '1.202.097.000', '767.299.139', '1.850.000', '436.647.861', '63,83%'),
-(6, 'KOMISI DISIPLIN PRAJA', '130.397.000', '46.127.200', '-', '84.269.800', '35,37%'),
-(7, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88.757.000', '24.788.200', '-', '63.968.800', '28%');
+(1, 'TU BIRO III', 425000000, 304485218, '-', 120514782, '71,64%'),
+(2, 'BAGIAN KEPRAJAAN', 2147483647, 2147483647, '-', 2147483647, '82,70%'),
+(3, 'BAGIAN PENGASUHAN PRAJA', 907809000, 649089335, '-', 258719665, '71,50%'),
+(4, 'BAGIAN DISIPLIN PRAJA', 844756000, 26019000, '-', 818737000, '3,08%'),
+(5, 'BAGIAN EKSTRAKURIKULER PRAJA', 1202097000, 1008289139, '1850000', 195657861, '83,88%'),
+(6, 'KOMISI DISIPLIN PRAJA', 130397000, 46127200, '-', 84269800, '35,37%'),
+(7, 'UNIT BIMBINGAN DAN KONSELING PRAJA', 88757000, 50694700, '-', 38062300, '57,12%');
 
 -- --------------------------------------------------------
 
@@ -124,11 +124,11 @@ INSERT INTO `keuanganbiro3` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 
 CREATE TABLE `keuanganbiro4` (
   `No` int(11) NOT NULL,
-  `Biro` varchar(41) DEFAULT NULL,
-  `Pagu` varchar(13) DEFAULT NULL,
-  `Realisasi` varchar(11) DEFAULT NULL,
-  `Pengembalian` varchar(33) DEFAULT NULL,
-  `Sisa_Pagu` varchar(11) DEFAULT NULL,
+  `Biro` varchar(39) DEFAULT NULL,
+  `Pagu` int(11) DEFAULT NULL,
+  `Realisasi` int(11) DEFAULT NULL,
+  `Pengembalian` varchar(39) DEFAULT NULL,
+  `Sisa_Pagu` int(11) DEFAULT NULL,
   `Persentase` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -137,10 +137,10 @@ CREATE TABLE `keuanganbiro4` (
 --
 
 INSERT INTO `keuanganbiro4` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-(1, 'TU BIRO IV', '421.280.000', '351.419.087', '-', '69.860.913', '83,42%'),
-(2, 'BAGIAN KERJA SAMA DAN HUMAS', '1.361.026.000', '856.504.794', '-', '504.521.206', '62,93%'),
-(3, 'BAGIAN HUKUM, ORGANISASI DAN TATA LAKSANA', '768.714.000', '600.189.052', '2.440.000', '170.964.948', '78,08%'),
-(4, 'BAGIAN KEPEGAWAIAN', '390.337.000', '320.937.877', '-', '69.399.123', '82,22%');
+(1, 'TU BIRO IV', 421280000, 362119087, '-', 59160913, '85,96%'),
+(2, 'BAGIAN KERJA SAMA DAN HUMAS', 1361026000, 858534794, '-', 502491206, '63,08%'),
+(3, 'BAGIAN HUKUM, ORGANISASI DAN TATA LAKSA', 768714000, 643391052, '2440000', 127762948, '83,70%'),
+(4, 'BAGIAN KEPEGAWAIAN', 390337000, 340576608, '-', 49760392, '87,25%');
 
 -- --------------------------------------------------------
 
@@ -149,15 +149,15 @@ INSERT INTO `keuanganbiro4` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 --
 
 CREATE TABLE `keuanganipdn` (
-  `No` varchar(3) NOT NULL,
-  `Biro` varchar(42) NOT NULL,
-  `Alias` varchar(100) NOT NULL,
-  `Pagu` varchar(15) NOT NULL,
-  `Realisasi` varchar(15) NOT NULL,
-  `Pengembalian` varchar(10) NOT NULL,
-  `Sisa_Pagu` varchar(15) NOT NULL,
-  `Persentase` varchar(3) NOT NULL,
-  `link` varchar(500) NOT NULL
+  `No` varchar(20) NOT NULL,
+  `Biro` varchar(50) NOT NULL,
+  `Alias` varchar(50) NOT NULL,
+  `Pagu` varchar(50) NOT NULL,
+  `Realisasi` varchar(50) NOT NULL,
+  `Pengembalian` varchar(50) NOT NULL,
+  `Sisa_Pagu` varchar(50) NOT NULL,
+  `Persentase` varchar(50) NOT NULL,
+  `link` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -165,10 +165,11 @@ CREATE TABLE `keuanganipdn` (
 --
 
 INSERT INTO `keuanganipdn` (`No`, `Biro`, `Alias`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
-('I', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'Biro I', '31.159.253.000', '16.409.156.051', '0', '14.750.096.949', '53%', 'akademik'),
-('II', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'Biro II', '274.254.715.000', '162.365.903.447', '36.326.000', '111.925.137.553', '59%', 'umum'),
-('III', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'Biro III', '16.526.717.000', '7.446.363.274', '1.850.000', '9.082.203.726', '45%', 'keprajaan'),
-('IV', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'Biro IV', '2.941.357.000', '2.129.050.810', '2.440.000', '814.746.190', '72%', 'kerjasama');
+('I', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'BIRO I', '31159253000', '18271261363', '-', '12887991637', '58,64%', 'akademik'),
+('II', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'BIRO II', '274254715000', '190505805361', '36326000', '83785235639', '69,46%', 'umum'),
+('III', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'BIRO III', '16576717000', '12817936016', '1850000', '3760630984', '77,32%', 'keprajaan'),
+('IV', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'BIRO IV', '2941357000', '2204621541', '2440000', '739175459', '74,95%', 'kerjasama'),
+('V', 'JUMLAH', 'jumlah', '324932042000', '223799624281', '40616000', '101173033719', '68,88%', 'jumlah');
 
 -- --------------------------------------------------------
 
