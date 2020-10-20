@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 08:06 AM
+-- Generation Time: Oct 20, 2020 at 08:35 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,24 +42,6 @@ CREATE TABLE `keuanganbiro1` (
 --
 
 INSERT INTO `keuanganbiro1` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-<<<<<<< HEAD
-(1, 'TU BIRO I', '786694000', '642697921', b'0', '143996079', '82%'),
-(2, 'BAGIAN AKADEMIK', '3072071000', '1639009607', b'0', '1433061393', '53%'),
-(3, 'BAGIAN PERENCANAAN', '1979416000', '1087761800', b'0', '891654200', '55%'),
-(4, 'FAKULTAS POLITIK PEMERINTAHAN', '3430663000', '2309295948', b'0', '1121367052', '67%'),
-(5, 'FAKULTAS MANAJEMEN PEMERINTAHAN', '3519683000', '1684035563', b'0', '1835647437', '48%'),
-(6, 'FAKULTAS HUKUM DAN PEMERINTAHAN', '1394136000', '803115067', b'0', '591020933', '58%'),
-(7, 'SENAT INSTITUT', '564254000', '277534000', b'0', '286720000', '49%'),
-(8, 'LEMBAGA RISET DAN PENGKAJIAN STRATEGI PEMERINTAHAN', '1281999000', '554345939', b'0', '727653061', '43%'),
-(9, 'LEMBAGA PENGABDIAN MASYARAKAT', '715185000', '379592709', b'0', '335592291', '53%'),
-(10, 'LEMBAGA PENGAWASAN DAN PENJAMINAN MUTU INTERNAL', '1987712000', '1426375790', b'0', '561336210', '72%'),
-(11, 'TEKNOLOGI PENDIDIKAN', '625130000', '253937900', b'0', '371192100', '41%'),
-(12, 'UNIT PERPUSTAKAAN', '689411000', '492510000', b'0', '196901000', '71%'),
-(13, 'LABORATORIUM BAHASA', '269453000', '216646850', b'0', '52806150', '80%'),
-(14, 'LABORATORIUM MUSEUM', '156388000', '93740217', b'0', '62647783', '60%'),
-(15, 'PROGRAM PASCASARJANA', '9550983000', '4507319043', b'0', '5043663957', '47%'),
-(16, 'PROGRAM PROFESI KEPAMONGPRAJAAN', '1136075000', '41237697', b'0', '1094837303', '4%');
-=======
 (1, 'TU BIRO I', 786694000, 673415421, '-', 113278579, '85,60%'),
 (2, 'BAGIAN AKADEMIK', 2147483647, 1800089707, '-', 1271981293, '58,60%'),
 (3, 'BAGIAN PERENCANAAN', 1979416000, 1281185850, '-', 698230150, '64,73%'),
@@ -76,7 +58,6 @@ INSERT INTO `keuanganbiro1` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 (14, 'LABORATORIUM MUSEUM', 156388000, 106799217, '-', 49588783, '68,29%'),
 (15, 'PROGRAM PASCASARJANA', 2147483647, 2147483647, '-', 2147483647, '52,94%'),
 (16, 'PROGRAM PROFESI KEPAMONGPRAJAAN', 1136075000, 269225797, '-', 866849203, '23,70%');
->>>>>>> 13932c56d8038c82ec1d2d72b2311503c6fc7ae9
 
 -- --------------------------------------------------------
 
@@ -99,21 +80,12 @@ CREATE TABLE `keuanganbiro2` (
 --
 
 INSERT INTO `keuanganbiro2` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-<<<<<<< HEAD
-(1, 'TU BIRO II', '375000000', '337302591', '0', '37697409', '90%'),
-(2, 'BAGIAN UMUM', '55056073000', '25060473642', '27982000', '30023581358', '46%'),
-(3, 'BAGIAN KEUANGAN', '157908371000', '106976275523', '8344000', '50940439477', '68%'),
-(4, 'BAGIAN PERLENGKAPAN DAN PENGELOLAAN BMN', '56006347000', '26637117749', '0', '29369229251', '48%'),
-(5, 'BAGIAN ADM PIMPINAN DAN PROTOKOL', '2816559000', '2289116933', '0', '527442067', '81%'),
-(6, 'UNIT POLIKLINIK', '2092365000', '1065617009', '0', '1026747991', '51%');
-=======
 (1, 'TU BIRO II', 375000000, 365756908, '-', 9243092, '97,54%'),
 (2, 'BAGIAN UMUM', 2147483647, 2147483647, '27982000', 2147483647, '70,78%'),
 (3, 'BAGIAN KEUANGAN', 2147483647, 2147483647, '8344000', 2147483647, '73,38%'),
 (4, 'BAGIAN PERLENGKAPAN DAN PENGELOLAAN BMN', 2147483647, 2147483647, '-', 2147483647, '56,39%'),
 (5, 'BAGIAN ADM. PIMPINAN DAN PROTOKOL', 2147483647, 2147483647, '-', 281330458, '90,01%'),
 (6, 'UNIT POLIKLINIK', 2092365000, 1189326529, '-', 903038471, '56,84%');
->>>>>>> 13932c56d8038c82ec1d2d72b2311503c6fc7ae9
 
 -- --------------------------------------------------------
 
@@ -136,15 +108,6 @@ CREATE TABLE `keuanganbiro3` (
 --
 
 INSERT INTO `keuanganbiro3` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-<<<<<<< HEAD
-(1, 'TU BIRO III', '425000000', '274689300', '-', '150310700', '64,63%'),
-(2, 'BAGIAN KEPRAJAAN', '13741219000', '5768190300', '-', '7973028700', '41,98%'),
-(3, 'BAGIAN PENGASUHAN PRAJA', '857809000', '542794135', '-', '315014865', '63,28%'),
-(4, 'BAGIAN DISIPLIN PRAJA', '81438000', '22475000', '-', '58963000', '27,60%'),
-(5, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '767299139', '1850000', '436647861', '63,83%'),
-(6, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
-(7, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '24788200', '-', '63968800', '28%');
-=======
 (1, 'TU BIRO III', 425000000, 304485218, '-', 120514782, '71,64%'),
 (2, 'BAGIAN KEPRAJAAN', 2147483647, 2147483647, '-', 2147483647, '82,70%'),
 (3, 'BAGIAN PENGASUHAN PRAJA', 907809000, 649089335, '-', 258719665, '71,50%'),
@@ -152,7 +115,6 @@ INSERT INTO `keuanganbiro3` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 (5, 'BAGIAN EKSTRAKURIKULER PRAJA', 1202097000, 1008289139, '1850000', 195657861, '83,88%'),
 (6, 'KOMISI DISIPLIN PRAJA', 130397000, 46127200, '-', 84269800, '35,37%'),
 (7, 'UNIT BIMBINGAN DAN KONSELING PRAJA', 88757000, 50694700, '-', 38062300, '57,12%');
->>>>>>> 13932c56d8038c82ec1d2d72b2311503c6fc7ae9
 
 -- --------------------------------------------------------
 
@@ -175,17 +137,10 @@ CREATE TABLE `keuanganbiro4` (
 --
 
 INSERT INTO `keuanganbiro4` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-<<<<<<< HEAD
-(1, 'TU BIRO IV', '421280000', '351419087', '-', '69860913', '83,42%'),
-(2, 'BAGIAN KERJA SAMA DAN HUMAS', '1361026000', '856504794', '-', '504521206', '62,93%'),
-(3, 'BAGIAN HUKUM, ORGANISASI DAN TATA LAKSANA', '768714000', '600189052', '2440000', '170964948', '78,08%'),
-(4, 'BAGIAN KEPEGAWAIAN', '390337000', '320937877', '-', '69399123', '82,22%');
-=======
 (1, 'TU BIRO IV', 421280000, 362119087, '-', 59160913, '85,96%'),
 (2, 'BAGIAN KERJA SAMA DAN HUMAS', 1361026000, 858534794, '-', 502491206, '63,08%'),
 (3, 'BAGIAN HUKUM, ORGANISASI DAN TATA LAKSA', 768714000, 643391052, '2440000', 127762948, '83,70%'),
 (4, 'BAGIAN KEPEGAWAIAN', 390337000, 340576608, '-', 49760392, '87,25%');
->>>>>>> 13932c56d8038c82ec1d2d72b2311503c6fc7ae9
 
 -- --------------------------------------------------------
 
@@ -210,18 +165,11 @@ CREATE TABLE `keuanganipdn` (
 --
 
 INSERT INTO `keuanganipdn` (`No`, `Biro`, `Alias`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
-<<<<<<< HEAD
-('I', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'Biro I', '31159253000', '16409156051', '0', '14750096949', '53%', 'akademik'),
-('II', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'Biro II', '274254715000', '162365903447', '36326000', '111925137553', '59%', 'umum'),
-('III', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'Biro III', '16526717000', '7446363274', '1850000', '9082203726', '45%', 'keprajaan'),
-('IV', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'Biro IV', '2941357000', '2129050810', '2440000', '814746190', '72%', 'kerjasama');
-=======
 ('I', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'BIRO I', '31159253000', '18271261363', '-', '12887991637', '58,64%', 'akademik'),
 ('II', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'BIRO II', '274254715000', '190505805361', '36326000', '83785235639', '69,46%', 'umum'),
 ('III', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'BIRO III', '16576717000', '12817936016', '1850000', '3760630984', '77,32%', 'keprajaan'),
 ('IV', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'BIRO IV', '2941357000', '2204621541', '2440000', '739175459', '74,95%', 'kerjasama'),
-('V', 'JUMLAH', 'jumlah', '324932042000', '223799624281', '40616000', '101173033719', '68,88%', 'jumlah');
->>>>>>> 13932c56d8038c82ec1d2d72b2311503c6fc7ae9
+('V', '', 'JUMLAH', '324932042000', '223799624281', '40616000', '101173033719', '68,88%', 'jumlah');
 
 -- --------------------------------------------------------
 
@@ -329,8 +277,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`users_id`, `user_id`, `var_key`, `status`, `is_deleted`, `name`, `password`, `email`, `profile_pic`, `user_type`) VALUES
 (1, '1', '', 'active', '0', 'admin', '$2y$10$v/DgXuYWt0rMUVdOI7.iDuxoFc6qGrbppFGPdXjOdaUWdzH3QO5iq', 'maulyanda9424@gmail.com', 'unnamed_1602577896.png', 'admin'),
-(3, '1', NULL, 'active', '0', 'Rektor', '$2y$10$uua/h3c/X3QrXTKR8WdR6.g5OAyw7yzL2ghxiVgPTl8b9Od45SMXO', 'rektor@ipdn.ac.id', 'user.png', 'admin'),
-(4, '1', NULL, 'active', '0', 'Restiyana Astuti', '$2y$10$5zOiN6Y2UwJvi0zgNNMd/O1fscqvG0V7F3Qtn6q6vRHv9Kcb3iWzW', 'resti@gmail.com', 'user.png', 'biro I');
+(4, '1', NULL, 'active', '0', 'Restiyana Astuti', '$2y$10$5zOiN6Y2UwJvi0zgNNMd/O1fscqvG0V7F3Qtn6q6vRHv9Kcb3iWzW', 'resti@gmail.com', 'user.png', 'biro I'),
+(5, '1', NULL, 'active', '0', 'Hadi Prabowo', '$2y$10$RGlmquFDOva2eAmBepiZDe6Hh0JrS45BVIrvD5.7rZeZQJ9O00Qna', 'hadiprabowo@ipdn.ac.id', 'user.png', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -416,7 +364,7 @@ ALTER TABLE `templates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
