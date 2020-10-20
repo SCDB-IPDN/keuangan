@@ -92,7 +92,7 @@
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
             ],
-            "ajax": url+"keuangan/keuangan_page",
+            "ajax": url+"dashboard/dashboard_page",
             "sPaginationType": "full_numbers",
             "language": {
               "search": "_INPUT_", 
