@@ -65,7 +65,7 @@
                             <span class="hidden-xs"><?php echo isset($this->session->userdata('user_details')[0]->name)?$this->session->userdata('user_details')[0]->name:'';?></span>
                           </a>
                           <ul class="dropdown-menu" role="menu" style="width: 164px;">
-                              <li><a href="<?php echo base_url('keuangan');?>"><i class="fa fa-user mr10"></i>Dashboard</a></li>
+                              <li><a href="<?php echo base_url('user/profile');?>"><i class="fa fa-user mr10"></i>Profil</a></li>
                               <li class="divider"></li>
                               <li><a href="<?php echo base_url('user/logout');?>"><i class="fa fa-power-off mr10"></i> Sign Out</a></li>
                           </ul>
@@ -82,12 +82,12 @@
               <ul class="sidebar-menu">
                 <li class="header"><!-- MAIN NAVIGATION --></li>
                 <?php //echo '<pre>';print_r($this->router); die; ?>
-                <!-- <li class="<?=($this->router->method==="profile")?"active":"not-active"?>"> 
-                <a href="<?php echo base_url('user/profile');?>"> <i class="fa fa-user"></i> <span>Dashboard</span></a>
-                </li> -->
                 <li class="<?=($this->router->class==="keuangan")?"active":"not-active"?>">
                   <a href="<?php echo base_url("keuangan"); ?>"><i class="fa fa-bar-chart"></i> <span>Dashboard</span></a>
-                </li>                
+                </li>
+                <li class="<?=($this->router->method==="profile")?"active":"not-active"?>"> 
+                <a href="<?php echo base_url('user/profile');?>"> <i class="fa fa-user"></i> <span>Profile</span></a>
+                </li>           
                 <?php $this->load->view("include/menu");?> 
                 
                
@@ -113,9 +113,6 @@
                   <li class="<?=($this->router->class==="about")?"active":"not-active"?>">
                         <a href="<?php echo base_url("about"); ?>"><i class="fa fa-info-circle"></i> <span>About Us</span></a>
                     </li>
-                    
-
-
               </ul>
             </section>
             <!-- /.sidebar -->

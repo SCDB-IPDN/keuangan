@@ -45,23 +45,24 @@ class User extends CI_Controller {
      * @return Void
      */
     public function registration(){
-    	if(isset($_SESSION['user_details'])){
-    		redirect( base_url().'keuangan', 'refresh');
-    	}
-        //Check if admin allow to registration for user
-		if(setting_all('register_allowed')==1){
-			if($this->input->post()) {
-				$this->add_edit();
-				$this->session->set_flashdata('messagePr', 'Successfully Registered..');
-			} else {
-				$this->load->view('include/script');
-				$this->load->view('register');
-			}
-		}
-		else {
-			$this->session->set_flashdata('messagePr', 'Registration Not allowed..');
-			redirect( base_url().'user/login', 'refresh');
-		}
+    	// if(isset($_SESSION['user_details'])){
+    	// 	redirect( base_url().'keuangan', 'refresh');
+    	// }
+        // //Check if admin allow to registration for user
+		// if(setting_all('register_allowed')==1){
+		// 	if($this->input->post()) {
+		// 		$this->add_edit();
+		// 		$this->session->set_flashdata('messagePr', 'Successfully Registered..');
+		// 	} else {
+		// 		$this->load->view('include/script');
+		// 		$this->load->view('register');
+		// 	}
+		// }
+		// else {
+		// 	$this->session->set_flashdata('messagePr', 'Registration Not allowed..');
+		// 	redirect( base_url().'user/login', 'refresh');
+        // }
+        redirect( base_url().'user/login', 'refresh');
     }
     
     /**

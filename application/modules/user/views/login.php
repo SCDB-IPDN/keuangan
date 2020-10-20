@@ -28,10 +28,10 @@
 				</div>
 		    </form>
 		    <!-- /.social-auth-links -->
-		    <?php if(setting_all('register_allowed')==1){ ?>
+		    <!-- <?php if(setting_all('register_allowed')==1){ ?>
 		    	<br>
 				<span class="glyphicon glyphicon-user bg-icon-paste"></span><a href="<?php echo base_url().'user/registration';?>" class="text-center"> Register a new membership</a>
-			<?php } ?>
+			<?php } ?> -->
 		</div>
 		<!-- /.login-box-body -->
 	</div>

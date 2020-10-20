@@ -14,7 +14,7 @@
       <?php if($this->session->userdata ('user_details')[0]->user_type == "admin" || $this->session->userdata ('user_details')[0]->user_type == "biro II"){?>
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
+          <h3 class="box-title"><b>BIRO II : Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
@@ -48,7 +48,7 @@
         </div>
       </div>
       <?php }else{ ?>
-        <p>* Anda tidak memiliki akses untuk melihat keuangan Biro 1</p>
+        <p>* Anda tidak memiliki akses untuk melihat keuangan Biro II</p>
         <a href="keuangan">Kembali</a>
       <?php } ?>
       <!-- /.box-body -->
@@ -85,28 +85,28 @@
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
-    <script type="text/javascript" language="javascript" >
-
-    $(document).ready(function() {
-       
-      var table = $('#example').DataTable({
-          dom: 'Bfrtip',
-          buttons: [
-            'copy', 'excel', 'pdf', 
-          ],
-          responsive: true,
-          "order": [],
-          "ajax": {
-              "url": "umum/umum_page",
-              "type": "POST"
-          },
-          "columnDefs": [
-          { 
-            "targets": [ 0 ], //first column / numbering column
-              "orderable": false, //set not orderable
-          },
-        ],
+    <script type="text/javascript">
+      $(document).ready(function() {  
+        var url = '<?php echo base_url();?>';//$('.content-header').attr('rel');
+        var table = $('#example').DataTable({ 
+            dom: 'lfBrtip',
+            buttons: [
+                'copy', 'excel', 'pdf', 'print'
+            ],
+            "ajax": url+"umum/umum_page",
+            "sPaginationType": "full_numbers",
+            "language": {
+              "search": "_INPUT_", 
+              "searchPlaceholder": "Search",
+              "paginate": {
+                  "next": '<i class="fa fa-angle-right"></i>',
+                  "previous": '<i class="fa fa-angle-left"></i>',
+                  "first": '<i class="fa fa-angle-double-left"></i>',
+                  "last": '<i class="fa fa-angle-double-right"></i>'
+              }
+            }, 
+            "iDisplayLength": 5,
+            "aLengthMenu": [[10, 25, 50, 100,500,-1], [10, 25, 50,100,500,"All"]]
+        });
       });
-
-    }); 
     </script>

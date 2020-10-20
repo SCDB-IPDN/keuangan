@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 05:04 AM
+-- Generation Time: Oct 20, 2020 at 05:59 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -189,7 +189,10 @@ CREATE TABLE `permission` (
 INSERT INTO `permission` (`id`, `user_type`, `data`) VALUES
 (1, 'Member', '{\"users\":{\"own_read\":\"1\"}}'),
 (2, 'admin', '{\"users\":{\"own_create\":\"1\",\"own_read\":\"1\",\"own_update\":\"1\",\"own_delete\":\"1\",\"all_create\":\"1\",\"all_read\":\"1\",\"all_update\":\"1\",\"all_delete\":\"1\"}}'),
-(3, 'biro I', NULL);
+(3, 'biro I', '{\"users\":{\"own_read\":\"1\"}}'),
+(4, 'biro II', '{\"users\":{\"own_read\":\"1\"}}'),
+(5, 'biro III', '{\"users\":{\"own_read\":\"1\"}}'),
+(6, 'biro IV', '{\"users\":{\"own_read\":\"1\"}}');
 
 -- --------------------------------------------------------
 
@@ -209,8 +212,8 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`id`, `keys`, `value`) VALUES
 (1, 'website', 'Keuangan IPDN'),
-(2, 'logo', 'logo.png'),
-(3, 'favicon', 'favicon.ico'),
+(2, 'logo', 'logo_1603163570.png'),
+(3, 'favicon', 'logo_1603163570.png'),
 (4, 'SMTP_EMAIL', ''),
 (5, 'HOST', ''),
 (6, 'PORT', ''),
@@ -273,7 +276,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`users_id`, `user_id`, `var_key`, `status`, `is_deleted`, `name`, `password`, `email`, `profile_pic`, `user_type`) VALUES
 (1, '1', '', 'active', '0', 'admin', '$2y$10$v/DgXuYWt0rMUVdOI7.iDuxoFc6qGrbppFGPdXjOdaUWdzH3QO5iq', 'maulyanda9424@gmail.com', 'unnamed_1602577896.png', 'admin'),
-(3, '1', NULL, 'active', '0', 'Rektor', '$2y$10$uua/h3c/X3QrXTKR8WdR6.g5OAyw7yzL2ghxiVgPTl8b9Od45SMXO', 'rektor@ipdn.ac.id', 'user.png', 'admin');
+(3, '1', NULL, 'active', '0', 'Rektor', '$2y$10$uua/h3c/X3QrXTKR8WdR6.g5OAyw7yzL2ghxiVgPTl8b9Od45SMXO', 'rektor@ipdn.ac.id', 'user.png', 'admin'),
+(4, '1', NULL, 'active', '0', 'Restiyana Astuti', '$2y$10$5zOiN6Y2UwJvi0zgNNMd/O1fscqvG0V7F3Qtn6q6vRHv9Kcb3iWzW', 'resti@gmail.com', 'user.png', 'biro I');
 
 --
 -- Indexes for dumped tables
@@ -341,7 +345,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` int(122) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(122) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `setting`
@@ -359,7 +363,7 @@ ALTER TABLE `templates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
