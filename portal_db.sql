@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Okt 2020 pada 12.03
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.10
+-- Generation Time: Oct 20, 2020 at 05:04 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keuanganbiro1`
+-- Table structure for table `keuanganbiro1`
 --
 
 CREATE TABLE `keuanganbiro1` (
@@ -38,7 +38,7 @@ CREATE TABLE `keuanganbiro1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `keuanganbiro1`
+-- Dumping data for table `keuanganbiro1`
 --
 
 INSERT INTO `keuanganbiro1` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
@@ -62,7 +62,7 @@ INSERT INTO `keuanganbiro1` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keuanganbiro2`
+-- Table structure for table `keuanganbiro2`
 --
 
 CREATE TABLE `keuanganbiro2` (
@@ -76,7 +76,7 @@ CREATE TABLE `keuanganbiro2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `keuanganbiro2`
+-- Dumping data for table `keuanganbiro2`
 --
 
 INSERT INTO `keuanganbiro2` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `keuanganbiro2` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keuanganbiro3`
+-- Table structure for table `keuanganbiro3`
 --
 
 CREATE TABLE `keuanganbiro3` (
@@ -104,7 +104,7 @@ CREATE TABLE `keuanganbiro3` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `keuanganbiro3`
+-- Dumping data for table `keuanganbiro3`
 --
 
 INSERT INTO `keuanganbiro3` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
@@ -119,7 +119,7 @@ INSERT INTO `keuanganbiro3` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keuanganbiro4`
+-- Table structure for table `keuanganbiro4`
 --
 
 CREATE TABLE `keuanganbiro4` (
@@ -133,7 +133,7 @@ CREATE TABLE `keuanganbiro4` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `keuanganbiro4`
+-- Dumping data for table `keuanganbiro4`
 --
 
 INSERT INTO `keuanganbiro4` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
@@ -145,33 +145,35 @@ INSERT INTO `keuanganbiro4` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keuanganipdn`
+-- Table structure for table `keuanganipdn`
 --
 
 CREATE TABLE `keuanganipdn` (
   `No` varchar(3) NOT NULL,
   `Biro` varchar(42) NOT NULL,
+  `Alias` varchar(100) NOT NULL,
   `Pagu` varchar(15) NOT NULL,
   `Realisasi` varchar(15) NOT NULL,
   `Pengembalian` varchar(10) NOT NULL,
   `Sisa_Pagu` varchar(15) NOT NULL,
-  `Persentase` varchar(3) NOT NULL
+  `Persentase` varchar(3) NOT NULL,
+  `link` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `keuanganipdn`
+-- Dumping data for table `keuanganipdn`
 --
 
-INSERT INTO `keuanganipdn` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
-('I', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', '31.159.253.000', '16.409.156.051', '0', '14.750.096.949', '53%'),
-('II', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', '274.254.715.000', '162.365.903.447', '36.326.000', '111.925.137.553', '59%'),
-('III', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', '16.526.717.000', '7.446.363.274', '1.850.000', '9.082.203.726', '45%'),
-('IV', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', '2.941.357.000', '2.129.050.810', '2.440.000', '814.746.190', '72%');
+INSERT INTO `keuanganipdn` (`No`, `Biro`, `Alias`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+('I', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'Biro I', '31.159.253.000', '16.409.156.051', '0', '14.750.096.949', '53%', 'akademik'),
+('II', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'Biro II', '274.254.715.000', '162.365.903.447', '36.326.000', '111.925.137.553', '59%', 'umum'),
+('III', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'Biro III', '16.526.717.000', '7.446.363.274', '1.850.000', '9.082.203.726', '45%', 'keprajaan'),
+('IV', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'Biro IV', '2.941.357.000', '2.129.050.810', '2.440.000', '814.746.190', '72%', 'kerjasama');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permission`
+-- Table structure for table `permission`
 --
 
 CREATE TABLE `permission` (
@@ -181,17 +183,18 @@ CREATE TABLE `permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `permission`
+-- Dumping data for table `permission`
 --
 
 INSERT INTO `permission` (`id`, `user_type`, `data`) VALUES
-(1, 'Member', '{\"users\":{\"own_create\":\"1\",\"own_read\":\"1\",\"own_update\":\"1\",\"own_delete\":\"1\"}}'),
-(2, 'admin', '{\"users\":{\"own_create\":\"1\",\"own_read\":\"1\",\"own_update\":\"1\",\"own_delete\":\"1\",\"all_create\":\"1\",\"all_read\":\"1\",\"all_update\":\"1\",\"all_delete\":\"1\"}}');
+(1, 'Member', '{\"users\":{\"own_read\":\"1\"}}'),
+(2, 'admin', '{\"users\":{\"own_create\":\"1\",\"own_read\":\"1\",\"own_update\":\"1\",\"own_delete\":\"1\",\"all_create\":\"1\",\"all_read\":\"1\",\"all_update\":\"1\",\"all_delete\":\"1\"}}'),
+(3, 'biro I', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting`
+-- Table structure for table `setting`
 --
 
 CREATE TABLE `setting` (
@@ -201,11 +204,11 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `setting`
+-- Dumping data for table `setting`
 --
 
 INSERT INTO `setting` (`id`, `keys`, `value`) VALUES
-(1, 'website', 'User Login'),
+(1, 'website', 'Keuangan IPDN'),
 (2, 'logo', 'logo.png'),
 (3, 'favicon', 'favicon.ico'),
 (4, 'SMTP_EMAIL', ''),
@@ -226,7 +229,7 @@ INSERT INTO `setting` (`id`, `keys`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `templates`
+-- Table structure for table `templates`
 --
 
 CREATE TABLE `templates` (
@@ -238,7 +241,7 @@ CREATE TABLE `templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `templates`
+-- Dumping data for table `templates`
 --
 
 INSERT INTO `templates` (`id`, `module`, `code`, `template_name`, `html`) VALUES
@@ -248,7 +251,7 @@ INSERT INTO `templates` (`id`, `module`, `code`, `template_name`, `html`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -265,97 +268,98 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`users_id`, `user_id`, `var_key`, `status`, `is_deleted`, `name`, `password`, `email`, `profile_pic`, `user_type`) VALUES
-(1, '1', '', 'active', '0', 'admin', '$2y$10$v/DgXuYWt0rMUVdOI7.iDuxoFc6qGrbppFGPdXjOdaUWdzH3QO5iq', 'maulyanda9424@gmail.com', 'unnamed_1602577896.png', 'admin');
+(1, '1', '', 'active', '0', 'admin', '$2y$10$v/DgXuYWt0rMUVdOI7.iDuxoFc6qGrbppFGPdXjOdaUWdzH3QO5iq', 'maulyanda9424@gmail.com', 'unnamed_1602577896.png', 'admin'),
+(3, '1', NULL, 'active', '0', 'Rektor', '$2y$10$uua/h3c/X3QrXTKR8WdR6.g5OAyw7yzL2ghxiVgPTl8b9Od45SMXO', 'rektor@ipdn.ac.id', 'user.png', 'admin');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `keuanganbiro1`
+-- Indexes for table `keuanganbiro1`
 --
 ALTER TABLE `keuanganbiro1`
   ADD PRIMARY KEY (`No`);
 
 --
--- Indeks untuk tabel `keuanganbiro2`
+-- Indexes for table `keuanganbiro2`
 --
 ALTER TABLE `keuanganbiro2`
   ADD PRIMARY KEY (`No`);
 
 --
--- Indeks untuk tabel `keuanganbiro3`
+-- Indexes for table `keuanganbiro3`
 --
 ALTER TABLE `keuanganbiro3`
   ADD PRIMARY KEY (`No`);
 
 --
--- Indeks untuk tabel `keuanganbiro4`
+-- Indexes for table `keuanganbiro4`
 --
 ALTER TABLE `keuanganbiro4`
   ADD PRIMARY KEY (`No`);
 
 --
--- Indeks untuk tabel `keuanganipdn`
+-- Indexes for table `keuanganipdn`
 --
 ALTER TABLE `keuanganipdn`
   ADD PRIMARY KEY (`No`);
 
 --
--- Indeks untuk tabel `permission`
+-- Indexes for table `permission`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `templates`
+-- Indexes for table `templates`
 --
 ALTER TABLE `templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`users_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `permission`
+-- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` int(122) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(122) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `setting`
+-- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
   MODIFY `id` int(122) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `templates`
+-- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
   MODIFY `id` int(121) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
