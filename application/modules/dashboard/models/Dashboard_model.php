@@ -1,14 +1,14 @@
 <?php
-class m_chart extends CI_Model{
+class Dashboard_model extends CI_Model{
  
   //get data from database
   function get_data(){
-      $this->db->select('Pagu,Realisasi,Biro,Alias,Persentase');
+      $this->db->select('*');
       $result = $this->db->get('keuanganipdn');
       return $result;
   }
 
-  public function get_all_keuangan()
+  public function get_all_dashboard()
 	{	
 		$result = $this->db->query("SELECT * FROM keuanganipdn");
         

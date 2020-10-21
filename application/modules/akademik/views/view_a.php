@@ -49,7 +49,7 @@
       </div>
       <?php }else{ ?>
         <p>* Anda tidak memiliki akses untuk melihat keuangan Biro I</p>
-        <a href="keuangan">Kembali</a>
+        <a href="dashboard">Kembali</a>
       <?php } ?>
       <!-- /.box-body -->
     </div>

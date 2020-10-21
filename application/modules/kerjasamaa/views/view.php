@@ -49,7 +49,7 @@
       </div>
       <?php }else{ ?>
         <p>* Anda tidak memiliki akses untuk melihat keuangan Biro IV</p>
-        <a href="keuangan">Kembali</a>
+        <a href="dashboard">Kembali</a>
       <?php } ?>
       <!-- /.box-body -->
     </div>
@@ -93,7 +93,7 @@
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
             ],
-            "ajax": url+"kerjasama/kerjasama_page",
+            "ajax": url+"kerjasamaa/kerjasamaa_page",
             "sPaginationType": "full_numbers",
             "language": {
               "search": "_INPUT_", 
