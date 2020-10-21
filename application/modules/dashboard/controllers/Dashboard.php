@@ -44,10 +44,14 @@ class Dashboard extends CI_Controller{
                $Realisasi = number_format($r->Realisasi);
                $Pengembalian = number_format($r->Pengembalian);
                $Sisa_Pagu = number_format($r->Sisa_Pagu);
+               if($r->link == 'pusat'){
+                    $link = "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>";
+               }else{
+                    $link = "";
+               }
                $data[] = array(
                     $no,
-          
-                    "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>",
+                    $link,
                     $r->Biro,
                     $Pagu,
                     $Realisasi,
