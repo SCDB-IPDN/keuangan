@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2020 at 09:46 AM
+-- Generation Time: Oct 21, 2020 at 12:47 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -20,6 +20,247 @@ SET time_zone = "+00:00";
 --
 -- Database: `portal_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bagian_jkt`
+--
+
+CREATE TABLE `bagian_jkt` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bagian_jkt`
+--
+
+INSERT INTO `bagian_jkt` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bagian_kalbar`
+--
+
+CREATE TABLE `bagian_kalbar` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bagian_kalbar`
+--
+
+INSERT INTO `bagian_kalbar` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bagian_ntb`
+--
+
+CREATE TABLE `bagian_ntb` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bagian_ntb`
+--
+
+INSERT INTO `bagian_ntb` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bagian_papua`
+--
+
+CREATE TABLE `bagian_papua` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bagian_papua`
+--
+
+INSERT INTO `bagian_papua` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bagian_sulsel`
+--
+
+CREATE TABLE `bagian_sulsel` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bagian_sulsel`
+--
+
+INSERT INTO `bagian_sulsel` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bagian_sulut`
+--
+
+CREATE TABLE `bagian_sulut` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bagian_sulut`
+--
+
+INSERT INTO `bagian_sulut` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bagian_sumbar`
+--
+
+CREATE TABLE `bagian_sumbar` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bagian_sumbar`
+--
+
+INSERT INTO `bagian_sumbar` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kampus_ipdn`
+--
+
+CREATE TABLE `kampus_ipdn` (
+  `No` int(20) NOT NULL,
+  `Biro` varchar(50) NOT NULL,
+  `Pagu` varchar(50) NOT NULL,
+  `Realisasi` varchar(50) NOT NULL,
+  `Pengembalian` varchar(50) NOT NULL,
+  `Sisa_Pagu` varchar(50) NOT NULL,
+  `Persentase` varchar(50) NOT NULL,
+  `link` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kampus_ipdn`
+--
+
+INSERT INTO `kampus_ipdn` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'IPDN KAMPUS JATINANGOR', '324932042000', '223799624281', '40616000', '101173033719', '68.88%', 'pusat'),
+(2, 'IPDN KAMPUS JAKARTA', '52992547000', '33618112429', '-', '19374434571', '63.44%', 'jakarta'),
+(3, 'IPDN KAMPUS SULAWESI UTARA', '31877246000', '24030829066', '-', '7846416934', '75.39%', 'sulut'),
+(4, 'IPDN KAMPUS SULAWESI SELATAN', '31943818000', '24261018047', '-', '7682799953', '75.95%', 'sulsel'),
+(5, 'IPDN KAMPUS SUMATERA BARAT', '30934638000', '22305871644', '-', '8628766356', '67.56%', 'sumbar'),
+(6, 'IPDN KAMPUS KALIMANTAN BARAT', '27644788000', '18676763116', '-', '89689024884', '72.92%', 'kalbar'),
+(7, 'IPDN KAMPUS NUSA TENGGARA BARAT', '30374503000', '21484423066', '-', '8890079934', '70.73%', 'ntb'),
+(8, 'IPDN KAMPUS PAPUA', '31736788000', '23144008925', '-', '8592779075', '72.92%', 'papua');
 
 -- --------------------------------------------------------
 
@@ -145,44 +386,11 @@ INSERT INTO `keuanganbiro4` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keuangandaerah`
---
-
-CREATE TABLE `keuangandaerah` (
-  `No` varchar(20) NOT NULL,
-  `Biro` varchar(50) NOT NULL,
-  `Alias` varchar(50) NOT NULL,
-  `Pagu` varchar(50) NOT NULL,
-  `Realisasi` varchar(50) NOT NULL,
-  `Pengembalian` varchar(50) NOT NULL,
-  `Sisa_Pagu` varchar(50) NOT NULL,
-  `Persentase` varchar(50) NOT NULL,
-  `link` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `keuangandaerah`
---
-
-INSERT INTO `keuangandaerah` (`No`, `Biro`, `Alias`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
-('05', 'IPDN KAMPUS KALIMANTAN BARAT', 'KAMPUS KALIMANTAN BARAT', '27644788000', '18676763116', '-', '89689024884', '72.92%', 'kalbar'),
-('06', 'IPDN KAMPUS SULAWESI UTARA', 'KAMPUS SULAWESI UTARA', '31877246000', '24030829066', '-', '7846416934', '75.39%', 'sulut'),
-('07', 'IPDN KAMPUS SULAWESI SELATAN', 'KAMPUS SULAWESI SELATAN', '31943818000', '24261018047', '-', '7682799953', '75.95%', 'sulsel'),
-('08', 'IPDN KAMPUS SUMATERA BARAT', 'KAMPUS SUMATERA BARAT', '30934638000', '22305871644', '-', '8628766356', '67.56%', 'sumbar'),
-('09', 'IPDN KAMPUS NUSA TENGGARA BARAT', 'KAMPUS NUSA TENGGARA BARAT', '30374503000', '21484423066', '-', '8890079934', '70.73%', 'ntb'),
-('10', 'IPDN KAMPUS PAPUA', 'KAMPUS PAPUA', '31736788000', '23144008925', '-', '8592779075', '72.92%', 'papua'),
-('11', 'IPDN KAMPUS JAKARTA', 'KAMPUS JAKARTA', '52992547000', '33618112429', '-', '19374434571', '63.44%', 'jakarta'),
-('12', 'IPDN KAMPUS JATINANGOR', 'IPDN JATINANGOR', '324932042000', '223799624281', '40616000', '101173033719', '68.88%', 'pusat'),
-('12', 'IPDN KAMPUS JATINANGOR', 'IPDN JATINANGOR', '324932042000', '223799624281', '40616000', '101173033719', '68.88%', 'pusat');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `keuanganipdn`
 --
 
 CREATE TABLE `keuanganipdn` (
-  `No` varchar(20) NOT NULL,
+  `No` int(20) NOT NULL,
   `Biro` varchar(50) NOT NULL,
   `Alias` varchar(50) NOT NULL,
   `Pagu` varchar(50) NOT NULL,
@@ -198,11 +406,227 @@ CREATE TABLE `keuanganipdn` (
 --
 
 INSERT INTO `keuanganipdn` (`No`, `Biro`, `Alias`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
-('01', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'BIRO I', '31159253000', '18271261363', '-', '12887991637', '58,64%', 'akademik'),
-('02', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'BIRO II', '274254715000', '190505805361', '36326000', '83785235639', '69,46%', 'umum'),
-('03', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'BIRO III', '16576717000', '12817936016', '1850000', '3760630984', '77,32%', 'keprajaan'),
-('04', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'BIRO IV', '2941357000', '2204621541', '2440000', '739175459', '74,95%', 'kerjasama'),
-('12', 'JUMLAH', 'jumlah', '3180772639000', '2357379407136', '40616000', '823433847864', '74.11%', 'jumlah');
+(1, 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'BIRO I', '31159253000', '18271261363', '-', '12887991637', '58,64%', 'akademik'),
+(2, 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'BIRO II', '274254715000', '190505805361', '36326000', '83785235639', '69,46%', 'umum'),
+(3, 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'BIRO III', '16576717000', '12817936016', '1850000', '3760630984', '77,32%', 'keprajaan'),
+(4, 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'BIRO IV', '2941357000', '2204621541', '2440000', '739175459', '74,95%', 'kerjasama');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuanganjkt`
+--
+
+CREATE TABLE `keuanganjkt` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL,
+  `link` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuanganjkt`
+--
+
+INSERT INTO `keuanganjkt` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%', 'jktsatu'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%', 'jktdua'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%', 'jkttiga'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%', 'jktempat'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%', 'jktlima'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%', 'jktenam'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%', 'jkttujuh'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%', 'jktdelapan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuangankalbar`
+--
+
+CREATE TABLE `keuangankalbar` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL,
+  `link` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuangankalbar`
+--
+
+INSERT INTO `keuangankalbar` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%', 'kalbarsatu'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%', 'kalbardua'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%', 'kalbartiga'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%', 'kalbarempat'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%', 'kalbarlima'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%', 'kalbarenam'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%', 'kalbartujuh'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%', 'kalbardelapan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuanganntb`
+--
+
+CREATE TABLE `keuanganntb` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL,
+  `link` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuanganntb`
+--
+
+INSERT INTO `keuanganntb` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%', 'ntbsatu'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%', 'ntbdua'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%', 'ntbtiga'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%', 'ntbempat'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%', 'ntblima'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%', 'ntbenam'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%', 'ntbtujuh'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%', 'ntbdelapan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuanganpapua`
+--
+
+CREATE TABLE `keuanganpapua` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL,
+  `link` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuanganpapua`
+--
+
+INSERT INTO `keuanganpapua` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%', 'papuasatu'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%', 'papuadua'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%', 'papuatiga'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%', 'papuaempat'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%', 'papualima'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%', 'papuaenam'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%', 'papuatujuh'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%', 'papuadelapan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuangansulsel`
+--
+
+CREATE TABLE `keuangansulsel` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL,
+  `link` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuangansulsel`
+--
+
+INSERT INTO `keuangansulsel` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%', 'sulselsatu'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%', 'sulseldua'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%', 'sulseltiga'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%', 'sulselempat'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%', 'sulsellima'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%', 'sulselenam'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%', 'sulseltujuh'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%', 'sulseldelapan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuangansulut`
+--
+
+CREATE TABLE `keuangansulut` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL,
+  `link` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuangansulut`
+--
+
+INSERT INTO `keuangansulut` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%', 'sulutsatu'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%', 'sulutdua'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%', 'suluttiga'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%', 'sulutempat'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%', 'sulutlima'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%', 'sulutenam'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%', 'suluttujuh'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%', 'sulutdelapan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuangansumbar`
+--
+
+CREATE TABLE `keuangansumbar` (
+  `No` int(11) NOT NULL,
+  `Bagian` varchar(500) NOT NULL,
+  `Pagu` varchar(500) NOT NULL,
+  `Realisasi` varchar(100) NOT NULL,
+  `Pengembalian` varchar(500) NOT NULL,
+  `Sisa_Pagu` varchar(500) NOT NULL,
+  `Persentase` varchar(500) NOT NULL,
+  `link` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuangansumbar`
+--
+
+INSERT INTO `keuangansumbar` (`No`, `Bagian`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+(1, 'TU BIRO IV', '421280000', '362119087', '-', '59160913', '85,96%', 'sumbarsatu'),
+(2, 'TU BIRO III', '425000000', '304485218', '-', '120514782', '71,64%', 'sumbardua'),
+(3, 'BAGIAN KEPRAJAAN', '2147483647', '2147483647', '-', '2147483647', '82,70%', 'sumbartiga'),
+(4, 'BAGIAN PENGASUHAN PRAJA', '907809000', '649089335', '-', '258719665', '71,50%', 'sumbarempat'),
+(5, 'BAGIAN DISIPLIN PRAJA', '844756000', '26019000', '-', '818737000', '3,08%', 'sumbarlima'),
+(6, 'BAGIAN EKSTRAKURIKULER PRAJA', '1202097000', '1008289139', '1850000', '195657861', '83,88%', 'sumbarenam'),
+(7, 'KOMISI DISIPLIN PRAJA', '130397000', '46127200', '-', '84269800', '35,37%', 'sumbartujuh'),
+(8, 'UNIT BIMBINGAN DAN KONSELING PRAJA', '88757000', '50694700', '-', '38062300', '57,12%', 'sumbardelapan');
 
 -- --------------------------------------------------------
 
@@ -226,7 +650,14 @@ INSERT INTO `permission` (`id`, `user_type`, `data`) VALUES
 (3, 'biro I', '{\"users\":{\"own_read\":\"1\"}}'),
 (4, 'biro II', '{\"users\":{\"own_read\":\"1\"}}'),
 (5, 'biro III', '{\"users\":{\"own_read\":\"1\"}}'),
-(6, 'biro IV', '{\"users\":{\"own_read\":\"1\"}}');
+(6, 'biro IV', '{\"users\":{\"own_read\":\"1\"}}'),
+(7, 'jakarta', '{\"users\":{\"own_read\":\"1\"}}'),
+(8, 'sulut', '{\"users\":{\"own_read\":\"1\"}}'),
+(9, 'sulsel', '{\"users\":{\"own_read\":\"1\"}}'),
+(10, 'sumbar', '{\"users\":{\"own_read\":\"1\"}}'),
+(11, 'kalbar', '{\"users\":{\"own_read\":\"1\"}}'),
+(12, 'ntb', '{\"users\":{\"own_read\":\"1\"}}'),
+(13, 'papua', '{\"users\":{\"own_read\":\"1\"}}');
 
 -- --------------------------------------------------------
 
@@ -318,6 +749,54 @@ INSERT INTO `users` (`users_id`, `user_id`, `var_key`, `status`, `is_deleted`, `
 --
 
 --
+-- Indexes for table `bagian_jkt`
+--
+ALTER TABLE `bagian_jkt`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `bagian_kalbar`
+--
+ALTER TABLE `bagian_kalbar`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `bagian_ntb`
+--
+ALTER TABLE `bagian_ntb`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `bagian_papua`
+--
+ALTER TABLE `bagian_papua`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `bagian_sulsel`
+--
+ALTER TABLE `bagian_sulsel`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `bagian_sulut`
+--
+ALTER TABLE `bagian_sulut`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `bagian_sumbar`
+--
+ALTER TABLE `bagian_sumbar`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `kampus_ipdn`
+--
+ALTER TABLE `kampus_ipdn`
+  ADD PRIMARY KEY (`No`);
+
+--
 -- Indexes for table `keuanganbiro1`
 --
 ALTER TABLE `keuanganbiro1`
@@ -345,6 +824,48 @@ ALTER TABLE `keuanganbiro4`
 -- Indexes for table `keuanganipdn`
 --
 ALTER TABLE `keuanganipdn`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `keuanganjkt`
+--
+ALTER TABLE `keuanganjkt`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `keuangankalbar`
+--
+ALTER TABLE `keuangankalbar`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `keuanganntb`
+--
+ALTER TABLE `keuanganntb`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `keuanganpapua`
+--
+ALTER TABLE `keuanganpapua`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `keuangansulsel`
+--
+ALTER TABLE `keuangansulsel`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `keuangansulut`
+--
+ALTER TABLE `keuangansulut`
+  ADD PRIMARY KEY (`No`);
+
+--
+-- Indexes for table `keuangansumbar`
+--
+ALTER TABLE `keuangansumbar`
   ADD PRIMARY KEY (`No`);
 
 --
@@ -376,10 +897,130 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bagian_jkt`
+--
+ALTER TABLE `bagian_jkt`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `bagian_kalbar`
+--
+ALTER TABLE `bagian_kalbar`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `bagian_ntb`
+--
+ALTER TABLE `bagian_ntb`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `bagian_papua`
+--
+ALTER TABLE `bagian_papua`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `bagian_sulsel`
+--
+ALTER TABLE `bagian_sulsel`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `bagian_sulut`
+--
+ALTER TABLE `bagian_sulut`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `bagian_sumbar`
+--
+ALTER TABLE `bagian_sumbar`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `kampus_ipdn`
+--
+ALTER TABLE `kampus_ipdn`
+  MODIFY `No` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `keuanganbiro1`
+--
+ALTER TABLE `keuanganbiro1`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `keuanganbiro2`
+--
+ALTER TABLE `keuanganbiro2`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `keuanganbiro3`
+--
+ALTER TABLE `keuanganbiro3`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `keuanganbiro4`
+--
+ALTER TABLE `keuanganbiro4`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `keuanganipdn`
+--
+ALTER TABLE `keuanganipdn`
+  MODIFY `No` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `keuanganjkt`
+--
+ALTER TABLE `keuanganjkt`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `keuangankalbar`
+--
+ALTER TABLE `keuangankalbar`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `keuanganntb`
+--
+ALTER TABLE `keuanganntb`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `keuanganpapua`
+--
+ALTER TABLE `keuanganpapua`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `keuangansulsel`
+--
+ALTER TABLE `keuangansulsel`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `keuangansulut`
+--
+ALTER TABLE `keuangansulut`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `keuangansumbar`
+--
+ALTER TABLE `keuangansumbar`
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` int(122) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(122) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `setting`
