@@ -12,16 +12,17 @@
     <!-- Main content -->
     <section class="content">
       <!-- Default box -->
+      <?php if($this->session->userdata ('user_details')[0]->user_type == "admin" || $this->session->userdata ('user_details')[0]->user_type == "sumbar"){?>
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Kampus Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
+          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Bagian Kampus IPDN Sumatera Barat Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
             <div class="col-lg-12">
               <div class="col-md-8 col-md-offset-1 aboutshift">
                 <div class="table-responsive">
-                  <p class="text-center">Rekapitulasi Alokasi Pagu Per Kampus</p>
+                  <p class="text-center">Rekapitulasi Alokasi Pagu Per Bagian Kampus IPDN Sumbar</p>
                   <div id="graph"></div>
                 </div>
               </div>
@@ -34,7 +35,7 @@
                     <tr>
                       <th class="v-center">No</th>
                       <th class="v-center">Detail</th>
-                      <th class="v-center">Kampus</th>
+                      <th class="v-center">Bagian</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
                       <th class="v-center">Pengembalian</th>
@@ -44,23 +45,15 @@
                   </thead>
                   <tbody>
                   </tbody>
-                  <tfoot>
-                    <tr>
-                      <th class="v-center"></th>
-                      <th class="v-center"></th>
-                      <th class="v-center">JUMLAH</th>
-                      <th class="v-center"><?php echo $pagu ?></th>
-                      <th class="v-center"><?php echo $realisasi ?></th>
-                      <th class="v-center"><?php echo $pengembalian ?></th>
-                      <th class="v-center"><?php echo $sisa_pagu ?></th>
-                      <th class="v-center"><?php echo $persentase ?>%</th>
-                    </tr>
-                  </tfoot>
                 </table>
                 <div class="modal-footer"></div>
               </div>
         </div>
       </div>
+      <?php }else{ ?>
+        <p>* Anda tidak memiliki akses untuk melihat keuangan Kampus IPDN Sumatera Barat</p>
+        <a href="dashboard">Kembali</a>
+      <?php } ?>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
@@ -78,7 +71,7 @@
       Morris.Bar({
         element: 'graph',
         data: <?php echo $data;?>,
-        xkey: 'Biro',
+        xkey: 'Bagian',
         ykeys: ['Pagu', 'Realisasi'],
         labels: ['Pagu', 'Realisasi', 'Persentase']
       });
@@ -103,7 +96,7 @@
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
             ],
-            "ajax": url+"dashboard/dashboard_page",
+            "ajax": url+"sumbar/sumbar_page",
             "sPaginationType": "full_numbers",
             "language": {
               "search": "_INPUT_", 

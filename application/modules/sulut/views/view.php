@@ -12,16 +12,17 @@
     <!-- Main content -->
     <section class="content">
       <!-- Default box -->
+      <?php if($this->session->userdata ('user_details')[0]->user_type == "admin" || $this->session->userdata ('user_details')[0]->user_type == "sulut"){?>
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
+          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Bagian Kampus IPDN Sulawesi Utara Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
             <div class="col-lg-12">
               <div class="col-md-8 col-md-offset-1 aboutshift">
                 <div class="table-responsive">
-                  <p class="text-center">Rekapitulasi Alokasi Kampus Daerah</p>
+                  <p class="text-center">Rekapitulasi Alokasi Pagu Per Bagian Kampus IPDN Sulut</p>
                   <div id="graph"></div>
                 </div>
               </div>
@@ -34,8 +35,7 @@
                     <tr>
                       <th class="v-center">No</th>
                       <th class="v-center">Detail</th>
-                      <th class="v-center">Alias</th>
-                      <th class="v-center">Biro / Kampus</th>
+                      <th class="v-center">Bagian</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
                       <th class="v-center">Pengembalian</th>
@@ -50,6 +50,10 @@
               </div>
         </div>
       </div>
+      <?php }else{ ?>
+        <p>* Anda tidak memiliki akses untuk melihat keuangan Kampus IPDN Sulawesi Utara</p>
+        <a href="dashboard">Kembali</a>
+      <?php } ?>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
@@ -67,7 +71,7 @@
       Morris.Bar({
         element: 'graph',
         data: <?php echo $data;?>,
-        xkey: 'Alias',
+        xkey: 'Bagian',
         ykeys: ['Pagu', 'Realisasi'],
         labels: ['Pagu', 'Realisasi', 'Persentase']
       });
@@ -92,7 +96,7 @@
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
             ],
-            "ajax": url+"dashboard/dashboard_page",
+            "ajax": url+"sulut/sulut_page",
             "sPaginationType": "full_numbers",
             "language": {
               "search": "_INPUT_", 
@@ -104,7 +108,7 @@
                   "last": '<i class="fa fa-angle-double-right"></i>'
               }
             }, 
-            "iDisplayLength": 5,
+            "iDisplayLength": 10,
             "aLengthMenu": [[10, 25, 50, 100,500,-1], [10, 25, 50,100,500,"All"]]
         });
       });
