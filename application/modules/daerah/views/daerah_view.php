@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="<?php echo base_url().'assets/js/morris.css'?>">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
@@ -11,16 +12,16 @@
     <!-- Main content -->
     <section class="content">
       <!-- Default box -->
-      <?php if($this->session->userdata ('user_details')[0]->user_type == "admin" || $this->session->userdata ('user_details')[0]->user_type == "biro IV"){?>
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>BIRO IV : Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
+          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
             <div class="col-lg-12">
-              <div class="col-md-6 col-md-offset-1 aboutshift">
+              <div class="col-md-8 col-md-offset-1 aboutshift">
                 <div class="table-responsive">
+                  <p class="text-center">Rekapitulasi Alokasi Kampus Daerah</p>
                   <div id="graph"></div>
                 </div>
               </div>
@@ -28,10 +29,12 @@
           </div>
           <br>
           <div class="table-responsive">
-                <table id="example" class="cell-border example1 table table-striped table1 delSelTable" style="width:100%">
+                <table id="example" class="cell-border example table table-striped table1 delSelTable" style="width:100%">
                   <thead>
                     <tr>
                       <th class="v-center">No</th>
+                      <th class="v-center">Detail</th>
+                      <th class="v-center">Alias</th>
                       <th class="v-center">Biro / Kampus</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
@@ -47,10 +50,6 @@
               </div>
         </div>
       </div>
-      <?php }else{ ?>
-        <p>* Anda tidak memiliki akses untuk melihat keuangan Biro IV</p>
-        <a href="dashboard">Kembali</a>
-      <?php } ?>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
@@ -68,7 +67,7 @@
       Morris.Bar({
         element: 'graph',
         data: <?php echo $data;?>,
-        xkey: 'Biro',
+        xkey: 'Alias',
         ykeys: ['Pagu', 'Realisasi'],
         labels: ['Pagu', 'Realisasi', 'Persentase']
       });
@@ -89,11 +88,11 @@
       $(document).ready(function() {  
         var url = '<?php echo base_url();?>';//$('.content-header').attr('rel');
         var table = $('#example').DataTable({ 
-            dom: 'lfBrtip',
+              dom: 'lfBrtip',
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
             ],
-            "ajax": url+"kerjasamaa/kerjasamaa_page",
+            "ajax": url+"dashboard/dashboard_page",
             "sPaginationType": "full_numbers",
             "language": {
               "search": "_INPUT_", 

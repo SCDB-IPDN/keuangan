@@ -34,6 +34,7 @@
                     <tr>
                       <th class="v-center">No</th>
                       <th class="v-center">Detail</th>
+                      <th class="v-center">Alias</th>
                       <th class="v-center">Kampus</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
