@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2020 at 05:08 AM
+-- Generation Time: Oct 21, 2020 at 09:04 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -141,6 +141,37 @@ INSERT INTO `keuanganbiro4` (`No`, `Biro`, `Pagu`, `Realisasi`, `Pengembalian`, 
 (2, 'BAGIAN KERJA SAMA DAN HUMAS', 1361026000, 858534794, '-', 502491206, '63,08%'),
 (3, 'BAGIAN HUKUM, ORGANISASI DAN TATA LAKSA', 768714000, 643391052, '2440000', 127762948, '83,70%'),
 (4, 'BAGIAN KEPEGAWAIAN', 390337000, 340576608, '-', 49760392, '87,25%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keuangandaerah`
+--
+
+CREATE TABLE `keuangandaerah` (
+  `No` varchar(20) NOT NULL,
+  `Biro` varchar(50) NOT NULL,
+  `Alias` varchar(50) NOT NULL,
+  `Pagu` varchar(50) NOT NULL,
+  `Realisasi` varchar(50) NOT NULL,
+  `Pengembalian` varchar(50) NOT NULL,
+  `Sisa_Pagu` varchar(50) NOT NULL,
+  `Persentase` varchar(50) NOT NULL,
+  `link` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keuangandaerah`
+--
+
+INSERT INTO `keuangandaerah` (`No`, `Biro`, `Alias`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
+('05', 'IPDN KAMPUS KALIMANTAN BARAT', 'KAMPUS KALIMANTAN BARAT', '27644788000', '18676763116', '-', '89689024884', '72.92%', 'kalbar'),
+('06', 'IPDN KAMPUS SULAWESI UTARA', 'KAMPUS SULAWESI UTARA', '31877246000', '24030829066', '-', '7846416934', '75.39%', 'sulut'),
+('07', 'IPDN KAMPUS SULAWESI SELATAN', 'KAMPUS SULAWESI SELATAN', '31943818000', '24261018047', '-', '7682799953', '75.95%', 'sulsel'),
+('08', 'IPDN KAMPUS SUMATERA BARAT', 'KAMPUS SUMATERA BARAT', '30934638000', '22305871644', '-', '8628766356', '67.56%', 'sumbar'),
+('09', 'IPDN KAMPUS NUSA TENGGARA BARAT', 'KAMPUS NUSA TENGGARA BARAT', '30374503000', '21484423066', '-', '8890079934', '70.73%', 'ntb'),
+('10', 'IPDN KAMPUS PAPUA', 'KAMPUS PAPUA', '31736788000', '23144008925', '-', '8592779075', '72.92%', 'papua'),
+('11', 'IPDN KAMPUS JAKARTA', 'KAMPUS JAKARTA', '52992547000', '33618112429', '-', '19374434571', '63.44%', 'jakarta');
 
 -- --------------------------------------------------------
 
