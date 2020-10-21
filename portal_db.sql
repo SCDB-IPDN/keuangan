@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 08:35 AM
+-- Generation Time: Oct 21, 2020 at 05:08 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -165,11 +165,18 @@ CREATE TABLE `keuanganipdn` (
 --
 
 INSERT INTO `keuanganipdn` (`No`, `Biro`, `Alias`, `Pagu`, `Realisasi`, `Pengembalian`, `Sisa_Pagu`, `Persentase`, `link`) VALUES
-('I', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'BIRO I', '31159253000', '18271261363', '-', '12887991637', '58,64%', 'akademik'),
-('II', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'BIRO II', '274254715000', '190505805361', '36326000', '83785235639', '69,46%', 'umum'),
-('III', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'BIRO III', '16576717000', '12817936016', '1850000', '3760630984', '77,32%', 'keprajaan'),
-('IV', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'BIRO IV', '2941357000', '2204621541', '2440000', '739175459', '74,95%', 'kerjasama'),
-('V', '', 'JUMLAH', '324932042000', '223799624281', '40616000', '101173033719', '68,88%', 'jumlah');
+('01', 'BIRO ADMINISTRASI AKADEMIK DAN PERENCANAAN', 'BIRO I', '31159253000', '18271261363', '-', '12887991637', '58,64%', 'akademik'),
+('02', 'BIRO ADMINISTRASI UMUM DAN KEUANGAN', 'BIRO II', '274254715000', '190505805361', '36326000', '83785235639', '69,46%', 'umum'),
+('03', 'BIRO ADMINISTRASI KEPRAJAAN DAN ALUMNI', 'BIRO III', '16576717000', '12817936016', '1850000', '3760630984', '77,32%', 'keprajaan'),
+('04', 'BIRO ADMINISTRASI KERJA SAMA DAN HUKUM', 'BIRO IV', '2941357000', '2204621541', '2440000', '739175459', '74,95%', 'kerjasama'),
+('05', 'IPDN KAMPUS KALIMANTAN BARAT', 'KAMPUS KALIMANTAN BARAT', '27644788000', '18676763116', '-', '89689024884', '72.92%', 'kalbar'),
+('06', 'IPDN KAMPUS SULAWESI UTARA', 'KAMPUS SULAWESI UTARA', '31877246000', '24030829066', '-', '7846416934', '75.39%', 'sulut'),
+('07', 'IPDN KAMPUS SULAWESI SELATAN', 'KAMPUS SULAWESI SELATAN', '31943818000', '24261018047', '-', '7682799953', '75.95%', 'sulsel'),
+('08', 'IPDN KAMPUS SUMATERA BARAT', 'KAMPUS SUMATERA BARAT', '30934638000', '22305871644', '-', '8628766356', '67.56%', 'sumbar'),
+('09', 'IPDN KAMPUS NUSA TENGGARA BARAT', 'KAMPUS NUSA TENGGARA BARAT', '30374503000', '21484423066', '-', '8890079934', '70.73%', 'ntb'),
+('10', 'IPDN KAMPUS PAPUA', 'KAMPUS PAPUA', '31736788000', '23144008925', '-', '8592779075', '72.92%', 'papua'),
+('11', 'IPDN KAMPUS JAKARTA', 'KAMPUS JAKARTA', '52992547000', '33618112429', '-', '19374434571', '63.44%', 'jakarta'),
+('12', 'JUMLAH', 'jumlah', '3180772639000', '2357379407136', '40616000', '823433847864', '74.11%', 'jumlah');
 
 -- --------------------------------------------------------
 
@@ -213,8 +220,8 @@ CREATE TABLE `setting` (
 
 INSERT INTO `setting` (`id`, `keys`, `value`) VALUES
 (1, 'website', 'Keuangan IPDN'),
-(2, 'logo', 'app_keu_1603176220.png'),
-(3, 'favicon', 'app_keu_1603176220.png'),
+(2, 'logo', 'logo_1603163570.png'),
+(3, 'favicon', 'logo_1603163570.png'),
 (4, 'SMTP_EMAIL', ''),
 (5, 'HOST', ''),
 (6, 'PORT', ''),
@@ -277,8 +284,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`users_id`, `user_id`, `var_key`, `status`, `is_deleted`, `name`, `password`, `email`, `profile_pic`, `user_type`) VALUES
 (1, '1', '', 'active', '0', 'admin', '$2y$10$v/DgXuYWt0rMUVdOI7.iDuxoFc6qGrbppFGPdXjOdaUWdzH3QO5iq', 'maulyanda9424@gmail.com', 'unnamed_1602577896.png', 'admin'),
-(4, '1', NULL, 'active', '0', 'Restiyana Astuti', '$2y$10$5zOiN6Y2UwJvi0zgNNMd/O1fscqvG0V7F3Qtn6q6vRHv9Kcb3iWzW', 'resti@gmail.com', 'user.png', 'biro I'),
-(5, '1', NULL, 'active', '0', 'Hadi Prabowo', '$2y$10$RGlmquFDOva2eAmBepiZDe6Hh0JrS45BVIrvD5.7rZeZQJ9O00Qna', 'hadiprabowo@ipdn.ac.id', 'user.png', 'admin');
+(3, '1', NULL, 'active', '0', 'Rektor', '$2y$10$uua/h3c/X3QrXTKR8WdR6.g5OAyw7yzL2ghxiVgPTl8b9Od45SMXO', 'rektor@ipdn.ac.id', 'user.png', 'admin'),
+(4, '1', NULL, 'active', '0', 'Restiyana Astuti', '$2y$10$5zOiN6Y2UwJvi0zgNNMd/O1fscqvG0V7F3Qtn6q6vRHv9Kcb3iWzW', 'resti@gmail.com', 'user.png', 'biro I');
 
 --
 -- Indexes for dumped tables
@@ -364,7 +371,7 @@ ALTER TABLE `templates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `users_id` int(121) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
