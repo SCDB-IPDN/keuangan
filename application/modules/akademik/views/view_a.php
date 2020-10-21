@@ -32,7 +32,7 @@
                   <thead>
                     <tr>
                       <th class="v-center">No</th>
-                      <th class="v-center">Biro</th>
+                      <th class="v-center">Biro / Kampus</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
                       <th class="v-center">Pengembalian</th>
