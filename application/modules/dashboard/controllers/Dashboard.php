@@ -9,9 +9,17 @@ class Dashboard extends CI_Controller{
 
     function index(){
       $data = $this->dashboard_model->get_data()->result();
-      $x['data'] = json_encode($data);
+      $keuangan = $this->dashboard_model->jumlah_pagu()->result();
 
-     //  var_dump($x);exit;
+      $hitung= $keuangan[0]->realisasi/$keuangan[0]->pagu*100;
+      $persentase = round($hitung,2);
+
+      $x['data'] = json_encode($data);
+      $x['pagu'] = number_format($keuangan[0]->pagu);
+      $x['realisasi'] = number_format($keuangan[0]->realisasi);
+      $x['pengembalian'] = number_format($keuangan[0]->pengembalian);
+      $x['sisa_pagu'] = number_format($keuangan[0]->sisa_pagu);
+      $x['persentase'] = $persentase;
     
       $this->load->view("include/header");
       $this->load->view("view_d",$x);
@@ -40,7 +48,6 @@ class Dashboard extends CI_Controller{
                     $no,
           
                     "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>",
-                    $r->Alias,
                     $r->Biro,
                     $Pagu,
                     $Realisasi,
