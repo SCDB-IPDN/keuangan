@@ -10,6 +10,66 @@ class Uploads extends CI_Controller {
         $this->load->view("include/footer");
     }
 
+    public function uploadKampus()
+    {
+        // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifkampus', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("REKAP KAMPUS")->toArray(null, true, true ,true);
+
+            $data = array();
+            $date = new DateTime();
+            $datee = $date->format('Y-m-d');
+
+            $numrow = 1;
+            foreach($sheet as $row){
+                            if($numrow > 1 && $numrow < 10){
+                                    array_push($data, array(
+                                        'Kampus'      => $row['A'],
+                                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['B']),
+                                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['C']),
+                                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
+                                        'Persentase'      => $row['E'],
+                                        'link'      => $row['F'],
+                                        'created_date' => $datee,
+                                    ));
+                            }
+                $numrow++;
+            }
+            $this->db->insert_batch('kampus_ipdn', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifkampus', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        }
+    }
+
     public function uploadIPDN()
     {
         // Load plugin PHPExcel nya
@@ -40,13 +100,13 @@ class Uploads extends CI_Controller {
             $sheet             = $loadexcel->getSheetByName("REKAP IPDN")->toArray(null, true, true ,true);
 
             $data = array();
+            $date = new DateTime();
+            $datee = $date->format('Y-m-d');
 
             $numrow = 1;
             foreach($sheet as $row){
-                            if($numrow > 7){
-                                if($row['A'] != NULL && $row['A'] != 0){
+                            if($numrow > 7 && $numrow < 12){
                                     array_push($data, array(
-                                        'No' => $row['A'],
                                         'Biro'      => $row['B'],
                                         'Alias'      => $row['C'],
                                         'Pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
@@ -55,13 +115,12 @@ class Uploads extends CI_Controller {
                                         'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['G']),
                                         'Persentase'      => $row['H'],
                                         'link'      => $row['I'],
+                                        'created_date' => $datee,
                                     ));
-                                }
                             }
                 $numrow++;
             }
-            $this->db->truncate('keuanganipdn');
-            $apa = $this->db->insert_batch('keuanganipdn', $data);
+            $this->db->insert_batch('keuanganipdn', $data);
             //delete file from server
             unlink(realpath('excel/'.$data_upload['file_name']));
 

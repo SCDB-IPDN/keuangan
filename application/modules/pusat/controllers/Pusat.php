@@ -8,10 +8,18 @@ class Pusat extends CI_Controller{
     }
 
     function index(){
-      $data = $this->pusat_model->get_data()->result();
-      $x['data'] = json_encode($data);
+      $data = $this->pusat_model->get_all_pusat()->result();
+      $tanggal = $this->pusat_model->get_tanggal()->result();
+      $hasil_tgl = date('d F Y', strtotime($tanggal[0]->created_date));
 
-     //  var_dump($x);exit;
+      if($hasil_tgl == '01 January 1970'){
+          $hasil_tanggal = '--------';
+      }else{
+          $hasil_tanggal = $hasil_tgl;
+      }
+
+      $x['data'] = json_encode($data);
+      $x['tanggal'] = $hasil_tanggal;
     
       $this->load->view("include/header");
       $this->load->view("view_pusat",$x);

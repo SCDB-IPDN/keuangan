@@ -28,6 +28,7 @@
             </div>
           </div>
           <br>
+          <p><b>Data Per Tanggal : <?php echo $tanggal ?></b></p>
           <div class="table-responsive">
                 <table id="example" class="cell-border example table table-striped table1 delSelTable" style="width:100%">
                   <thead>
@@ -37,7 +38,6 @@
                       <th class="v-center">Kampus</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
-                      <th class="v-center">Pengembalian</th>
                       <th class="v-center">Sisa Pagu</th>
                       <th class="v-center">Persentase</th>
                     </tr>
@@ -51,7 +51,6 @@
                       <th class="v-center">JUMLAH</th>
                       <th class="v-center"><?php echo $pagu ?></th>
                       <th class="v-center"><?php echo $realisasi ?></th>
-                      <th class="v-center"><?php echo $pengembalian ?></th>
                       <th class="v-center"><?php echo $sisa_pagu ?></th>
                       <th class="v-center"><?php echo $persentase ?>%</th>
                     </tr>
@@ -78,7 +77,7 @@
       Morris.Bar({
         element: 'graph',
         data: <?php echo $data;?>,
-        xkey: 'Biro',
+        xkey: 'Kampus',
         ykeys: ['Pagu', 'Realisasi'],
         labels: ['Pagu', 'Realisasi', 'Persentase']
       });

@@ -13,6 +13,20 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-8 offset-2">
+                    <?php echo $this->session->flashdata('notifkampus') ?>
+                    <form method="POST" action="<?php echo base_url() ?>uploads/uploadKampus" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">UNGGAH FILE EXCEL REKAP KAMPUS IPDN</label>
+                        <input for="kampus" type="file" name="userfile" class="form-control">
+                    </div>
+
+                    <button id="kampus" type="submit" class="btn btn-success">UPLOAD REKAP KAMPUS IPDN</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8 offset-2">
                     <?php echo $this->session->flashdata('notifipdn') ?>
                     <form method="POST" action="<?php echo base_url() ?>uploads/uploadIPDN" enctype="multipart/form-data">
                     <div class="form-group">

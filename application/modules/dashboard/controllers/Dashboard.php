@@ -8,11 +8,20 @@ class Dashboard extends CI_Controller{
     }
 
     function index(){
-      $data = $this->dashboard_model->get_data()->result();
+      $data = $this->dashboard_model->get_all_dashboard()->result();
       $keuangan = $this->dashboard_model->jumlah_pagu()->result();
 
       $hitung= $keuangan[0]->realisasi/$keuangan[0]->pagu*100;
       $persentase = round($hitung,2);
+
+      $tanggal = $this->dashboard_model->get_tanggal()->result();
+      $hasil_tgl = date('d F Y', strtotime($tanggal[0]->created_date));
+
+      if($hasil_tgl == '01 January 1970'){
+          $hasil_tanggal = '--------';
+      }else{
+          $hasil_tanggal = $hasil_tgl;
+      }
 
       $x['data'] = json_encode($data);
       $x['pagu'] = number_format($keuangan[0]->pagu);
@@ -20,6 +29,7 @@ class Dashboard extends CI_Controller{
       $x['pengembalian'] = number_format($keuangan[0]->pengembalian);
       $x['sisa_pagu'] = number_format($keuangan[0]->sisa_pagu);
       $x['persentase'] = $persentase;
+      $x['tanggal'] = $hasil_tanggal;
     
       $this->load->view("include/header");
       $this->load->view("view_d",$x);
@@ -52,10 +62,9 @@ class Dashboard extends CI_Controller{
                $data[] = array(
                     $no,
                     $link,
-                    $r->Biro,
+                    $r->Kampus,
                     $Pagu,
                     $Realisasi,
-                    $Pengembalian,
                     $Sisa_Pagu,
                     $r->Persentase
                );
