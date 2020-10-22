@@ -342,6 +342,23 @@ class Uploads extends CI_Controller {
 
             $excelreader       = new PHPExcel_Reader_Excel2007();
             $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            // var_dump($loadexcel->getSheetNames());exit();
+            $list_sheet = $loadexcel->getSheetNames();
+            foreach ($list_sheet as $shit) {
+                $es = explode(".", $shit);
+                if (is_numeric($es[0])) {
+                    echo "<br><br>=============================<br><br>";
+                    echo $shit."<br>";
+                    $this->readSheet($loadexcel, $shit);
+                } else {
+                    echo $shit." salah<br>";
+                }
+            }
+            exit();
+
+            // ===================================================
+
+
             $sheet             = $loadexcel->getSheetByName("REKAP BIRO 4")->toArray(null, true, true ,true);
 
             $data = array();
@@ -373,6 +390,40 @@ class Uploads extends CI_Controller {
             //redirect halaman
             redirect('uploads/');
 
+        }
+    }
+
+    public function readSheet($load, $shitName) {
+        $sheet = $load->getSheetByName($shitName)->toArray(null, true, true ,true);
+        $data = array();
+        $stop = false;
+        $num = 0;
+        $nullcc = 0;
+        while(!$stop) {
+            $row = $sheet[$num++];
+            if ($row['A'] == NULL) {
+                $nullcc++;
+                if ($nullcc == 2) {
+                    $stop = true;    
+                }
+            } else {
+                $nullcc = 0; 
+                if (strpos($row['A'], 'tgl')) { 
+                    $tgl = explode("tgl. ", $row['A']);
+                    $tgl_last = count($tgl)-1;
+                    echo $tgl[$tgl_last]."<br>";
+                } else if ($num > 6) {
+                    //$string = "1352.303";
+                    $regex = '/^[0-9]{4}\.[0-9]{3}$/';
+                    if (preg_match($regex, $row['A'])) {
+                        echo $row['A']." ".str_replace("_x000D_", "",$row['B'])." ".preg_replace("/[^0-9]/", "", $row['C'])." ".preg_replace("/[^0-9]/", "", $row['D'])." ".preg_replace("/[^0-9]/", "", $row['E'])."<br>";
+                    }
+                    // if (is_numeric($row['A']) && strlen($row['A']) == 4 && $row['A'] < 10000) {
+                    //     echo $row['A']." ".$row['B']."<br>";
+                    // }
+                }
+                //echo $row['A']."<br>";
+            }
         }
     }
 
