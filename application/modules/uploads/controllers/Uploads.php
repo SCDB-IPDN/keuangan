@@ -342,22 +342,6 @@ class Uploads extends CI_Controller {
 
             $excelreader       = new PHPExcel_Reader_Excel2007();
             $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
-            // var_dump($loadexcel->getSheetNames());exit();
-            $list_sheet = $loadexcel->getSheetNames();
-            foreach ($list_sheet as $shit) {
-                $es = explode(".", $shit);
-                if (is_numeric($es[0])) {
-                    echo "<br><br>=============================<br><br>";
-                    echo $shit."<br>";
-                    $this->readSheet($loadexcel, $shit);
-                } else {
-                    echo $shit." salah<br>";
-                }
-            }
-            exit();
-
-            // ===================================================
-
 
             $sheet             = $loadexcel->getSheetByName("REKAP BIRO 4")->toArray(null, true, true ,true);
 
@@ -393,38 +377,235 @@ class Uploads extends CI_Controller {
         }
     }
 
-    public function readSheet($load, $shitName) {
-        $sheet = $load->getSheetByName($shitName)->toArray(null, true, true ,true);
-        $data = array();
-        $stop = false;
-        $num = 0;
-        $nullcc = 0;
-        while(!$stop) {
-            $row = $sheet[$num++];
-            if ($row['A'] == NULL) {
-                $nullcc++;
-                if ($nullcc == 2) {
-                    $stop = true;    
-                }
-            } else {
-                $nullcc = 0; 
-                if (strpos($row['A'], 'tgl')) { 
-                    $tgl = explode("tgl. ", $row['A']);
-                    $tgl_last = count($tgl)-1;
-                    echo $tgl[$tgl_last]."<br>";
-                } else if ($num > 6) {
-                    //$string = "1352.303";
-                    $regex = '/^[0-9]{4}\.[0-9]{3}$/';
-                    if (preg_match($regex, $row['A'])) {
-                        echo $row['A']." ".str_replace("_x000D_", "",$row['B'])." ".preg_replace("/[^0-9]/", "", $row['C'])." ".preg_replace("/[^0-9]/", "", $row['D'])." ".preg_replace("/[^0-9]/", "", $row['E'])."<br>";
+    public function uploadNext()
+    {
+        // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifbiroN', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+
+            // Load file yang telah diupload ke folder excel
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']);
+
+            // get all list of sheet
+            $list_sheet = $loadexcel->getSheetNames();
+
+            $biro = "";
+            $set = false;
+            $data = array();
+
+            foreach ($list_sheet as $shit) {
+
+                // pisahkan cara membaca sheet, antara rekap dan nama bagian / unit
+                // sheet yang biasanya nama bagian
+                // 1. TU BIRO..
+                // 2. AKADEMIK
+                // ...
+                // PASCA*
+                // PROFESI*
+                $es = explode(".", $shit);
+
+                if (is_numeric($es[0])) {
+                    echo "<br><br>=============================<br><br>";
+                    echo $shit."<br>";
+
+                    // set unit, biro ke berapa, unit ke berapa
+                    $unit = ($es[0]<10)?$biro."0".$es[0]:$biro.$es[0];
+
+                    echo "<br>".$unit."<br>";
+
+                    $rows = $loadexcel->getSheetByName($shit)->toArray(null, true, true ,true);
+                    $stop = false;
+                    $num = 0;
+                    $nullcc = 0;
+                    while(!$stop) {
+                        $row = $rows[$num++];
+                        if ($row['A'] == NULL) {
+                            $nullcc++;
+                            if ($nullcc == 4) {
+                                $stop = true;    
+                            }
+                        } else {
+                            $nullcc = 0;
+                            // echo $row['A']."<br>";
+                            if (strpos($row['A'], 'tgl')) {
+                                // echo $row['A']."<br>";
+                                $tgl = explode("tgl. ", $row['A']);
+                                $tgl_last = count($tgl)-1;
+                                $tgl = $this->ite($tgl[$tgl_last]);
+                                $newDate = date("Y-m-d", strtotime($tgl));
+                                echo $newDate."<br>";
+                            } else if ($num > 6) {
+                                $regex = '/^[0-9]{4}\.[0-9]{3}$/';
+                                if (preg_match($regex, $row['A'])) {
+                                    echo $row['A']." ".str_replace("_x000D_", "",$row['B'])." ".preg_replace("/[^0-9]/", "", $row['C'])." ".preg_replace("/[^0-9]/", "", $row['D'])." ".preg_replace("/[^0-9]/", "", $row['E'])."<br>";
+                                    array_push($data, array(
+                                        'id_u'      => $unit,
+                                        'nama'      => str_replace("_x000D_", "",$row['B']),
+                                        'pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
+                                        'realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
+                                        'kembali'      => preg_replace("/[^0-9]/", "", $row['E']),
+                                        'tgl'      => $newDate
+                                    ));
+                                }
+                            }
+                        }
                     }
-                    // if (is_numeric($row['A']) && strlen($row['A']) == 4 && $row['A'] < 10000) {
-                    //     echo $row['A']." ".$row['B']."<br>";
-                    // }
+
+                // sheet rekap
+                // bukan nama bagian / unit
+                // REKAP IPDN
+                // REKAP BIRO I
+                // REKAP BIRO 2
+                } else if (strpos($shit, 'REKAP BIRO') === 0 && !$set) {
+                    // get nomer biro untuk id biro
+                    $set = true;
+                    $temp = explode(" ", $shit);
+                    $biro = $temp[2];
+                    if (!is_numeric($biro)) {
+                        $biro = $this->rti($biro);
+                    }
+
+                    // khusus IPDN Jatinangor
+                    $id_b = ($biro<10)?"10".$biro:"1".$biro;
+
+                    echo $shit."<br>";
+                    echo "ID BIRO : ".$id_b."<br>";
+
+                    // read data pada sheet REKAP BIRO
+                    $rows = $loadexcel->getSheetByName($shit)->toArray(null, true, true ,true);
+                    $stop = false;
+                    $num = 0;
+                    $nullcc = 0;
+                    while(!$stop) {
+                        $row = $rows[$num++];
+
+                        // cek eof
+                        if ($row['A'] == NULL) {
+                            $nullcc++;
+                            if ($nullcc == 6) {
+                                $stop = true;    
+                            }
+                        } else if (is_numeric($row['A']) && strlen($row['B']) > 3) {
+                            // harusnya konten, bukan header table
+                            $nullcc = 0;
+                            $id_u = ($row['A']<10)?$biro."0".$row['A']:"1".$row['A'];
+                            echo $id_u."=".$row['B']."<br>";
+                            //echo "INSERT INTO unit values (".$id_u.", ".$id_b.", '".$row['B']."')";
+                            echo "<br>";
+                        } else if (strpos($row['A'], 'tgl')) {
+                            // echo $row['A']."<br>";
+                            $tgl = explode("tgl. ", $row['A']);
+                            $tgl_last = count($tgl)-1;
+                            $tgl = $this->ite($tgl[$tgl_last]);
+                            $newDate = date("Y-m-d", strtotime($tgl));
+                            echo $newDate."<br>";
+                        }
+                    }
+
+                    // set nama unit, biasanya ada nomer di depan, ambil setelah nomer
+                    // $esb = explode(". ", $shit);
+
+                    // echo "INSERT INTO unit values (".$unit.", ".$biro.", '".$esb[1]."')";
+
+                    // setting table unit kalo belum ada isinya
+                    // $data = array( 
+                    //     'id'  = >  $unit , // 301, 411, 103, ...
+                    //     'id_b'= >  $biro,  // 1, 2, 3, 4, ...
+                    //     'nama'   = >  $esb[1] // LAB, TU BIRO
+                    // );
+                    // $this->db->insert('unit', $data);
+                    // $this->db->query("INSERT INTO unit values (".$unit.", ".$biro.", '".$esb[1]."')");
                 }
-                //echo $row['A']."<br>";
+            }
+            var_dump($data);
+            exit();
+
+            $this->db->insert_batch('kegiatan', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifbiroN', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+        }
+    }
+
+    function rti($s) {
+        $romans = array(
+            'M' => 1000,
+            'CM' => 900,
+            'D' => 500,
+            'CD' => 400,
+            'C' => 100,
+            'XC' => 90,
+            'L' => 50,
+            'XL' => 40,
+            'X' => 10,
+            'IX' => 9,
+            'V' => 5,
+            'IV' => 4,
+            'I' => 1,
+        );
+
+        // $roman = 'MMMCMXCIX';
+        $result = 0;
+
+        foreach ($romans as $key => $value) {
+            while (strpos($s, $key) === 0) {
+                $result += $value;
+                $s = substr($s, strlen($key));
             }
         }
+        return $result;
+    }
+
+    function ite($s) {
+        $months = array(
+            'Jan' => "Januari",
+            'Feb' => "Februari",
+            'Mar' => "Maret",
+            'Apr' => "April",
+            'May' => "Mei",
+            'Jun' => "Juni",
+            'Jul' => "Juli",
+            'Aug' => "Agustus",
+            'Sep' => "September",
+            'Oct' => "Oktober",
+            'Nov' => "November",
+            'Dec' => "Desember"
+        );
+
+        $result = "";
+
+        foreach ($months as $en => $in) {
+            $bi = explode(" ", $s);
+            if (strpos($in, $bi[1]) === 0) {
+                $result = str_replace($bi[1],$en,$s);
+            }
+        }
+        return strtoupper($result);
     }
 
 }

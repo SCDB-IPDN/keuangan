@@ -6,7 +6,12 @@ $query_builder = TRUE;
 $hostname ="120.89.92.80";
 $username ="ipdnacid_portal";
 $password ="yellowminicooper";
-$database ="ipdnacid_portal_db";	
+$database ="ipdnacid_portal_db";
+
+// $hostname ="localhost";
+// $username ="root";
+// $password ="";
+// $database ="portal_db";
 
 $db['default'] = array(
 	'dsn'	=> '',

@@ -94,6 +94,20 @@
                     </form>
                 </div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8 offset-2">
+                    <?php echo $this->session->flashdata('notifbiroN') ?>
+                    <form method="POST" action="<?php echo base_url() ?>uploads/uploadNext" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">UNGGAH FILE EXCEL REKAP BIRO NEXT</label>
+                        <input for="biroN" type="file" name="userfile" class="form-control">
+                    </div>
+
+                    <button id="biroN" type="submit" class="btn btn-success">UPLOAD REKAP BIRO NEXT</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
       <!-- /.box-body -->
