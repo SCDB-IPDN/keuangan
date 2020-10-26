@@ -11,7 +11,7 @@
     <!-- Main content -->
     <section class="content">
       <!-- Default box -->
-      <?php if($this->session->userdata ('user_details')[0]->user_type == "admin" || $this->session->userdata ('user_details')[0]->user_type == "biro I"){?>
+      <?php if($this->session->userdata ('user_details')[0]->user_type == "admin" || $this->session->userdata ('user_details')[0]->user_type == "biro I" || $this->session->userdata ('user_details')[0]->user_type == "Member"){?>
       <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title"><b>BIRO I : Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
