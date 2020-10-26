@@ -423,14 +423,25 @@ class Uploads extends CI_Controller {
                 // ...
                 // PASCA*
                 // PROFESI*
+                // echo $shit."<br>";
                 $es = explode(".", $shit);
 
-                if (is_numeric($es[0])) {
+                if (is_numeric($es[0]) || ($shit == "PASCA") || (($shit == "PROFESI"))) {
                     echo "<br><br>=============================<br><br>";
                     echo $shit."<br>";
 
                     // set unit, biro ke berapa, unit ke berapa
-                    $unit = ($es[0]<10)?$biro."0".$es[0]:$biro.$es[0];
+                    switch ($shit) {
+                        case "PASCA":
+                            $unit = 115;
+                            break;
+                        case "PROFESI":
+                            $unit = 116;
+                            break;
+                        default:
+                            $unit = ($es[0]<10)?$biro."0".$es[0]:$biro.$es[0];
+                            break;
+                    }
 
                     echo "<br>".$unit."<br>";
 
@@ -463,9 +474,9 @@ class Uploads extends CI_Controller {
                                         'id_u'      => $unit,
                                         'nama'      => str_replace("_x000D_", "",$row['B']),
                                         'pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
-                                        'realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
-                                        'kembali'      => preg_replace("/[^0-9]/", "", $row['E']),
-                                        'tgl'      => $newDate
+                                        'realisasi' => preg_replace("/[^0-9]/", "", $row['D']),
+                                        'kembali'   => preg_replace("/[^0-9]/", "", $row['E']),
+                                        'tgl'       => $newDate
                                     ));
                                 }
                             }
@@ -482,6 +493,7 @@ class Uploads extends CI_Controller {
                     $set = true;
                     $temp = explode(" ", $shit);
                     $biro = $temp[2];
+                    $unitList = array();
                     if (!is_numeric($biro)) {
                         $biro = $this->rti($biro);
                     }
@@ -498,6 +510,7 @@ class Uploads extends CI_Controller {
                     $num = 0;
                     $nullcc = 0;
                     while(!$stop) {
+                        // echo $row['A']."<br>";
                         $row = $rows[$num++];
 
                         // cek eof
@@ -508,10 +521,16 @@ class Uploads extends CI_Controller {
                             }
                         } else if (is_numeric($row['A']) && strlen($row['B']) > 3) {
                             // harusnya konten, bukan header table
+                            // list nama bagian / unit
                             $nullcc = 0;
                             $id_u = ($row['A']<10)?$biro."0".$row['A']:"1".$row['A'];
                             echo $id_u."=".$row['B']."<br>";
-                            //echo "INSERT INTO unit values (".$id_u.", ".$id_b.", '".$row['B']."')";
+                            // echo "INSERT INTO unit values (".$id_u.", ".$id_b.", '".$row['B']."')";
+                            array_push($unitList, array(
+                                'id'    =>  $id_u , // 301, 411, 103, ...
+                                'id_b'  =>  $id_b,  // 101, 102, 103, 104, ...
+                                'nama'  =>  $row['B'] // LAB, TU BIRO
+                            ));
                             echo "<br>";
                         } else if (strpos($row['A'], 'tgl')) {
                             // echo $row['A']."<br>";
@@ -522,24 +541,17 @@ class Uploads extends CI_Controller {
                             echo $newDate."<br>";
                         }
                     }
-
-                    // set nama unit, biasanya ada nomer di depan, ambil setelah nomer
-                    // $esb = explode(". ", $shit);
-
-                    // echo "INSERT INTO unit values (".$unit.", ".$biro.", '".$esb[1]."')";
+                    echo "<br>";
+                    // var_dump($unitList);
+                    echo "<br>";
 
                     // setting table unit kalo belum ada isinya
-                    // $data = array( 
-                    //     'id'  = >  $unit , // 301, 411, 103, ...
-                    //     'id_b'= >  $biro,  // 1, 2, 3, 4, ...
-                    //     'nama'   = >  $esb[1] // LAB, TU BIRO
-                    // );
-                    // $this->db->insert('unit', $data);
-                    // $this->db->query("INSERT INTO unit values (".$unit.", ".$biro.", '".$esb[1]."')");
+                    $this->db->insert_batch('unit', $unitList);
                 }
             }
-            var_dump($data);
-            exit();
+            echo "<br>";
+            // var_dump($data);
+            // exit();
 
             $this->db->insert_batch('kegiatan', $data);
             //delete file from server
@@ -599,9 +611,10 @@ class Uploads extends CI_Controller {
 
         $result = "";
 
+        $bi = explode(" ", $s);
+        // echo "file: ".$s."<br>";
         foreach ($months as $en => $in) {
-            $bi = explode(" ", $s);
-            if (strpos($in, $bi[1]) === 0) {
+            if (strpos(strtoupper($in), strtoupper($bi[1])) === 0) {
                 $result = str_replace($bi[1],$en,$s);
             }
         }
