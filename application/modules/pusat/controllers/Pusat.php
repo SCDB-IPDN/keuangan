@@ -47,7 +47,7 @@ class Pusat extends CI_Controller{
                $data[] = array(
                     $no,
           
-                    "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>",
+                    $link = '',
                     $r->Alias,
                     $r->Biro,
                     $Pagu,
