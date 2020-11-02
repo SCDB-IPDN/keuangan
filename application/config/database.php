@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-$hostname ="120.89.92.80";
-$username ="ipdnacid_portal";
-$password ="yellowminicooper";
+$hostname ="localhost";
+$username ="root";
+$password ="";
 $database ="ipdnacid_portal_db";
 
 // $hostname ="localhost";
