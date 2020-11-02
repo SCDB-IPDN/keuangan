@@ -93,7 +93,10 @@
                 <li class="header"><!-- MAIN NAVIGATION --></li>
                 <?php //echo '<pre>';print_r($this->router); die; ?>
                 <li class="<?=($this->router->method==="dashboard")?"active":"not-active"?>">
-                  <a href="<?php echo base_url("dashboard"); ?>"><i class="fa fa-bar-chart"></i> <span>Dashboard POK</span></a>
+                  <a href="<?php echo base_url("dashboard"); ?>"><i class="fa fa-bar-chart"></i> <span>Dashboard</span></a>
+                </li>
+                <li class="<?=($this->router->method==="dashboard")?"active":"not-active"?>">
+                  <a href="<?php echo base_url("dashboard_pok"); ?>"><i class="fa fa-bar-chart"></i> <span>Dashboard POK</span></a>
                 </li>
                 <li class="<?=($this->router->method==="dashboard_sas")?"active":"not-active"?>"> 
                 <a href="<?php echo base_url('dashboard_sas');?>"> <i class="fa fa-bar-chart"></i> <span>Dashboard SAS</span></a>
