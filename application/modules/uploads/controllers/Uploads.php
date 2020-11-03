@@ -546,14 +546,16 @@ class Uploads extends CI_Controller {
                     echo "<br>";
 
                     // setting table unit kalo belum ada isinya
-                    $this->db->insert_batch('unit', $unitList);
+                    $this->db->truncate('unit_pok');
+                    $this->db->insert_batch('unit_pok', $unitList);
                 }
             }
             echo "<br>";
             // var_dump($data);
             // exit();
 
-            $this->db->insert_batch('kegiatan', $data);
+            $this->db->truncate('out_pok');
+            $this->db->insert_batch('out_pok', $data);
             //delete file from server
             unlink(realpath('excel/'.$data_upload['file_name']));
 

@@ -43,7 +43,7 @@ class Dashboard_pok extends CI_Controller{
           $start = intval($this->input->get("start"));
           $length = intval($this->input->get("length"));
 
-          $dashboards = $this->dashboard_model->get_all_dashboard();
+          $dashboards = $this->pok_model->get_all_dashboard();
           
 		$data = array();
 		$no = 0;
@@ -59,6 +59,13 @@ class Dashboard_pok extends CI_Controller{
                }else{
                     $link = "";
                }
+               $target = 100/12*date('n');
+               $real = str_replace("%", "", $r->Persentase);
+               if ($target >= $real) {
+                $per = "<mark>$r->Persentase</mark>";
+               } else {
+                $per = $r->Persentase;
+               }
                $data[] = array(
                     $no,
                     $link,
@@ -66,14 +73,14 @@ class Dashboard_pok extends CI_Controller{
                     $Pagu,
                     $Realisasi,
                     $Sisa_Pagu,
-                    $r->Persentase
+                    $per
                );
           }
           
           $output = array(
                  "draw" => $draw,
-                 "recordsTotal" => $dashboardsas->num_rows(),
-                 "recordsFiltered" => $dashboardsas->num_rows(),
+                 "recordsTotal" => $dashboards->num_rows(),
+                 "recordsFiltered" => $dashboards->num_rows(),
                  "data" => $data
             );
           echo json_encode($output);
