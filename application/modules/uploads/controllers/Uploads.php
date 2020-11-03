@@ -45,17 +45,17 @@ class Uploads extends CI_Controller {
 
             $numrow = 1;
             foreach($sheet as $row){
-                            if($numrow > 1 && $numrow < 10){
-                                    array_push($data, array(
-                                        'Kampus'      => $row['A'],
-                                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['B']),
-                                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['C']),
-                                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
-                                        'Persentase'      => $row['E'],
-                                        'link'      => $row['F'],
-                                        'created_date' => $datee,
-                                    ));
-                            }
+                if($numrow > 1 && $numrow < 10){
+                    array_push($data, array(
+                        'Kampus'      => $row['A'],
+                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['B']),
+                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['C']),
+                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
+                        'Persentase'      => $row['E'],
+                        'link'      => $row['F'],
+                        'created_date' => $datee,
+                    ));
+                }
                 $numrow++;
             }
             $this->db->insert_batch('kampus_ipdn', $data);
@@ -105,19 +105,19 @@ class Uploads extends CI_Controller {
 
             $numrow = 1;
             foreach($sheet as $row){
-                            if($numrow > 7 && $numrow < 12){
-                                    array_push($data, array(
-                                        'Biro'      => $row['B'],
-                                        'Alias'      => $row['C'],
-                                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
-                                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['E']),
-                                        'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['F']),
-                                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['G']),
-                                        'Persentase'      => $row['H'],
-                                        'link'      => $row['I'],
-                                        'created_date' => $datee,
-                                    ));
-                            }
+                if($numrow > 7 && $numrow < 12){
+                    array_push($data, array(
+                        'Biro'      => $row['B'],
+                        'Alias'      => $row['C'],
+                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
+                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['E']),
+                        'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['F']),
+                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['G']),
+                        'Persentase'      => $row['H'],
+                        'link'      => $row['I'],
+                        'created_date' => $datee,
+                    ));
+                }
                 $numrow++;
             }
             $this->db->insert_batch('keuanganipdn', $data);
@@ -165,19 +165,19 @@ class Uploads extends CI_Controller {
 
             $numrow = 1;
             foreach($sheet as $row){
-                            if($numrow > 10){
-                                if($row['A'] != NULL){
-                                    array_push($data, array(
-                                        'No' => $row['A'],
-                                        'Biro'      => $row['B'],
-                                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
-                                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
-                                        'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
-                                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
-                                        'Persentase'      => $row['G'],
-                                    ));
-                                }
-                            }
+                if($numrow > 10){
+                    if($row['A'] != NULL){
+                        array_push($data, array(
+                            'No' => $row['A'],
+                            'Biro'      => $row['B'],
+                            'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
+                            'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
+                            'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
+                            'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
+                            'Persentase'      => $row['G'],
+                        ));
+                    }
+                }
                 $numrow++;
             }
             $this->db->truncate('keuanganbiro1');
@@ -226,19 +226,19 @@ class Uploads extends CI_Controller {
 
             $numrow = 1;
             foreach($sheet as $row){
-                            if($numrow > 10){
-                                if($row['A'] != NULL && $row['A'] != 0){
-                                    array_push($data, array(
-                                        'No' => $row['A'],
-                                        'Biro'      => $row['B'],
-                                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
-                                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
-                                        'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
-                                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
-                                        'Persentase'      => $row['G'],
-                                    ));
-                                }
-                            }
+                if($numrow > 10){
+                    if($row['A'] != NULL && $row['A'] != 0){
+                        array_push($data, array(
+                            'No' => $row['A'],
+                            'Biro'      => $row['B'],
+                            'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
+                            'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
+                            'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
+                            'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
+                            'Persentase'      => $row['G'],
+                        ));
+                    }
+                }
                 $numrow++;
             }
             $this->db->truncate('keuanganbiro2');
@@ -287,19 +287,19 @@ class Uploads extends CI_Controller {
 
             $numrow = 1;
             foreach($sheet as $row){
-                            if($numrow > 10){
-                                if($row['A'] != NULL && $row['A'] != 0){
-                                    array_push($data, array(
-                                        'No' => $row['A'],
-                                        'Biro'      => $row['B'],
-                                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
-                                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
-                                        'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
-                                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
-                                        'Persentase'      => $row['G'],
-                                    ));
-                                }
-                            }
+                if($numrow > 10){
+                    if($row['A'] != NULL && $row['A'] != 0){
+                        array_push($data, array(
+                            'No' => $row['A'],
+                            'Biro'      => $row['B'],
+                            'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
+                            'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
+                            'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
+                            'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
+                            'Persentase'      => $row['G'],
+                        ));
+                    }
+                }
                 $numrow++;
             }
             $this->db->truncate('keuanganbiro3');
@@ -349,19 +349,19 @@ class Uploads extends CI_Controller {
 
             $numrow = 1;
             foreach($sheet as $row){
-                            if($numrow > 10){
-                                if($row['A'] != NULL && $row['A'] != 0){
-                                    array_push($data, array(
-                                        'No' => $row['A'],
-                                        'Biro'      => $row['B'],
-                                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
-                                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
-                                        'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
-                                        'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
-                                        'Persentase'      => $row['G'],
-                                    ));
-                                }
-                            }
+                if($numrow > 10){
+                    if($row['A'] != NULL && $row['A'] != 0){
+                        array_push($data, array(
+                            'No' => $row['A'],
+                            'Biro'      => $row['B'],
+                            'Pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
+                            'Realisasi'      => preg_replace("/[^0-9]/", "", $row['D']),
+                            'Pengembalian'      => preg_replace("/[^0-9]/", "", $row['E']),
+                            'Sisa_pagu'      => preg_replace("/[^0-9]/", "", $row['F']),
+                            'Persentase'      => $row['G'],
+                        ));
+                    }
+                }
                 $numrow++;
             }
             $this->db->truncate('keuanganbiro4');
@@ -433,14 +433,14 @@ class Uploads extends CI_Controller {
                     // set unit, biro ke berapa, unit ke berapa
                     switch ($shit) {
                         case "PASCA":
-                            $unit = 115;
-                            break;
+                        $unit = 115;
+                        break;
                         case "PROFESI":
-                            $unit = 116;
-                            break;
+                        $unit = 116;
+                        break;
                         default:
-                            $unit = ($es[0]<10)?$biro."0".$es[0]:$biro.$es[0];
-                            break;
+                        $unit = ($es[0]<10)?$biro."0".$es[0]:$biro.$es[0];
+                        break;
                     }
 
                     echo "<br>".$unit."<br>";
@@ -551,8 +551,8 @@ class Uploads extends CI_Controller {
                 }
             }
             echo "<br>";
-            // var_dump($data);
-            // exit();
+            var_dump($data);
+            exit();
 
             $this->db->truncate('out_pok');
             $this->db->insert_batch('out_pok', $data);
@@ -565,6 +565,494 @@ class Uploads extends CI_Controller {
             redirect('uploads/');
         }
     }
+
+    public function uploadPagu()
+    {
+        // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifpagu', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("pagu ipdn")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            $bag = '';
+            foreach($sheet as $row){
+                if($numrow > 1){
+                    if ($row['A'] == 2){
+                        $cbiro++;
+                        $cunit = 0;
+                        $coutput = 0;
+                        // baca biro
+                        $id_b = ($cbiro<10)?"10".$cbiro:"1".$cbiro;
+
+                        echo "ID BIRO : ".$id_b." <br>";
+
+                        // $id_b." ".$row['AI']."<br>";
+                        // $sql = "INSERT INTO biro values (".$id_b.", '".substr($row['AI'], 3)."')";
+                        $sql = "INSERT INTO biro values (".$id_b.",'".trim($row['AI'])."')";
+                        // $this->db->truncate($sql);
+                        $this->db->query($sql);
+
+                        // array_push($data, array(
+                        //     'id_b'      => $id_b,
+                        //     'ket'      => trim($row['AI'])
+                        // ));
+                        // $this->db->truncate('biro');
+                        // $this->db->query($sql);
+
+
+                        // $sql = "INSERT INTO biro values (".$id_b.", '".substr($row['AI'], 12)."')";
+                        
+
+                        // array_push($data, array(
+                        //     'id_b'      => $id_b,
+                        //     'ket'      => $row['AI']
+                        // ));
+                        // $this->db->truncate('biro');
+                        // $this->db->insert_batch('biro', $data);
+
+                        // $this->db->insert_batch('biro', $ini);
+                        // add to database id = "10".$cbiro
+                        // nama = $row['AI'];
+
+                    } elseif ($row['A'] == 3) {
+                        $cunit++;
+                        $unit = $id_b."<br>".(($cunit<10)?$cbiro."0".$cunit:$cbiro.$cunit).$row['AI']."<br>";
+                        // echo $unit;
+
+                        $id_c = ($cunit<10)?$cbiro."0".$cunit:$cbiro.$cunit;
+                        echo $id_c;
+                        $ket = trim($row['AI']);
+                        $sql1 = "INSERT INTO unit values (".$id_b.",".$id_c.",'".$ket."')";
+                        // $this->db->truncate($sql1);
+                        $this->db->query($sql1);
+                        
+                        // array_push($data, array(
+                        //     'id_b'      => $id_b,
+                        //     'id_c'      =>$id_c,
+                        //     'ket'      => $row['AI']
+                        // ));
+                        // $this->db->truncate('unit');
+                        // $this->db->insert_batch('unit', $data);
+
+
+                    } elseif ($row['A'] == 5) {
+                        $coutput++;
+                        echo $row['AI']."<br>";
+                        $ket1 = trim($row['AI']);
+                        array_push($data, array(
+                            'id_b'      => $id_b,
+                            'id_c'      =>$id_c,
+                            // 'id_u'      => ($cunit<10)?$cbiro."0".$cunit:$cbiro.$cunit,
+                            'pagu'      => preg_replace("/[^0-9]/", "", $row['AB']),
+                            'realisasi' => preg_replace("/[^0-9]/", "", $row['AC']),
+                            'ket'      => $ket1
+                        ));
+                        // $sql2 = "INSERT INTO output values (".$id_b.",".$id_c." ,".preg_replace("/[^0-9]/", "", $row['AB']).",".preg_replace("/[^0-9]/", "", $row['AC']).",'".$ket1."')";
+
+                        $this->db->truncate('output');
+                        $this->db->insert_batch('output', $data);
+
+                    }
+                    
+
+                }
+
+                
+                $numrow++;
+            }
+            echo "<br>";
+            // var_dump($data);
+            exit();
+            $this->db->truncate('pagu');
+            $this->db->insert_batch('pagu', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifpagu', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        }
+    }
+
+
+    public function uploadRealisasiSulsel()
+    {
+                // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifsulsel', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("PAGU_677024")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            foreach($sheet as $row){
+                if($numrow > 7){
+                    $ket1 = trim($row['A']);
+                    array_push($data, array(
+                        'Uraian'      => $ket1,
+                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['B']),
+                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['C']),
+                        'Sisa'      => preg_replace("/[^0-9]/", "", $row['D']),
+                        'Persentase'      => $row['E'],
+                    ));
+                    
+                }
+                $numrow++;
+            }
+            $this->db->truncate('realisasi_sulsel');
+            $this->db->insert_batch('realisasi_sulsel', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifsulsel', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+        }
+    }
+
+    public function uploadRealisasiKalbar()
+    {
+                // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifkalbar', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("Sheet1")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            foreach($sheet as $row){
+                if($numrow > 4){
+                    $ket1 = trim($row['A']);
+                    array_push($data, array(
+                        'URAIAN'      => $ket1,
+                        'PAGU'      => preg_replace("/[^0-9]/", "", $row['B']),
+                        'REALISASI'      => preg_replace("/[^0-9]/", "", $row['C']),
+                        'SISA'      => preg_replace("/[^0-9]/", "", $row['D']),
+                    ));
+                    
+                }
+                $numrow++;
+            }
+            $this->db->truncate('realisasi_kalbar');
+            $this->db->insert_batch('realisasi_kalbar', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifkalbar', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+        }
+    }
+
+    public function uploadRealisasiNTB()
+    {
+                // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifntb', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("IPDN NTB")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            foreach($sheet as $row){
+                if($numrow > 6){
+                    $ket1 = trim($row['AB']);
+                    array_push($data, array(
+                        'Uraian'      => $ket1,
+                        'Pagu'      => preg_replace("/[^0-9]/", "", $row['AC']),
+                        'Realisasi'      => preg_replace("/[^0-9]/", "", $row['AD']),
+                        'Sisa'      => preg_replace("/[^0-9]/", "", $row['AE']),
+                        'Persentase'      => $row['AN'],
+                    ));
+                    
+                }
+                $numrow++;
+            }
+            $this->db->truncate('realisasi_ntb');
+            $this->db->insert_batch('realisasi_ntb', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifntb', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+        }
+    }
+
+    public function uploadRealisasiPapua()
+    {
+                // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifpapua', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("Sheet1")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            foreach($sheet as $row){
+                if($numrow > 6){
+                    $ket1 = trim($row['A']);
+                    array_push($data, array(
+                        'ket'      => $ket1,
+                        'pagu'      => preg_replace("/[^0-9]/", "", $row['B']),
+                        'realisasi'      => preg_replace("/[^0-9]/", "", $row['C']),
+                        'sisa'      => preg_replace("/[^0-9]/", "", $row['D']),
+
+                    ));
+                    
+                }
+                $numrow++;
+            }
+            $this->db->truncate('realisasi_papua');
+            $this->db->insert_batch('realisasi_papua', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifpapua', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+        }
+    }
+
+    public function uploadRealisasiSulut()
+    {
+                // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifsulut', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("Sheet1")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            foreach($sheet as $row){
+                if($numrow > 1){
+                    $ket1 = trim($row['A']);
+                    array_push($data, array(
+                        'ket'      => $ket1,
+                        'pagu'      => preg_replace("/[^0-9]/", "", $row['B']),
+                        'realisasi'      => preg_replace("/[^0-9]/", "", $row['C']),
+                        'sisa'      => preg_replace("/[^0-9]/", "", $row['D']),
+
+                    ));
+                    
+                }
+                $numrow++;
+            }
+            $this->db->truncate('realisasi_sulut');
+            $this->db->insert_batch('realisasi_sulut', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifsulut', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+        }
+    }
+
+    public function uploadRealisasiSumbar()
+    {
+                // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifsumbar', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data(); 
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("Sheet1")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            foreach($sheet as $row){
+                if($numrow > 1){
+                    $ket1 = trim($row['A']);
+                    array_push($data, array(
+                        'ket'      => $ket1,
+                        'pagu'      => preg_replace("/[^0-9]/", "", $row['B']),
+                        'realisasi'      => preg_replace("/[^0-9]/", "", $row['C']),
+                        'sisa'      => preg_replace("/[^0-9]/", "", $row['D']),
+                        '%'      => preg_replace("/[^0-9]/", "", $row['D'])
+
+                    ));
+                    
+                }
+                $numrow++;
+            }
+            $this->db->truncate('realisasi_sumbar');
+            $this->db->insert_batch('realisasi_sumbar', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifsumbar', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+        }
+    }
+
+
+
+
+
 
     function rti($s) {
         $romans = array(
