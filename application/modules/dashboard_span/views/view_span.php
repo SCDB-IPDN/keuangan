@@ -14,14 +14,14 @@
       <!-- Default box -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
+          <h3 class="box-title"><b>Laporan Progress Realisasi Anggaran IPDN Tahun 2020 Berdasarkan (SAS)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
             <div class="col-lg-12">
               <div class="col-md-8 col-md-offset-1 aboutshift">
                 <div class="table-responsive">
-                  <p class="text-center">Rekapitulasi Alokasi Pagu Per Biro</p>
+                  <p class="text-center">Rekapitulasi Alokasi Pagu Per Kampus</p>
                   <div id="graph"></div>
                 </div>
               </div>
@@ -35,17 +35,26 @@
                     <tr>
                       <th class="v-center">No</th>
                       <th class="v-center">Detail</th>
-                      <th class="v-center">Alias</th>
-                      <th class="v-center">Biro</th>
+                      <th class="v-center">Kampus</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
-                      <th class="v-center">Pengembalian</th>
                       <th class="v-center">Sisa Pagu</th>
                       <th class="v-center">Persentase</th>
                     </tr>
                   </thead>
                   <tbody>
                   </tbody>
+                  <tfoot>
+                    <tr>
+                      <th class="v-center"></th>
+                      <th class="v-center"></th>
+                      <th class="v-center">JUMLAH</th>
+                      <th class="v-center"><?php echo $pagu ?></th>
+                      <th class="v-center"><?php echo $realisasi ?></th>
+                      <th class="v-center"><?php echo $sisa_pagu ?></th>
+                      <th class="v-center"><?php echo $persentase ?>%</th>
+                    </tr>
+                  </tfoot>
                 </table>
                 <div class="modal-footer"></div>
               </div>
@@ -68,7 +77,7 @@
       Morris.Bar({
         element: 'graph',
         data: <?php echo $data;?>,
-        xkey: 'Alias',
+        xkey: 'Kampus',
         ykeys: ['Pagu', 'Realisasi'],
         labels: ['Pagu', 'Realisasi', 'Persentase']
       });
@@ -93,7 +102,7 @@
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
             ],
-            "ajax": url+"pusat/pusat_page",
+            "ajax": url+"dashboard/dashboard_page",
             "sPaginationType": "full_numbers",
             "language": {
               "search": "_INPUT_", 
@@ -105,7 +114,7 @@
                   "last": '<i class="fa fa-angle-double-right"></i>'
               }
             }, 
-            "iDisplayLength": 5,
+            "iDisplayLength": 10,
             "aLengthMenu": [[10, 25, 50, 100,500,-1], [10, 25, 50,100,500,"All"]]
         });
       });
