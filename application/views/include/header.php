@@ -95,6 +95,16 @@
                 <li class="<?=($this->router->method==="dashboard")?"active":"not-active"?>">
                   <a href="<?php echo base_url("dashboard"); ?>"><i class="fa fa-bar-chart"></i> <span>Dashboard</span></a>
                 </li>
+                <li class="<?=($this->router->method==="dashboard")?"active":"not-active"?>">
+                  <a href="<?php echo base_url("dashboard_pok"); ?>"><i class="fa fa-bar-chart"></i> <span>Dashboard POK</span></a>
+                </li>
+                <li class="<?=($this->router->method==="dashboard_sas")?"active":"not-active"?>"> 
+                <a href="<?php echo base_url('dashboard_sas');?>"> <i class="fa fa-bar-chart"></i> <span>Dashboard SAS</span></a>
+                </li>          
+                <li class="<?=($this->router->method==="dashboard_span")?"active":"not-active"?>"> 
+                <a href="<?php echo base_url('dashboard_span');?>"> <i class="fa fa-bar-chart"></i> <span>Dashboard SPAN</span></a>
+                </li>
+                <?php $this->load->view("include/menu");?> 
                 <li class="<?=($this->router->method==="profile")?"active":"not-active"?>"> 
                 <a href="<?php echo base_url('user/profile');?>"> <i class="fa fa-user"></i> <span>Profile</span></a>
                 </li>          
