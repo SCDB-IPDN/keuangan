@@ -14,7 +14,7 @@
       <!-- Default box -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Laporan Progress Realisasi Anggaran IPDN Tahun 2020 Berdasarkan (POK)</b></h3>
+          <h3 class="box-title"><b>Laporan Progress Realisasi Anggaran IPDN Tahun 2020 Berdasarkan (SAS)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
