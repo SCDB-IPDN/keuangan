@@ -19,12 +19,12 @@
         <div class="box-body">
           <div class="row">
             <div class="col-lg-12">
-              <div class="col-md-8 col-md-offset-1 aboutshift">
+              <!-- <div class="col-md-8 col-md-offset-1 aboutshift"> -->
                 <div class="table-responsive">
                   <p class="text-center">Rekapitulasi Alokasi Pagu Per Kampus</p>
-                  <div id="graph"></div>
+                  <div id="graph" style="min-height: 500px;"></div>
                 </div>
-              </div>
+              <!-- </div> -->
             </div>
           </div>
           <br>
@@ -72,17 +72,6 @@
     <script src="<?php echo base_url().'assets/js/jquery.min.js'?>"></script>
     <script src="<?php echo base_url().'assets/js/raphael-min.js'?>"></script>
     <script src="<?php echo base_url().'assets/js/morris.min.js'?>"></script>
-              
-    <script>
-      Morris.Bar({
-        element: 'graph',
-        data: <?php echo $data;?>,
-        xkey: 'Kampus',
-        ykeys: ['Pagu', 'Realisasi'],
-        labels: ['Pagu', 'Realisasi', 'Persentase']
-      });
-    </script>
-
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
@@ -97,25 +86,36 @@
     <script type="text/javascript">
       $(document).ready(function() {  
         var url = '<?php echo base_url();?>';//$('.content-header').attr('rel');
-        var table = $('#example').DataTable({ 
-              dom: 'lfBrtip',
-            buttons: [
-                'copy', 'excel', 'pdf', 'print'
-            ],
-            "ajax": url+"dashboard/dashboard_page",
-            "sPaginationType": "full_numbers",
-            "language": {
-              "search": "_INPUT_", 
-              "searchPlaceholder": "Search",
-              "paginate": {
-                  "next": '<i class="fa fa-angle-right"></i>',
-                  "previous": '<i class="fa fa-angle-left"></i>',
-                  "first": '<i class="fa fa-angle-double-left"></i>',
-                  "last": '<i class="fa fa-angle-double-right"></i>'
-              }
-            }, 
-            "iDisplayLength": 10,
-            "aLengthMenu": [[10, 25, 50, 100,500,-1], [10, 25, 50,100,500,"All"]]
+
+        $('#example').DataTable({
+          dom: 'lfBrtip',
+          buttons: [
+              'copy', 'excel', 'pdf', 'print'
+          ], 
+          ajax: url+'dashboard_pok/dashboard_page',
+          iDisplayLength: 25,
+          aLengthMenu: [[25, 50, 100,500,-1], [25, 50,100,500,"All"]]
         });
+
+        barChart();
+
+        $(window).resize(function() {
+          window.barChart.redraw();
+        });
+
       });
+
+      function barChart() {
+        Morris.Bar({
+          element: 'graph',
+          data: <?php echo $data;?>,
+          xkey: 'Kampus',
+          ykeys: ['Pagu', 'Realisasi'],
+          labels: ['Pagu', 'Realisasi', 'Persentase'],
+          xLabelAngle: 15,
+          lineWidth: '3px',
+          resize: true,
+          redraw: true
+        });
+      }
     </script>
