@@ -436,7 +436,7 @@ class Uploads extends CI_Controller {
                 // echo $shit."<br>";
                 $es = explode(".", $shit);
 
-                if (is_numeric($es[0]) || ($shit == "PASCA") || (($shit == "PROFESI"))) {
+                if ((is_numeric($es[0]) || ($shit == "PASCA") || ($shit == "PROFESI")) && !(strpos(strtolower($shit), 'edit'))) {
                     echo "<br><br>=============================<br><br>";
                     echo $shit."<br>";
 

@@ -28,7 +28,7 @@
             </div>
           </div>
           <br>
-          <p><b>Data Per Tanggal : <?php echo $tanggal ?></b></p>
+          <!-- <p><b>Data Per Tanggal : <?php echo $tanggal ?></b></p> -->
           <div class="table-responsive">
                 <table id="example" class="cell-border example table table-striped table1 delSelTable" style="width:100%">
                   <thead>
@@ -43,6 +43,24 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td class="v-center">1</td>
+                      <td class="v-center">123</td>
+                      <td class="v-center">123</td>
+                      <td class="v-center">1233123</td>
+                      <td class="v-center">23442</td>
+                      <td class="v-center">23452345</td>
+                      <td class="v-center">23</td>
+                    </tr>
+                    <tr>
+                      <td class="v-center">1</td>
+                      <td class="v-center">123</td>
+                      <td class="v-center">123</td>
+                      <td class="v-center">1233123</td>
+                      <td class="v-center">23442</td>
+                      <td class="v-center">23452345</td>
+                      <td class="v-center">23</td>
+                    </tr>
                   </tbody>
                   <tfoot>
                     <tr>
@@ -91,8 +109,7 @@
           dom: 'lfBrtip',
           buttons: [
               'copy', 'excel', 'pdf', 'print'
-          ], 
-          ajax: url+'dashboard_pok/dashboard_page',
+          ],
           iDisplayLength: 25,
           aLengthMenu: [[25, 50, 100,500,-1], [25, 50,100,500,"All"]]
         });
@@ -109,9 +126,9 @@
         Morris.Bar({
           element: 'graph',
           data: <?php echo $data;?>,
-          xkey: 'Kampus',
-          ykeys: ['Pagu', 'Realisasi'],
-          labels: ['Pagu', 'Realisasi', 'Persentase'],
+          xkey: 'nama',
+          ykeys: ['pagu', 'realisasi'],
+          labels: ['Pagu', 'Realisasi'],
           xLabelAngle: 15,
           lineWidth: '3px',
           resize: true,
