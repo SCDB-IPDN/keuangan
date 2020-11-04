@@ -35,11 +35,11 @@ class Pusat extends CI_Controller{
 
           $pusats = $this->pusat_model->get_all_pusat();
           
-		$data = array();
-		$no = 0;
+    $data = array();
+    $no = 0;
 
           foreach($pusats->result() as $r) {
-			$no++;
+      $no++;
                $Pagu = number_format($r->total_pagu);
                $Realisasi = number_format($r->total_realisasi);
                // $Pengembalian = number_format($r->Pengembalian);
