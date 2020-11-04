@@ -7,7 +7,7 @@ $query_builder = TRUE;
 $hostname ="localhost";
 $username ="root";
 $password ="";
-$database ="ipdnacid_portal_db";
+$database ="portal_db";
 
 // $hostname ="localhost";
 // $username ="root";

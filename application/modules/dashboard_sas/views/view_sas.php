@@ -35,7 +35,7 @@
                     <tr>
                       <th class="v-center">No</th>
                       <th class="v-center">Detail</th>
-                      <th class="v-center">Kampus Daerah</th>
+                      <th class="v-center">Kampus</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
                       <th class="v-center">Sisa Pagu</th>
@@ -77,7 +77,7 @@
       Morris.Bar({
         element: 'graph',
         data: <?php echo $data;?>,
-        xkey: 'Kampus Daerah',
+        xkey: 'Kampus',
         ykeys: ['Pagu', 'Realisasi'],
         labels: ['Pagu', 'Realisasi', 'Persentase']
       });
@@ -114,7 +114,7 @@
                   "last": '<i class="fa fa-angle-double-right"></i>'
               }
             }, 
-            "iDisplayLength": 8,
+            "iDisplayLength": 10,
             "aLengthMenu": [[10, 25, 50, 100,500,-1], [10, 25, 50,100,500,"All"]]
         });
       });

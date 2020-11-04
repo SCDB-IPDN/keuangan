@@ -28,8 +28,8 @@
             </div>
           </div>
           <br>
-          <!-- <p><b>Data Per Tanggal : <?php echo $tanggal ?></b></p> -->
-          <!-- <div class="table-responsive">
+          <p><b>Data Per Tanggal : <?php echo $tanggal ?></b></p> -->
+          <div class="table-responsive">
                 <table id="example" class="cell-border example table table-striped table1 delSelTable" style="width:100%">
                   <thead>
                     <tr>
@@ -58,7 +58,7 @@
                 </table>
                 <div class="modal-footer"></div>
               </div>
-        </div> -->
+        </div>
       </div>
       <!-- /.box-body -->
     </div>
