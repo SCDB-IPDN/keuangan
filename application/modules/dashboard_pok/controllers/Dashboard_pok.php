@@ -7,15 +7,20 @@ class Dashboard_pok extends CI_Controller{
       $this->load->model('pok_model');
     }
 
-    function index(){
-      $data = $this->pok_model->get_all_dashboard()->result();
-      $keuangan = $this->pok_model->jumlah_pagu()->result();
+    function index($id = NULL){
+      if ($id == NULL) {
+        // $x['title'] = 'Parent';
+        $data = $this->pok_model->get_all_dashboard()->result();
+        $keuangan = $this->pok_model->jumlah_pagu()->result();
 
-      $hitung= $keuangan[0]->realisasi/$keuangan[0]->pagu*100;
-      $persentase = round($hitung,2);
+        $hitung= $keuangan[0]->realisasi/$keuangan[0]->pagu*100;
+        $persentase = round($hitung,2);
 
-      $tanggal = $this->pok_model->get_tanggal()->result();
-      $hasil_tgl = date('d F Y', strtotime($tanggal[0]->created_date));
+        $tanggal = $this->pok_model->get_tanggal()->result();
+        $hasil_tgl = date('d F Y', strtotime($tanggal[0]->created_date));
+      } else {
+        $x['title'] = $id;
+      }
 
       if($hasil_tgl == '01 January 1970'){
           $hasil_tanggal = '--------';
@@ -54,11 +59,12 @@ class Dashboard_pok extends CI_Controller{
                $Realisasi = number_format($r->Realisasi);
                $Pengembalian = number_format($r->Pengembalian);
                $Sisa_Pagu = number_format($r->Sisa_Pagu);
-               if($r->link == 'pusat'){
-                    $link = "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>";
-               }else{
-                    $link = "";
-               }
+               // if($r->link == 'pusat'){
+               //      $link = "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>";
+               // }else{
+               //      $link = "";
+               // }
+               $link = "<a href='dashboard_pok/det/$r->link' class='btn btn-primary mr-1'>DETAIL</a>";
                $target = 100/12*date('n');
                $real = str_replace("%", "", $r->Persentase);
                if ($target >= $real) {

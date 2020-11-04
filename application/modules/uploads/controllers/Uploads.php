@@ -379,6 +379,16 @@ class Uploads extends CI_Controller {
 
     public function uploadNext()
     {
+        // satker kampus
+        // 448302 IPDN KAMPUS JATINANGOR
+        // 352593 IPDN KAMPUS JAKARTA
+        // 677010 IPDN KAMPUS SULAWESI UTARA
+        // 677024 IPDN KAMPUS SULAWESI SELATAN
+        // 677045 IPDN KAMPUS SUMATERA BARAT
+        // 683070 IPDN KAMPUS KALIMANTAN BARAT
+        // 683084 IPDN KAMPUS NUSA TENGGARA BARAT
+        // 683091 IPDN KAMPUS PAPUA
+
         // Load plugin PHPExcel nya
         include APPPATH.'third_party/PHPExcel/PHPExcel.php';
 
@@ -517,7 +527,7 @@ class Uploads extends CI_Controller {
                         if ($row['A'] == NULL) {
                             $nullcc++;
                             if ($nullcc == 6) {
-                                $stop = true;    
+                                $stop = true;
                             }
                         } else if (is_numeric($row['A']) && strlen($row['B']) > 3) {
                             // harusnya konten, bukan header table
@@ -527,8 +537,8 @@ class Uploads extends CI_Controller {
                             echo $id_u."=".$row['B']."<br>";
                             // echo "INSERT INTO unit values (".$id_u.", ".$id_b.", '".$row['B']."')";
                             array_push($unitList, array(
-                                'id'    =>  $id_u , // 301, 411, 103, ...
-                                'id_b'  =>  $id_b,  // 101, 102, 103, 104, ...
+                                'id'    =>  $id_u , // 301, 411, 103, ... id unit
+                                'id_b'  =>  $id_b,  // 101, 102, 103, 104, ... id biro
                                 'nama'  =>  $row['B'] // LAB, TU BIRO
                             ));
                             echo "<br>";
@@ -546,15 +556,15 @@ class Uploads extends CI_Controller {
                     echo "<br>";
 
                     // setting table unit kalo belum ada isinya
-                    $this->db->truncate('unit_pok');
+                    // $this->db->truncate('unit_pok');
                     $this->db->insert_batch('unit_pok', $unitList);
                 }
             }
             echo "<br>";
-            var_dump($data);
-            exit();
+            // var_dump($data);
+            // exit();
 
-            $this->db->truncate('out_pok');
+            // $this->db->truncate('out_pok');
             $this->db->insert_batch('out_pok', $data);
             //delete file from server
             unlink(realpath('excel/'.$data_upload['file_name']));
