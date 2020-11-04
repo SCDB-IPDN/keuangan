@@ -14,7 +14,7 @@
       <!-- Default box -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Laporan Progress Realisasi Anggaran IPDN Tahun 2020 Berdasarkan (POK) <?= $title ?> </b></h3>
+          <h3 class="box-title"><b>Laporan Progress Realisasi Anggaran IPDN Tahun 2020 Berdasarkan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
@@ -43,24 +43,24 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="v-center">1</td>
-                      <td class="v-center">123</td>
-                      <td class="v-center">123</td>
-                      <td class="v-center">1233123</td>
-                      <td class="v-center">23442</td>
-                      <td class="v-center">23452345</td>
-                      <td class="v-center">23</td>
-                    </tr>
-                    <tr>
-                      <td class="v-center">1</td>
-                      <td class="v-center">123</td>
-                      <td class="v-center">123</td>
-                      <td class="v-center">1233123</td>
-                      <td class="v-center">23442</td>
-                      <td class="v-center">23452345</td>
-                      <td class="v-center">23</td>
-                    </tr>
+                    <?php $no = 1; ?>
+                    <?php foreach (json_decode($data, true) as $x): ?>
+                      <tr>
+                        <td class="v-center"><?php echo $no++; ?></td>
+                        <?php if ($x['slug'] != NULL) { ?>
+                          <td class="v-center"><a href='<?= '/dashboard_pok/det/'.$x['slug'] ?>' class='btn btn-primary mr-1'>DETAIL</a></td>
+                        <?php } elseif ($x['idx'] != NULL){ ?>
+                          <td class="v-center"><a href='<?= '/dashboard_pok/det/'.$x['idx'] ?>' class='btn btn-primary mr-1'>DETAIL</a></td>
+                        <?php } else { ?>
+                          <td class="v-center"></td>
+                        <?php } ?>
+                        <td class="v-center"><?= $x['nama']; ?></td>
+                        <td class="v-center"><?= number_format($x['pagu'], 0, ',', '.'); ?></td>
+                        <td class="v-center"><?= number_format($x['realisasi'], 0, ',', '.'); ?></td>
+                        <td class="v-center"><?= number_format($x['pagu']-$x['realisasi'], 0, ',', '.'); ?></td>
+                        <td class="v-center"><?= round((100/$x['pagu']*$x['realisasi']), 2)."%"; ?></td>
+                      </tr>
+                    <?php endforeach; ?>
                   </tbody>
                   <tfoot>
                     <tr>

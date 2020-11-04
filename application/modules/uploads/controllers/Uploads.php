@@ -482,7 +482,7 @@ class Uploads extends CI_Controller {
                                     echo $row['A']." ".str_replace("_x000D_", "",$row['B'])." ".preg_replace("/[^0-9]/", "", $row['C'])." ".preg_replace("/[^0-9]/", "", $row['D'])." ".preg_replace("/[^0-9]/", "", $row['E'])."<br>";
                                     array_push($data, array(
                                         'id_u'      => $unit,
-                                        'nama'      => str_replace("_x000D_", "",$row['B']),
+                                        'nama'      => str_replace("[Base Line]", "", str_replace("_x000D_", "",$row['B'])),
                                         'pagu'      => preg_replace("/[^0-9]/", "", $row['C']),
                                         'realisasi' => preg_replace("/[^0-9]/", "", $row['D']),
                                         'kembali'   => preg_replace("/[^0-9]/", "", $row['E']),
@@ -557,7 +557,9 @@ class Uploads extends CI_Controller {
 
                     // setting table unit kalo belum ada isinya
                     // $this->db->truncate('unit_pok');
-                    $this->db->insert_batch('unit_pok', $unitList);
+
+                    // untuk unit_pok yang kosong
+                    // $this->db->insert_batch('unit_pok', $unitList);
                 }
             }
             echo "<br>";
