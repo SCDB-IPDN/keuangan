@@ -35,18 +35,22 @@ class Pusat extends CI_Controller{
 
           $pusats = $this->pusat_model->get_all_pusat();
           
-		$data = array();
-		$no = 0;
+    $data = array();
+    $no = 0;
 
           foreach($pusats->result() as $r) {
-			$no++;
+      $no++;
                $Pagu = number_format($r->total_pagu);
                $Realisasi = number_format($r->total_realisasi);
                // $Pengembalian = number_format($r->Pengembalian);
                // $Sisa_Pagu = number_format($r->Sisa_Pagu);
                $data[] = array(
                     $no,
-                    $link = '<a class="btn btn-primary" > Detail</a>',
+                    $link = '<button class="favorite styled"
+                    type="button">
+                    Detail
+                    </button>
+                    ',
                     // $r->Alias,
                     $r->ket,
                     $Pagu,
