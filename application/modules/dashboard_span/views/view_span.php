@@ -46,13 +46,7 @@
                     <?php foreach (json_decode($data, true) as $x): ?>
                       <tr>
                         <td class="v-center"><?php echo $no++; ?></td>
-                        <?php if ($x['slug'] != NULL) { ?>
-                          <td class="v-center"><a href='<?= '/dashboard_pok/det/'.$x['slug'] ?>' class='btn btn-primary mr-1'>DETAIL</a></td>
-                        <?php } elseif ($x['idx'] != NULL){ ?>
-                          <td class="v-center"><a href='<?= '/dashboard_pok/det/'.$x['idx'] ?>' class='btn btn-primary mr-1'>DETAIL</a></td>
-                        <?php } else { ?>
-                          <td class="v-center"></td>
-                        <?php } ?>
+                        <td class="v-center"><?= $x['kode_satker']; ?></td>
                         <td class="v-center"><?= $x['nama_satker']; ?></td>
                         <td class="v-center"><?= number_format($x['pagu_t'], 0, ',', '.'); ?></td>
                         <td class="v-center"><?= number_format($x['realisasi_t'], 0, ',', '.'); ?></td>
