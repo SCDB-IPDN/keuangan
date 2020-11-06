@@ -1,7 +1,7 @@
 <?php
 class span_model extends CI_Model{
 
-  public function get_all_dashboard()
+  public function get_all_span()
 	{	
 		$result = $this->db->query("SELECT * FROM tbl_span ORDER BY created_date DESC limit 8");
         

@@ -33,12 +33,12 @@
                   <thead>
                     <tr>
                       <th class="v-center">No</th>
-                      <th class="v-center">Detail</th>
+                      <th class="v-center">Kode Satker</th>
                       <th class="v-center">Kampus</th>
-                      <th class="v-center">Pagu</th>
-                      <th class="v-center">Realiasasi</th>
+                      <th class="v-center">Pagu Total</th>
+                      <th class="v-center">Realiasasi Total</th>
                       <th class="v-center">Sisa Pagu</th>
-                      <th class="v-center">Persentase</th>
+                      <th class="v-center">Persentase Total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -46,11 +46,19 @@
                     <?php foreach (json_decode($data, true) as $x): ?>
                       <tr>
                         <td class="v-center"><?php echo $no++; ?></td>
-                        <td class="v-center"><?= $x['nama']; ?></td>
-                        <td class="v-center"><?= number_format($x['pagu'], 0, ',', '.'); ?></td>
-                        <td class="v-center"><?= number_format($x['realisasi'], 0, ',', '.'); ?></td>
-                        <td class="v-center"><?= number_format($x['pagu']-$x['realisasi'], 0, ',', '.'); ?></td>
-                        <td class="v-center"><?= round((100/$x['pagu']*$x['realisasi']), 2)."%"; ?></td>
+                        <?php if ($x['slug'] != NULL) { ?>
+                          <td class="v-center"><a href='<?= '/dashboard_pok/det/'.$x['slug'] ?>' class='btn btn-primary mr-1'>DETAIL</a></td>
+                        <?php } elseif ($x['idx'] != NULL){ ?>
+                          <td class="v-center"><a href='<?= '/dashboard_pok/det/'.$x['idx'] ?>' class='btn btn-primary mr-1'>DETAIL</a></td>
+                        <?php } else { ?>
+                          <td class="v-center"></td>
+                        <?php } ?>
+                        <td class="v-center"><?= $x['nama_satker']; ?></td>
+                        <td class="v-center"><?= number_format($x['pagu_t'], 0, ',', '.'); ?></td>
+                        <td class="v-center"><?= number_format($x['realisasi_t'], 0, ',', '.'); ?></td>
+                        <td class="v-center"><?= number_format($x['pagu_t']-$x['realisasi_t'], 0, ',', '.'); ?></td>
+                        <td class="v-center"><?= round((100/$x['pagu_t']*$x['realisasi_t']), 2)."%"; ?></td>
+                        
                       </tr>
                     <?php endforeach; ?>
                   </tbody>
@@ -61,7 +69,7 @@
                       <th class="v-center">JUMLAH</th>
                       <th class="v-center"><?php echo $pagu ?></th>
                       <th class="v-center"><?php echo $realisasi ?></th>
-                      <th class="v-center"><?php echo $sisa_pagu ?></th>
+                      <th class="v-center"><?php echo $sisa ?></th>
                       <th class="v-center"><?php echo $persentase ?>%</th>
                     </tr>
                   </tfoot>
@@ -103,7 +111,7 @@
               'copy', 'excel', 'pdf', 'print'
           ],
           iDisplayLength: 25,
-          aLengthMenu: [[25, 50, 100,500,-1], [25, 50,100,500,"All"]]
+          aLengthMenu: [[25, 23, 100,500,-1], [25, 50,100,500,"All"]]
         });
 
         barChart();
@@ -118,11 +126,11 @@
         Morris.Bar({
           element: 'graph',
           data: <?php echo $data;?>,
-          xkey: 'span',
-          ykeys: ['pagu_total', 'realisasi_total'],
-          labels: ['Pagu_total', 'Realisasi_total', 'persentase_total'],
-          xLabelAngle: 15,
-          lineWidth: '3px',
+          xkey: 'nama_satker',
+          ykeys: ['pagu_t', 'realisasi_t', 'sisa', 'persentase_t'],
+          labels: ['Pagu', 'Realisasi', 'Sisa', 'Persentase'],
+          xLabelMargin: 2,
+          padding: 10,
           resize: true,
           redraw: true
         });
