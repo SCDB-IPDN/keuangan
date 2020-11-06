@@ -22,7 +22,11 @@ class Dashboard_pok extends CI_Controller{
         // $hasil_tgl = date('d F Y', strtotime($tanggal[0]->created_date));
       } else {
         $x['title'] = $id;
-        $data = $this->pok_model->get_unit_data($id)->result();
+        if (is_numeric($id)) {
+          $data = $this->pok_model->get_out_data($id)->result();
+        } else {
+          $data = $this->pok_model->get_unit_data($id)->result();
+        }
       }
 
       // if($hasil_tgl == '01 January 1970'){
@@ -43,55 +47,4 @@ class Dashboard_pok extends CI_Controller{
       $this->load->view("view_pok",$x);
       $this->load->view("include/footer");
     }
-
-    public function dashboard_page()
-     {
-          // Datatables Variables
-          $draw = intval($this->input->get("draw"));
-          $start = intval($this->input->get("start"));
-          $length = intval($this->input->get("length"));
-
-          $dashboards = $this->pok_model->get_all_dashboard();
-          
-		$data = array();
-		$no = 0;
-
-          foreach($dashboards->result() as $r) {
-			$no++;
-               $Pagu = number_format($r->Pagu);
-               $Realisasi = number_format($r->Realisasi);
-               $Pengembalian = number_format($r->Pengembalian);
-               $Sisa_Pagu = number_format($r->Sisa_Pagu);
-               // if($r->link == 'pusat'){
-               //      $link = "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>";
-               // }else{
-               //      $link = "";
-               // }
-               $link = "<a href='dashboard_pok/det/$r->link' class='btn btn-primary mr-1'>DETAIL</a>";
-               $target = 100/12*date('n');
-               $real = str_replace("%", "", $r->Persentase);
-               if ($target >= $real) {
-                $per = "<mark>$r->Persentase</mark>";
-               } else {
-                $per = $r->Persentase;
-               }
-               $data[] = array(
-                    $no,
-                    $link,
-                    $r->Kampus,
-                    $Pagu,
-                    $Realisasi,
-                    $Sisa_Pagu,
-                    $per
-               );
-          }
-          
-          $output = array(
-                 "draw" => $draw,
-                 "recordsTotal" => $dashboards->num_rows(),
-                 "recordsFiltered" => $dashboards->num_rows(),
-                 "data" => $data
-            );
-          echo json_encode($output);
-     }
 }
