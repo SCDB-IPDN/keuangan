@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Nov 2020 pada 08.16
+-- Waktu pembuatan: 09 Nov 2020 pada 10.04
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -2783,9 +2783,9 @@ INSERT INTO `tbl_span` (`id_span`, `kode_satker`, `nama_satker`, `pagu_bp`, `rea
 --
 
 CREATE TABLE `tbl_span_biro` (
-  `id_span_biro` int(11) NOT NULL,
-  `kode_satker_biro` varchar(150) NOT NULL,
-  `nama_satker_biro` varchar(150) NOT NULL,
+  `id_span` int(11) NOT NULL,
+  `kode_satker` varchar(150) NOT NULL,
+  `nama_satker` varchar(150) NOT NULL,
   `pagu_bp` varchar(150) NOT NULL,
   `realisasi_bp` varchar(150) NOT NULL,
   `persentase_bp` varchar(150) NOT NULL,
@@ -2806,7 +2806,7 @@ CREATE TABLE `tbl_span_biro` (
 -- Dumping data untuk tabel `tbl_span_biro`
 --
 
-INSERT INTO `tbl_span_biro` (`id_span_biro`, `kode_satker_biro`, `nama_satker_biro`, `pagu_bp`, `realisasi_bp`, `persentase_bp`, `pagu_bb`, `realisasi_bb`, `persentase_bb`, `pagu_bm`, `realisasi_bm`, `persentase_bm`, `pagu_t`, `realisasi_t`, `persentase_t`, `sisa`, `tgl`) VALUES
+INSERT INTO `tbl_span_biro` (`id_span`, `kode_satker`, `nama_satker`, `pagu_bp`, `realisasi_bp`, `persentase_bp`, `pagu_bb`, `realisasi_bb`, `persentase_bb`, `pagu_bm`, `realisasi_bm`, `persentase_bm`, `pagu_t`, `realisasi_t`, `persentase_t`, `sisa`, `tgl`) VALUES
 (1, '1286', 'Penyelenggaraan Administrasi Kerjasama dan Hukum', '0', '0', '0,00%', '2030457000', '1756528114', '86,51%', '0', '0', '0,00%', '2030457000', '1756528114', '86,51%', '273928886', '2020-11-04'),
 (2, '1292', 'Penyelenggaraan Administrasi Akademik dan Perencanaan Pendidikan Kepamongprajaan', '0', '0', '0,00%', '28215394000', '18849927193', '66,81%', '180000000', '178000000', '98,89%', '28395394000', '19027927193', '67,01%', ' 9367466807', '2020-11-04'),
 (3, '1293', 'Penyelenggaraan Administrasi Keprajaan dan Kemahasiswaan\r\n', '0', '0', '0,00%', '16147517000 \r\n', '13347590682 \r\n', '82,66%\r\n', '0', '0', '0,00%', '16147517000 \r\n', '13347590682 \r\n', '82,66%\r\n', '2799926318 \r\n', '2020-11-04'),
@@ -3143,7 +3143,7 @@ ALTER TABLE `tbl_span`
 -- Indeks untuk tabel `tbl_span_biro`
 --
 ALTER TABLE `tbl_span_biro`
-  ADD PRIMARY KEY (`id_span_biro`);
+  ADD PRIMARY KEY (`id_span`);
 
 --
 -- Indeks untuk tabel `templates`
@@ -3345,7 +3345,7 @@ ALTER TABLE `tbl_span`
 -- AUTO_INCREMENT untuk tabel `tbl_span_biro`
 --
 ALTER TABLE `tbl_span_biro`
-  MODIFY `id_span_biro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_span` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `templates`
