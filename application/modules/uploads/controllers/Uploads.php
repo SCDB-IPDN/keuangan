@@ -942,33 +942,26 @@ class Uploads extends CI_Controller {
                 if($numrow > 10){
                     if($row['A'] != NULL && $row['A'] != 0){
                         array_push($data, array(
-                            'No' => $row['A'],
+                            'Id' => $row['A'],
                             'kode_satker'      => $row['B'],
-                            'Pagu_bp'      => preg_replace("/[^0-9]/", "", $row['C']),
-                            'realisasi_bp'      => preg_replace("/[^0-9]/", "", $row['D']),
-                            'presentase_bp'      => preg_replace("/[^0-9]/", "", $row['E']),
-                            'pagu_bb'      => preg_replace("/[^0-9]/", "", $row['F']),
-                            'realisasi_bb'   => preg_replace("/[^0-9]/", "", $row['G']),
-                            'presentase_bb'   => preg_replace("/[^0-9]/", "", $row['H']),
-                            'pagu_bm'   => preg_replace("/[^0-9]/", "", $row['I']),
-                            'realisasi_bm'   => preg_replace("/[^0-9]/", "", $row['J']),
-                            'presentase_bm'   => preg_replace("/[^0-9]/", "", $row['K']),
-                            'pagu_t'   => preg_replace("/[^0-9]/", "", $row['L']),
-                            'realisasi_r'   => preg_replace("/[^0-9]/", "", $row['M']),
-                            'sisa'   => $row['N'],
+                            'nama_satker'      => preg_replace("/[^0-9]/", "", $row['C']),
+                            'Pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
+                            'Realisasi'      => preg_replace("/[^0-9]/", "", $row['E']),
+                            'Presentase'      => preg_replace("/[^0-9]/", "", $row['F']),
+                            'Sisa'   => $row['N'],
                             
                         ));
                     }
                 }
                 $numrow++;
             }
-            $this->db->truncate('keuanganbiro4');
-            $this->db->insert_batch('keuanganbiro4', $data);
+            $this->db->truncate('tbl_span');
+            $this->db->insert_batch('tbl_span', $data);
             //delete file from server
             unlink(realpath('excel/'.$data_upload['file_name']));
 
             //upload success
-            $this->session->set_flashdata('notifbiroIV', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            $this->session->set_flashdata('notiftblspan', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
             //redirect halaman
             redirect('uploads/');
 

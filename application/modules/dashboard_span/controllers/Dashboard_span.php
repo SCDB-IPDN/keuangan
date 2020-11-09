@@ -7,19 +7,17 @@ class Dashboard_span extends CI_Controller{
       $this->load->model('span_model');
     }
 
-    function index(){
-      $data = $this->span_model->get_all_span()->result();
-      $tanggal = $this->span_model->get_tanggal()->result();
-      $hasil_tgl = date('d F Y', strtotime($tanggal[0]->created_date));
-
-      if($hasil_tgl == '01 January 1970'){
-          $hasil_tanggal = '--------';
-      }else{
-          $hasil_tanggal = $hasil_tgl;
-      }
-
-      $x['data'] = json_encode($data);
-      $x['tanggal'] = $hasil_tanggal;
+    function index($link = NULL){
+     if ($link == NULL) {
+          $x['title'] = "span";
+          $data = $this->span_model->get_all_span()->result();
+          $x['data'] = json_encode($data);
+        } else {
+    
+            $x['title'] = "biro";
+            $data = $this->span_model->get_all_biro($kode)->result();
+            $x['data'] = json_encode($data);
+          }
     
       $this->load->view("include/header");
       $this->load->view("view_span",$x);
@@ -33,7 +31,7 @@ class Dashboard_span extends CI_Controller{
           $start = intval($this->input->get("start"));
           $length = intval($this->input->get("length"));
 
-          $s[] = $this->span_model->get_all_span();
+          $span = $this->span_model->get_all_span();
           
     $data = array();
     $no = 0;

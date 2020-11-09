@@ -33,6 +33,7 @@
                   <thead>
                     <tr>
                       <th class="v-center">No</th>
+                      <th class="v-center">Detail</th>
                       <th class="v-center">Kode Satker</th>
                       <th class="v-center">Kampus</th>
                       <th class="v-center">Pagu Total</th>
@@ -42,17 +43,23 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no = 1; ?>
-                    <?php foreach (json_decode($data, true) as $x): ?>
-                      <tr>
-                        <td class="v-center"><?php echo $no++; ?></td>
+                  <?php $no = 1; ?>
+                <?php foreach (json_decode($data, true) as $x): ?>
+                  <tr>
+                    <td class="v-center"><?php echo $no++; ?></td>
+                    <?php if (isset($x['id_c']))  { ?>
+
+                    <?php } elseif (isset($x['kode_satker'])){ ?>
+                      <td class="v-center"><a href="<?= '/keuangan/dashboard_span/'.$x['kode_satker']; ?>" class='btn btn-primary mr-1'>DETAIL</a></td>
+                    <?php }else{ ?>
+                       <td class="v-center"></td>
+                     <?php } ?>
                         <td class="v-center"><?= $x['kode_satker']; ?></td>
                         <td class="v-center"><?= $x['nama_satker']; ?></td>
                         <td class="v-center"><?= number_format($x['pagu_t'], 0, ',', '.'); ?></td>
                         <td class="v-center"><?= number_format($x['realisasi_t'], 0, ',', '.'); ?></td>
                         <td class="v-center"><?= number_format($x['pagu_t']-$x['realisasi_t'], 0, ',', '.'); ?></td>
                         <td class="v-center"><?= round((100/$x['pagu_t']*$x['realisasi_t']), 2)."%"; ?></td>
-                        
                       </tr>
                     <?php endforeach; ?>
                   </tbody>

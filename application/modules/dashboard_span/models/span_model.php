@@ -3,23 +3,24 @@ class span_model extends CI_Model{
 
   public function get_all_span()
 	{	
-		$result = $this->db->query("SELECT * FROM tbl_span ORDER BY created_date DESC limit 8");
+		$result = $this->db->query("SELECT * FROM tbl_span ORDER BY tgl DESC limit 8");
         
 		return $result;
-  }
+    }
 
-  public function jumlah_pagu()
-	{	
-		$result = $this->db->query("SELECT SUM(Pagu_t) AS pagu_t, SUM(realisasi_t) as realisasi_t, SUM(sisa) as sisa, SUM(persentase_t) as persentase_t FROM tbl_span GROUP BY created_date ORDER BY created_date DESC LIMIT 1");
-        
-		return $result;
+
+  public function get_all_biro($kode)
+  {	
+	$result = $this->db->query("SELECT * FROM tbl_span_biro  WHERE tbl_span_biro = $kode ORDER BY tgl DESC limit 8");
+	  
+	  return $result;
   }
 
   public function get_tanggal()
 	{	
-		$result = $this->db->query("SELECT created_date FROM tbl_span ORDER BY created_date DESC limit 1");
+		$result = $this->db->query("SELECT tgl FROM tbl_span ORDER BY tgl DESC limit 1");
         
 		return $result;
-  }
+    }
   
 }
