@@ -15,7 +15,7 @@ class Dashboard_span extends CI_Controller{
         } else {
     
             $x['title'] = "biro";
-            $data = $this->span_model->get_all_biro($kode)->result();
+            $data = $this->span_model->get_all_biro($link)->result();
             $x['data'] = json_encode($data);
           }
     

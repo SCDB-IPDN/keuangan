@@ -35,7 +35,7 @@
                       <th class="v-center">No</th>
                       <th class="v-center">Detail</th>
                       <th class="v-center">Kode Satker</th>
-                      <th class="v-center">Kampus</th>
+                      <th class="v-center">Nama</th>
                       <th class="v-center">Pagu Total</th>
                       <th class="v-center">Realiasasi Total</th>
                       <th class="v-center">Sisa Pagu</th>
