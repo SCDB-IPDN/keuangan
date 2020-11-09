@@ -749,6 +749,7 @@ class Uploads extends CI_Controller {
             $numrow = 1;
             $cbiro = 1;
             $cunit = 0;
+            $satker_biro = 0;
             $satker_sulsel = 677024;
             $satker = $satker_biro[0];
 
@@ -850,6 +851,7 @@ class Uploads extends CI_Controller {
             $numrow = 1;
             $cbiro = 1;
             $cunit = 0;
+            $satker_biro = 0;
             $satker_kalbar = 683070;
             $satker = $satker_biro[0];
 
@@ -948,6 +950,7 @@ class Uploads extends CI_Controller {
             $numrow = 1;
             $cbiro = 1;
             $cunit = 0;
+            $satker_biro = 0;
             $satker_ntb = 683084;
             $satker = $satker_biro[0];
 
@@ -1046,6 +1049,7 @@ class Uploads extends CI_Controller {
             $numrow = 1;
             $cbiro = 1;
             $cunit = 0;
+            $satker_biro = 0;
             $satker_papua = 683091;
             $satker = $satker_biro[0];
 
@@ -1146,6 +1150,7 @@ class Uploads extends CI_Controller {
             $numrow = 1;
             $cbiro = 1;
             $cunit = 0;
+            $satker_biro = 0;
             $satker_sulut = 677010;
             $satker = $satker_biro[0];
 
@@ -1242,6 +1247,7 @@ class Uploads extends CI_Controller {
             $numrow = 1;
             $cbiro = 1;
             $cunit = 0;
+            $satker_biro = 0;
             $satker_sumbar = 677045;
             $satker = $satker_biro[0];
 
