@@ -676,7 +676,7 @@ class Uploads extends CI_Controller {
                         // // $this->db->truncate($sql1);
                         // $this->db->query($sql1);
 
-                    } elseif ($row['A'] == 5) {
+                    } elseif ($row['A'] ==5) {
                         $coutput++;                        
                         $ket1 = trim($row['AI']);
                         $ket1 = substr($ket1, 4);

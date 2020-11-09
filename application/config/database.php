@@ -4,15 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-// $hostname ="localhost";
-// $username ="root";
-// $password ="";
-// $database ="ipdnacid_portal_db";
-
 $hostname ="localhost";
 $username ="root";
 $password ="";
-$database ="portal_db";
+$database ="ipdnacid_portal_db";
+
+// $hostname ="localhost";
+// $username ="root";
+// $password ="";
+// $database ="portal_db";
 
 $db['default'] = array(
 	'dsn'	=> '',
