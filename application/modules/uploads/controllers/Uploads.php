@@ -577,7 +577,6 @@ class Uploads extends CI_Controller {
             redirect('uploads/');
         }
     }
-
    public function uploadPagu()
     {
         echo "<pre>";
@@ -608,7 +607,6 @@ class Uploads extends CI_Controller {
             $excelreader       = new PHPExcel_Reader_Excel2007();
             $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
             $sheet             = $loadexcel->getSheetByName("pagu ipdn")->toArray(null, true, true ,true);
-
             $dataunit = array();
             $dataoutput = array();
             $numrow = 1;
@@ -695,11 +693,11 @@ class Uploads extends CI_Controller {
 
                     }
                 }
-                
                 $numrow++;
             }
             echo "<br>";
             // var_dump($data);
+
             echo "</pre>";
             // exit();
 
@@ -717,8 +715,6 @@ class Uploads extends CI_Controller {
 
         }
     }
-
-
   public function uploadRealisasiSulsel()
     {
                 // Load plugin PHPExcel nya
@@ -819,7 +815,6 @@ class Uploads extends CI_Controller {
             redirect('uploads/');
         }
     }
-
 
     public function uploadRealisasiKalbar()
     {
@@ -1105,6 +1100,8 @@ class Uploads extends CI_Controller {
             }
             // $this->db->truncate('realisasi_papua');
             // $this->db->insert_batch('realisasi_papua', $data);
+
+
             //delete file from server
             unlink(realpath('excel/'.$data_upload['file_name']));
 
@@ -1197,7 +1194,6 @@ class Uploads extends CI_Controller {
                  echo "<br>";
                  $this->db->query($sql2);
              }
-                    
                 }
                 $numrow++;
             }
@@ -1242,8 +1238,6 @@ class Uploads extends CI_Controller {
             $excelreader       = new PHPExcel_Reader_Excel2007();
             $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
             $sheet             = $loadexcel->getSheetByName("Sheet1")->toArray(null, true, true ,true);
-
-            
             $data = array();
             $numrow = 1;
             $cbiro = 1;
@@ -1303,6 +1297,7 @@ class Uploads extends CI_Controller {
             }
             // $this->db->truncate('realisasi_sumbar');
             // $this->db->insert_batch('realisasi_sumbar', $data);
+
             //delete file from server
             unlink(realpath('excel/'.$data_upload['file_name']));
 
