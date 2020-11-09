@@ -35,7 +35,7 @@
                       <th class="v-center">No</th>
                       <th class="v-center">Detail</th>
                       <th class="v-center">Kode Satker</th>
-                      <th class="v-center">Nama</th>
+                      <th class="v-center"></th>
                       <th class="v-center">Pagu Total</th>
                       <th class="v-center">Realiasasi Total</th>
                       <th class="v-center">Sisa Pagu</th>
@@ -47,11 +47,15 @@
                 <?php foreach (json_decode($data, true) as $x): ?>
                   <tr>
                     <td class="v-center"><?php echo $no++; ?></td>
-                    <?php if (isset($x['id_c']))  { ?>
+                    <?php if (isset($x['']))  { ?>
 
-                    <?php } elseif (isset($x['kode_satker'])){ ?>
-                      <td class="v-center"><a href="<?= '/keuangan/dashboard_span/'.$x['kode_satker']; ?>" class='btn btn-primary mr-1'>DETAIL</a></td>
-                    <?php }else{ ?>
+                    <?php } elseif (isset($x['nama_satker'])){ ?>
+                    <td class="v-center">
+                    <?php if ($x['nama_satker'] == 'IPDN KAMPUS JATINANGOR') {?>
+                    <a href="<?= '/keuangan/dashboard_span/'.$x['nama_satker']; ?>" class='btn btn-primary mr-1'>DETAIL</a></td>
+                    <?php } ?>
+                    </td>
+                    <?php }else{?>
                        <td class="v-center"></td>
                      <?php } ?>
                         <td class="v-center"><?= $x['kode_satker']; ?></td>
