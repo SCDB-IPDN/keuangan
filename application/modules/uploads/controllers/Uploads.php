@@ -69,6 +69,114 @@ class Uploads extends CI_Controller {
 
         }
     }
+    
+    public function uploadPagu()
+    {
+        // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifpagu', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+
+
+            $data_upload = $this->upload->data();
+
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("pagu ipdn")->toArray(null, true, true ,true);
+
+            $data = array();
+            $numrow = 1;
+            $bag = '';
+            foreach($sheet as $row){
+                if($numrow > 1){
+                    if ($row['A'] == 2){
+                      $cunit = 0;
+                      $coutput = 0;
+                        if (strpos($row['AI'], 'Perencanaan')) {
+                            $cbiro = 1;
+                            $id_b = ($cbiro<10)?"10".$cbiro:"1".$cbiro;
+                            echo "ID BIRO : ".$id_b." <br>";
+                        }elseif (strpos($row['AI'], 'Keuangan')) {
+                            $cbiro = 2;
+                            $id_b = ($cbiro<10)?"10".$cbiro:"1".$cbiro;
+                            echo "ID BIRO : ".$id_b." <br>";
+                        }elseif (strpos($row['AI'], 'Alumni')) {
+                            $cbiro = 3;
+                            $id_b = ($cbiro<10)?"10".$cbiro:"1".$cbiro;
+                            echo "ID BIRO : ".$id_b." <br>";
+                        }elseif (strpos($row['AI'], 'Hukum')) {
+                            $cbiro = 4;
+                            $id_b = ($cbiro<10)?"10".$cbiro:"1".$cbiro;
+                            echo "ID BIRO : ".$id_b." <br>";
+                        }
+                        $sql = "INSERT INTO biro values (".$id_b.",'".trim($row['AI'])."')";
+                        // $this->db->truncate($sql);
+                        $this->db->query($sql);
+
+                    } elseif ($row['A'] == 3) {
+                        $cunit++;
+                        $unit = $id_b."<br>".(($cunit<10)?$cbiro."0".$cunit:$cbiro.$cunit).$row['AI']."<br>";
+                        // echo $unit;
+
+                        $id_c = ($cunit<10)?$cbiro."0".$cunit:$cbiro.$cunit;
+                        echo $id_c;
+                        $ket = trim($row['AI']);
+                        $sql1 = "INSERT INTO unit values (".$id_b.",".$id_c.",'".$ket."')";
+                        // $this->db->truncate($sql1);
+                        $this->db->query($sql1);
+
+                    } elseif ($row['A'] == 5) {
+                        $coutput++;
+                        echo $row['AI']."<br>";
+                        $ket1 = trim($row['AI']);
+                        array_push($data, array(
+                            'id_b'      => $id_b,
+                            'id_c'      =>$id_c,
+                            // 'id_u'      => ($cunit<10)?$cbiro."0".$cunit:$cbiro.$cunit,
+                            'pagu'      => preg_replace("/[^0-9]/", "", $row['AB']),
+                            'realisasi' => preg_replace("/[^0-9]/", "", $row['AC']),
+                            'ket'      => $ket1
+                        ));
+                        $this->db->truncate('output');
+                        $this->db->insert_batch('output', $data);
+
+                    }
+                }
+                
+                $numrow++;
+            }
+            echo "<br>";
+            // var_dump($data);
+            exit();
+            $this->db->truncate('pagu');
+            $this->db->insert_batch('pagu', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+            //upload success
+            $this->session->set_flashdata('notifpagu', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        }
+    }
+
 
     public function uploadIPDN()
     {
