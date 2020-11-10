@@ -791,6 +791,80 @@ INSERT INTO `permission` (`id`, `user_type`, `data`) VALUES
 (11, 'kalbar', '{\"users\":{\"own_read\":\"1\"}}'),
 (12, 'ntb', '{\"users\":{\"own_read\":\"1\"}}'),
 (13, 'papua', '{\"users\":{\"own_read\":\"1\"}}');
+-- --------------------------------------------------------
+--
+-- Struktur dari tabel `tbl_span`
+--
+
+CREATE TABLE `tbl_span` (
+  `id_span` int(11) NOT NULL,
+  `kode_satker` varchar(150) NOT NULL,
+  `nama_satker` varchar(150) NOT NULL,
+  `pagu_bp` varchar(150) NOT NULL,
+  `realisasi_bp` varchar(150) NOT NULL,
+  `persentase_bp` varchar(150) NOT NULL,
+  `pagu_bb` varchar(150) NOT NULL,
+  `realisasi_bb` varchar(150) NOT NULL,
+  `persentase_bb` varchar(150) NOT NULL,
+  `pagu_bm` varchar(150) NOT NULL,
+  `realisasi_bm` varchar(150) NOT NULL,
+  `persentase_bm` varchar(150) NOT NULL,
+  `pagu_t` varchar(150) NOT NULL,
+  `realisasi_t` varchar(150) NOT NULL,
+  `persentase_t` varchar(150) NOT NULL,
+  `sisa` varchar(150) NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_span`
+--
+
+INSERT INTO `tbl_span` (`id_span`, `kode_satker`, `nama_satker`, `pagu_bp`, `realisasi_bp`, `persentase_bp`, `pagu_bb`, `realisasi_bb`, `persentase_bb`, `pagu_bm`, `realisasi_bm`, `persentase_bm`, `pagu_t`, `realisasi_t`, `persentase_t`, `sisa`, `tgl`) VALUES
+(1, '448302', 'IPDN KAMPUS JATINANGOR', '112930090000', '94146054905 \r\n', '83,37%\r\n', '201633066000', '133014436771', '65,97%', '17860660000', '4591617484', '25,71%', '332423816000', '235714520689 \r\n', '70,91%\r\n', '96709295311 \r\n', '2020-11-10'),
+(2, '352593', 'IPDN KAMPUS JAKARTA', '23313047000', '20042609305 \r\n', '85,97%\r\n', '22141734000', '15486861127', '69,94%', '1482844000', '939691500', '63,37%', '46937625000', '38070754866 \r\n', '81,11%\r\n', '8866870134 \r\n', '2020-11-10'),
+(3, '677010', 'IPDN KAMPUS SULUT', ' 6758697000', '5939761124 \r\n', '87,88%\r\n', '25101764000 \r\n', '19423902649 \r\n', '77,38%\r\n', '322000000 \r\n', '58560000 \r\n', '18,19%\r\n', '32182461000 \r\n', '25775891666 \r\n', '80,09%\r\n', '6406569334 \r\n', '2020-11-10'),
+(4, '677024', 'IPDN KAMPUS SULSEL', '8374205000 \r\n', '7645098861 \r\n', '91,29%\r\n', '23132225000 \r\n', '17522416082 \r\n', '75,75%\r\n', '253500000 \r\n', '198500000 \r\n', '78,30%\r\n', '31759930000 \r\n', '26197230366 \r\n', '82,49%\r\n', '5562699634 \r\n', '2020-11-10'),
+(5, '677045', 'IPDN KAMPUS SUMBAR', ' 7285747000 \r\n', '6141781780 \r\n', '84,30%\r\n', '23053939000 \r\n', '16927697439 \r\n', '73,43%\r\n', '279920000 \r\n', '245863000 \r\n', '87,83%\r\n', '30619606000 \r\n', '23654561619 \r\n', '77,25%\r\n', '6965044381 \r\n', '2020-11-10'),
+(6, '683070', 'IPDN KAMPUS KALBAR', ' 4756188000 \r\n', '4222615623 \r\n', '88,78%\r\n', '14462094000 \r\n', '10603599670 \r\n', '73,32%\r\n', '7073478000 \r\n', '4996394500 \r\n', '70,64%\r\n', '26291760000 \r\n', '20169262775 \r\n', '76,71%\r\n', '6122497225 \r\n', '2020-11-10'),
+(7, '683084', 'IPDN KAMPUS NTB', ' 9856653000 \r\n', '8911963776 \r\n', '90,42%\r\n', '19481863000 \r\n', '14151013920 \r\n', '72,64%\r\n', '461417000 \r\n', '180714350 \r\n', '39,17%\r\n', '29799933000 \r\n', '23567206859 \r\n', '79,08%\r\n', '6232726141 \r\n', '2020-11-10'),
+(8, '683091', 'IPDN KAMPUS PAPUA', '5078831000 \r\n', '4045150181 \r\n', '79,65%\r\n', '25156863000 \r\n', '19405458730 \r\n', '77,14%\r\n', '1216600000 \r\n', '750000000 \r\n', '61,65%\r\n', '31452294000 \r\n', '24345650911 \r\n', '77,41%\r\n', '7106643089 \r\n', '2020-11-10');
+
+-- --------------------------------------------------------
+--
+-- Struktur dari tabel `tbl_span_biro`
+--
+
+CREATE TABLE `tbl_span_biro` (
+  `id_span` int(11) NOT NULL,
+  `kode_satker` varchar(150) NOT NULL,
+  `nama_satker` varchar(150) NOT NULL,
+  `pagu_bp` varchar(150) NOT NULL,
+  `realisasi_bp` varchar(150) NOT NULL,
+  `persentase_bp` varchar(150) NOT NULL,
+  `pagu_bb` varchar(150) NOT NULL,
+  `realisasi_bb` varchar(150) NOT NULL,
+  `persentase_bb` varchar(150) NOT NULL,
+  `pagu_bm` varchar(150) NOT NULL,
+  `realisasi_bm` varchar(150) NOT NULL,
+  `persentase_bm` varchar(150) NOT NULL,
+  `pagu_t` varchar(150) NOT NULL,
+  `realisasi_t` varchar(150) NOT NULL,
+  `persentase_t` varchar(150) NOT NULL,
+  `sisa` varchar(150) NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_span_biro`
+--
+
+INSERT INTO `tbl_span_biro` (`id_span`, `kode_satker`, `nama_satker`, `pagu_bp`, `realisasi_bp`, `persentase_bp`, `pagu_bb`, `realisasi_bb`, `persentase_bb`, `pagu_bm`, `realisasi_bm`, `persentase_bm`, `pagu_t`, `realisasi_t`, `persentase_t`, `sisa`, `tgl`) VALUES
+(1, '1286', 'Penyelenggaraan Administrasi Kerjasama dan Hukum', '0', '0', '0,00%', '2030457000', '1756528114', '86,51%', '0', '0', '0,00%', '2030457000', '1770049414 \r\n', '87,17%\r\n', '260407586 \r\n', '2020-11-10'),
+(2, '1292', 'Penyelenggaraan Administrasi Akademik dan Perencanaan Pendidikan Kepamongprajaan', '0', '0', '0,00%', '28215394000', '18849927193', '66,81%', '180000000', '178000000', '98,89%', '28395394000', '19656824653 \r\n', '69,23%\r\n', '8738569347 \r\n', '2020-11-10'),
+(3, '1293', 'Penyelenggaraan Administrasi Keprajaan dan Kemahasiswaan\r\n', '0', '0', '0,00%', '16147517000 \r\n', '13347590682 \r\n', '82,66%\r\n', '0', '0', '0,00%', '16147517000 \r\n', '14053572682 \r\n', '87,03%\r\n', '2093944318 \r\n', '2020-11-10'),
+(4, '1294', 'Pengelolaan Administrasi Umum dan Keuangan Pendidikan Kepamongprajaan\r\n', '112930090000 \r\n', '94146054905 \r\n', '83,37%\r\n', '155239698000 \r\n', '99060390782 \r\n', '63,81%\r\n', '17680660000 \r\n', '0', '24,96%\r\n', '285850448000 \r\n', '200234073940 \r\n', '70,05%\r\n', '85616374060 \r\n', '2020-11-10'),
+(5, '1295', 'Penyelenggaraan Pendidikan Kepamongprajaan Kampus Daerah\r\n', '65423368000 \r\n', '56948980650 \r\n', '87,05%\r\n', '152530482000 \r\n', '113520949617 \r\n', '74,43%\r\n', '11089759000 \r\n', '0', '66,46%\r\n', '229043609000 \r\n', '181780559062 \r\n', '79,37%\r\n', '47263049938 \r\n', '2020-11-10');
 
 -- --------------------------------------------------------
 
