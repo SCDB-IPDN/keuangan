@@ -1415,6 +1415,99 @@ class Uploads extends CI_Controller {
             redirect('uploads/');
         }
     }
+    
+            public function uploadSpan()
+    {
+                // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+        $config['upload_path'] = realpath('excel');
+        $config['allowed_types'] = 'xlsx|xls|csv';
+        $config['max_size'] = '10000';
+        $config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
+
+        // var_dump($config['upload_path']);exit;
+
+        if (!$this->upload->do_upload()) {
+
+            //upload gagal
+            $this->session->set_flashdata('notifspan', '<div class="alert alert-danger"><b>PROSES IMPORT GAGAL!</b> '.$this->upload->display_errors().'</div>');
+            //redirect halaman
+            redirect('uploads/');
+
+        } else {
+            
+            $excelreader       = new PHPExcel_Reader_Excel2007();
+            $loadexcel         = $excelreader->load('excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+            $sheet             = $loadexcel->getSheetByName("Sheet1")->toArray(null, true, true ,true);
+
+            $data = array();
+            $biro = array();
+            $date = new DateTime();
+            $datee = $date->format('Y-m-d');
+            for($i = 10;$i < 23;$i++)
+    {
+        // var_dump($sheetData[$i]['2'] != 1286);
+        if($sheetData[$i]['2'] != NULL && $sheetData[$i]['2'] != 1286 && $sheetData[$i]['2'] != 1292 && $sheetData[$i]['2'] != 1293 && $sheetData[$i]['2'] != 1294 && $sheetData[$i]['2'] != 1295){
+            $data = array();
+            array_push($data, array(
+                'kode_satker'      => $sheetData[$i]['2'],
+                'nama_satker'      => $sheetData[$i]['3'],
+                'pagu_bp'      => preg_replace("/[^0-9]/", "", $sheetData[$i]['4']),
+                'realisasi_bp'      => preg_replace("/[^0-9]/", "", $sheetData[$i]['5']),
+                'persentase_bp'      => $sheetData[$i]['7'],
+                'pagu_bb'      => preg_replace("/[^0-9]/", "", $sheetData[$i]['8']),
+                'realisasi_bb'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['9']),
+                'persentase_bb'   => $sheetData[$i]['11'],
+                'pagu_bm'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['12']),
+                'realisasi_bm'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['13']),
+                'persentase_bm'   => $sheetData[$i]['15'],
+                'pagu_t'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['16']),
+                'realisasi_t'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['17']),
+                'persentase_t'   => $sheetData[$i]['19'],
+                'sisa'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['20']),
+                'tgl' => $datee,
+            ));
+        }
+    }
+
+    for($i = 11;$i < 15;$i++)
+    {
+        $biro = array();
+        array_push($biro, array(
+            'kode_satker'      => $sheetData[$i]['2'],
+            'nama_satker'      => $sheetData[$i]['3'],
+            'pagu_bp'      => preg_replace("/[^0-9]/", "", $sheetData[$i]['4']),
+            'realisasi_bp'      => preg_replace("/[^0-9]/", "", $sheetData[$i]['5']),
+            'persentase_bp'      => $sheetData[$i]['7'],
+            'pagu_bb'      => preg_replace("/[^0-9]/", "", $sheetData[$i]['8']),
+            'realisasi_bb'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['9']),
+            'persentase_bb'   => $sheetData[$i]['11'],
+            'pagu_bm'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['12']),
+            'realisasi_bm'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['13']),
+            'persentase_bm'   => $sheetData[$i]['15'],
+            'pagu_t'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['16']),
+            'realisasi_t'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['17']),
+            'persentase_t'   => $sheetData[$i]['19'],
+            'sisa'   => preg_replace("/[^0-9]/", "", $sheetData[$i]['20']),
+            'tgl' => $datee,
+        ));
+    }
+        $this->db->truncate('tbl_span_biro');
+        $this->db->insert_batch('tbl_span_biro', $biro);
+        $this->db->truncate('tbl_span');
+        $this->db->insert_batch('tbl_span', $data);
+            //delete file from server
+            unlink(realpath('excel/'.$data_upload['file_name']));
+
+           //upload success
+           $this->session->set_flashdata('notifspan', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+           //redirect halaman
+           redirect('uploads/');
+       }
+   }
 
 
 
