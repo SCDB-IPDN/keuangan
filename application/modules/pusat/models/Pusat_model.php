@@ -3,7 +3,8 @@ class Pusat_model extends CI_Model{
 
 	public function get_all_pusat()
 	{	
-		$result = $this->db->query("SELECT * FROM keuanganipdn ORDER BY created_date DESC limit 4");
+		$result = $this->db->query("SELECT biro.id_b, biro.ket, SUM(output.pagu) AS total_pagu, SUM(output.realisasi) AS total_realisasi
+		FROM biro JOIN output ON biro.id_b = output.id_b GROUP BY biro.id_b");
         
 		return $result;
   	}

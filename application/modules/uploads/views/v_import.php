@@ -141,6 +141,25 @@
                 <button id="sulsel" type="submit" class="btn btn-success">UPLOAD REKAP REALISASI SULAWESI SELATAN</button>
             </form>
         </div>
+
+    </div>
+    <br>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+            <?php echo $this->session->flashdata('notifkalbar') ?>
+            <form method="POST" action="<?php echo base_url() ?>uploads/uploadRealisasiKalbar" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">UNGGAH FILE REALISASI KALIMANTAN BARAT </label>
+                    <input for="kalbar" type="file" name="userfile" class="form-control">
+                </div>
+
+                <button id="kalbar" type="submit" class="btn btn-success">UPLOAD REKAP REALISASI KALIMANTAN BARAT </button>
+            </form>
+        </div>
+    </div>
+    <br>
     </div>
     <br>
 

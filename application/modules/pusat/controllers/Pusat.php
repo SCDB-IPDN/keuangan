@@ -40,21 +40,20 @@ class Pusat extends CI_Controller{
 
           foreach($pusats->result() as $r) {
 			$no++;
-               $Pagu = number_format($r->Pagu);
-               $Realisasi = number_format($r->Realisasi);
-               $Pengembalian = number_format($r->Pengembalian);
-               $Sisa_Pagu = number_format($r->Sisa_Pagu);
+               $Pagu = number_format($r->total_pagu);
+               $Realisasi = number_format($r->total_realisasi);
+               // $Pengembalian = number_format($r->Pengembalian);
+               // $Sisa_Pagu = number_format($r->Sisa_Pagu);
                $data[] = array(
                     $no,
-          
-                    $link = '',
-                    $r->Alias,
-                    $r->Biro,
+                    $link = '<a class="btn btn-primary" > Detail</a>',
+                    // $r->Alias,
+                    $r->ket,
                     $Pagu,
                     $Realisasi,
-                    $Pengembalian,
-                    $Sisa_Pagu,
-                    $r->Persentase
+                    // $Pengembalian,
+                    // $Sisa_Pagu,
+                    // $r->Persentase
                );
           }
           

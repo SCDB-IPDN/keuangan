@@ -34,14 +34,14 @@
                   <thead>
                     <tr>
                       <th class="v-center">No</th>
-                      <th class="v-center">Detail</th>
-                      <th class="v-center">Alias</th>
+                      <th class="v-center"> Detail</th>
+                      <!-- <th class="v-center">Alias</th> -->
                       <th class="v-center">Biro</th>
                       <th class="v-center">Pagu</th>
                       <th class="v-center">Realiasasi</th>
-                      <th class="v-center">Pengembalian</th>
+                     <!--  <th class="v-center">Pengembalian</th>
                       <th class="v-center">Sisa Pagu</th>
-                      <th class="v-center">Persentase</th>
+                      <th class="v-center">Persentase</th> -->
                     </tr>
                   </thead>
                   <tbody>
@@ -68,9 +68,9 @@
       Morris.Bar({
         element: 'graph',
         data: <?php echo $data;?>,
-        xkey: 'Alias',
-        ykeys: ['Pagu', 'Realisasi'],
-        labels: ['Pagu', 'Realisasi', 'Persentase']
+        xkey: 'ket',
+        ykeys: ['total_pagu', 'total_realisasi'],
+        labels: ['total_pagu', 'total_realisasi', 'Persentase']
       });
     </script>
 

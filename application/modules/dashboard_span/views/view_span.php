@@ -14,6 +14,7 @@
       <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title"><b>Laporan Progress Realisasi Anggaran IPDN Tahun 2020 Berdasarkan (SPAN)</b></h3>
+          <h3 class="box-title"><b>Chart Rekapitulasi Alokasi Pagu Per Unit Kerja/Bagian Berdasarkan Petunjuk Operasional Kegiatan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
@@ -22,6 +23,9 @@
                 <div class="table-responsive">
                   <p class="text-center">Rekapitulasi Alokasi Pagu Per Kampus</p>
                   <div id="graph" style="min-height: 500px;"></div>
+                  <p class="text-center">Rekapitulasi Alokasi Pagu Per Biro</p>
+                  <div id="graph"></div>
+
                 </div>
               <!-- </div> -->
             </div>
@@ -38,6 +42,11 @@
                       <th class="v-center"></th>
                       <th class="v-center">Pagu Total</th>
                       <th class="v-center">Realiasasi Total</th>
+                     <th class="v-center">Alias</th>
+                      <th class="v-center">Biro</th>
+                      <th class="v-center">Pagu</th>
+                      <th class="v-center">Realiasasi</th>
+                      <th class="v-center">Pengembalian</th>
                       <th class="v-center">Sisa Pagu</th>
                       <th class="v-center">Persentase Total</th>
                     </tr>
@@ -78,6 +87,7 @@
                       <th class="v-center"><?php echo $persentase ?>%</th>
                     </tr>
                   </tfoot>
+
                 </table>
                 <div class="modal-footer"></div>
               </div>
@@ -95,6 +105,18 @@
     <script src="<?php echo base_url().'assets/js/jquery.min.js'?>"></script>
     <script src="<?php echo base_url().'assets/js/raphael-min.js'?>"></script>
     <script src="<?php echo base_url().'assets/js/morris.min.js'?>"></script>
+
+              
+    <script>
+      Morris.Bar({
+        element: 'graph',
+        data: <?php echo $data;?>,
+        xkey: 'Alias',
+        ykeys: ['Pagu', 'Realisasi'],
+        labels: ['Pagu', 'Realisasi', 'Persentase']
+      });
+    </script>
+
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
@@ -117,6 +139,25 @@
           ],
           iDisplayLength: 25,
           aLengthMenu: [[25, 23, 100,500,-1], [25, 50,100,500,"All"]]
+        var table = $('#example').DataTable({ 
+              dom: 'lfBrtip',
+            buttons: [
+                'copy', 'excel', 'pdf', 'print'
+            ],
+            "ajax": url+"pusat/pusat_page",
+            "sPaginationType": "full_numbers",
+            "language": {
+              "search": "_INPUT_", 
+              "searchPlaceholder": "Search",
+              "paginate": {
+                  "next": '<i class="fa fa-angle-right"></i>',
+                  "previous": '<i class="fa fa-angle-left"></i>',
+                  "first": '<i class="fa fa-angle-double-left"></i>',
+                  "last": '<i class="fa fa-angle-double-right"></i>'
+              }
+            }, 
+            "iDisplayLength": 5,
+            "aLengthMenu": [[10, 25, 50, 100,500,-1], [10, 25, 50,100,500,"All"]]
         });
 
         barChart();
