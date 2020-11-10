@@ -945,10 +945,10 @@ class Uploads extends CI_Controller {
                             'Id' => $row['A'],
                             'kode_satker'      => $row['B'],
                             'nama_satker'      => preg_replace("/[^0-9]/", "", $row['C']),
-                            'Pagu'      => preg_replace("/[^0-9]/", "", $row['D']),
-                            'Realisasi'      => preg_replace("/[^0-9]/", "", $row['E']),
-                            'Presentase'      => preg_replace("/[^0-9]/", "", $row['F']),
-                            'Sisa'   => $row['N'],
+                            'pagu_t'      => preg_replace("/[^0-9]/", "", $row['D']),
+                            'realisasi_t'      => preg_replace("/[^0-9]/", "", $row['E']),
+                            'presentase_t'      => preg_replace("/[^0-9]/", "", $row['F']),
+                            'sisa'   => $row['N'],
                             
                         ));
                     }
@@ -961,7 +961,7 @@ class Uploads extends CI_Controller {
             unlink(realpath('excel/'.$data_upload['file_name']));
 
             //upload success
-            $this->session->set_flashdata('notiftblspan', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
+            $this->session->set_flashdata('notifspan', '<div class="alert alert-success"><b>PROSES IMPORT BERHASIL!</b> Data berhasil diimport!</div>');
             //redirect halaman
             redirect('uploads/');
 
