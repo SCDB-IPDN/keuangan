@@ -14,7 +14,7 @@ $query_builder = TRUE;
 $hostname ="localhost";
 $username ="root";
 $password ="";
-$database ="portal_db";
+$database ="ipdnacid_portal_db";
 
 $db['default'] = array(
 	'dsn'	=> '',

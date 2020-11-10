@@ -1,4 +1,3 @@
-
 <?php
 class pok_model extends CI_Model{
 
