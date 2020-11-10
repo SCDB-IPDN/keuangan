@@ -1,4 +1,3 @@
-
 <?php
 class sas_model extends CI_Model{
 

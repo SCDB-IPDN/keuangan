@@ -14,21 +14,21 @@
       <!-- Default box -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title"><b>Dasboard Perbandingan POK,SAS DAN SPAN</b></h3>
+          <h3 class="box-title"><b>Laporan Progress Realisasi Anggaran IPDN Tahun 2020 Berdasarkan (POK)</b></h3>
         </div>
         <div class="box-body">
           <div class="row">
             <div class="col-lg-12">
               <div class="col-md-8 col-md-offset-1 aboutshift">
                 <div class="table-responsive">
-                  <p class="text-center">Rekapitulasi Alokasi Pagu POK</p>
+                  <p class="text-center">Rekapitulasi Alokasi Pagu Per Kampus</p>
                   <div id="graph"></div>
                 </div>
               </div>
             </div>
           </div>
           <br>
-          <p><b>Data Per Tanggal : <?php echo $tanggal ?></b></p> -->
+          <p><b>Data Per Tanggal : <?php echo $tanggal ?></b></p>
           <div class="table-responsive">
                 <table id="example" class="cell-border example table table-striped table1 delSelTable" style="width:100%">
                   <thead>

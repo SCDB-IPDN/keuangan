@@ -7,50 +7,47 @@ class Dashboard_span extends CI_Controller{
       $this->load->model('span_model');
     }
 
-    function index($link = NULL){
-     if ($link == NULL) {
-          $x['title'] = "span";
-          $data = $this->span_model->get_all_span()->result();
-          $x['data'] = json_encode($data);
-        } else {
-    
-            $x['title'] = "biro";
-            $data = $this->span_model->get_all_biro($link)->result();
-            $x['data'] = json_encode($data);
-          }
+    function index(){
+      $data = $this->span_model->get_all_dashboard()->result();
+      $keuangan = $this->span_model->jumlah_pagu()->result();
+
+      $hitung= $keuangan[0]->realisasi/$keuangan[0]->pagu*100;
+      $persentase = round($hitung,2);
+
+      $tanggal = $this->span_model->get_tanggal()->result();
+      $hasil_tgl = date('d F Y', strtotime($tanggal[0]->created_date));
+
+      if($hasil_tgl == '01 January 1970'){
+          $hasil_tanggal = '--------';
+      }else{
+          $hasil_tanggal = $hasil_tgl;
+      }
+
+      $x['data'] = json_encode($data);
+      $x['pagu'] = number_format($keuangan[0]->pagu);
+      $x['realisasi'] = number_format($keuangan[0]->realisasi);
+      $x['pengembalian'] = number_format($keuangan[0]->pengembalian);
+      $x['sisa_pagu'] = number_format($keuangan[0]->sisa_pagu);
+      $x['persentase'] = $persentase;
+      $x['tanggal'] = $hasil_tanggal;
     
       $this->load->view("include/header");
       $this->load->view("view_span",$x);
       $this->load->view("include/footer");
     }
 
-    public function span_page()
+    public function dashboard_page()
      {
           // Datatables Variables
           $draw = intval($this->input->get("draw"));
           $start = intval($this->input->get("start"));
           $length = intval($this->input->get("length"));
 
-          $span = $this->span_model->get_all_span();
+          $dashboardspan = $this->span_model->get_all_dashboard();
           
-    $data = array();
-    $no = 0;
+		$data = array();
+		$no = 0;
 
-          foreach($span->result() as $r) {
-      $no++;
-               $Pagu = number_format($r->total_pagu);
-               $Realisasi = number_format($r->total_realisasi);
-               // $Pengembalian = number_format($r->Pengembalian);
-               // $Sisa_Pagu = number_format($r->Sisa_Pagu);
-               $data[] = array(
-                    $no,
-                    $link = '<button class="favorite styled"
-                    type="button">
-                    Detail
-                    </button>
-                    ',
-                    // $r->Alias,
-                   $r->ket,
           foreach($dashboardspan->result() as $r) {
 			$no++;
                $Pagu = number_format($r->Pagu);
@@ -68,7 +65,6 @@ class Dashboard_span extends CI_Controller{
                     $r->Kampus,
                     $Pagu,
                     $Realisasi,
-                    // $Pengembalian,
                     $Sisa_Pagu,
                     $r->Persentase
                );
@@ -76,8 +72,8 @@ class Dashboard_span extends CI_Controller{
           
           $output = array(
                  "draw" => $draw,
-                 "recordsTotal" => $span->num_rows(),
-                 "recordsFiltered" => $span->num_rows(),
+                 "recordsTotal" => $dashboardspan->num_rows(),
+                 "recordsFiltered" => $dashboardspan->num_rows(),
                  "data" => $data
             );
           echo json_encode($output);
