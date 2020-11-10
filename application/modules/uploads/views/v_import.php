@@ -226,8 +226,8 @@
 
     <div class="row">
             <div class="col-md-8 offset-2">
-            <?php echo $this->session->flashdata('notifspan') ?>
-            <form method="POST" action="<?php echo base_url() ?>uploads/uploadSpan" enctype="multipart/form-data">
+            <?php echo $this->session->flashdata('span') ?>
+            <form method="POST" action="<?php echo base_url() ?>uploads/span" enctype="multipart/form-data">
                 
                 <div class="form-group">
                     <label for="exampleInputEmail1">UNGGAH FILE SPAN IPDN SPAN </label>
