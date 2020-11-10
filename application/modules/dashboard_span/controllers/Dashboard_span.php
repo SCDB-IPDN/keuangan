@@ -50,22 +50,7 @@ class Dashboard_span extends CI_Controller{
                     </button>
                     ',
                     // $r->Alias,
-                   $r->ket,
-          foreach($dashboardspan->result() as $r) {
-			$no++;
-               $Pagu = number_format($r->Pagu);
-               $Realisasi = number_format($r->Realisasi);
-               $Pengembalian = number_format($r->Pengembalian);
-               $Sisa_Pagu = number_format($r->Sisa_Pagu);
-               // if($r->link == 'pusat'){
-               //      $link = "<a href='$r->link' class='btn btn-primary mr-1'>DETAIL</a>";
-               // }else{
-               //      $link = "";
-               // }
-               $data[] = array(
-                    $no,
-                    $link = '',
-                    $r->Kampus,
+                    $r->ket,
                     $Pagu,
                     $Realisasi,
                     // $Pengembalian,
